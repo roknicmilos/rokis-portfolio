@@ -10,32 +10,49 @@
     <section class="left">
         <div class="left-content">
             <div class="avatar">
-                <img src="{{ avatar_url }}"
-                     alt="cv person"/>
+                <img src="{{ avatar_url }}" alt="cv person"/>
+            </div>
+            <div class="contact">
+                <a class="contact-item" href="{{ address.url }}">
+                    {% svg "cv/svg/location.svg" %}
+                    <div class="contact-item-value">{{ address.label }}</div>
+                </a>
+                <a class="contact-item" href="tel:{{ phone }}">
+                    {% svg "cv/svg/phone.svg" %}
+                    <div class="contact-item-value">{{ phone }}</div>
+                </a>
+                <a class="contact-item" href="mailto:{{ email }}">
+                    {% svg "cv/svg/email.svg" %}
+                    <div class="contact-item-value">{{ email }}</div>
+                </a>
             </div>
         </div>
     </section>
     <section class="right">
         <div class="right-content">
-            <div class="header">
-                <div class="title">
-                    <h1 class="name">{{ first_name|upper }} {{ last_name|upper }}</h1>
-                    <h3 class="role">{{ role|upper }}</h3>
-                </div>
-                <div class="contact">
-                    <a class="contact-item" href="{{ address.url }}">
-                        {% svg "cv/svg/location.svg" %}
-                        <div class="contact-item-value">{{ address.label }}</div>
-                    </a>
-                    <a class="contact-item" href="tel:{{ phone }}">
-                        {% svg "cv/svg/phone.svg" %}
-                        <div class="contact-item-value">{{ phone }}</div>
-                    </a>
-                    <a class="contact-item" href="mailto:{{ email }}">
-                        {% svg "cv/svg/email.svg" %}
-                        <div class="contact-item-value">{{ email }}</div>
-                    </a>
-                </div>
+            <h1 class="name">{{ first_name|upper }} {{ last_name|upper }}</h1>
+            <p class="role">{{ role|upper }}</p>
+            <div class="about-me">
+                <h2 class="title">ABOUT ME</h2>
+                <p class="about-me-text">{{ about_me }}</p>
+            </div>
+            <div class="employment-history">
+                <h2 class="title">EMPLOYMENT HISTORY</h2>
+                {% for employment in employments %}
+                    <div class="employment-item">
+                        <h3 class="employment-item-title">{{ employment.title }}, {{ employment.company }}</h3>
+                        <div class="employment-item-subtitle">
+                            <p class="employment-item-period">{{ employment.from }} - {{ employment.until }}</p>
+                            <div class="employment-item-location">
+                                {% svg 'cv/svg/location.svg' %}
+                                <p class="employment-item-location-value">{{ employment.location }}</p>
+                            </div>
+                        </div>
+                        <p class="employment-item-description">
+                            {{ employment.description }}
+                        </p>
+                    </div>
+                {% endfor %}
             </div>
         </div>
     </section>
