@@ -1,9 +1,9 @@
 {% load css svg static %}
 
 <style>
-    {{ 'cv/style/cv.css'|css }}
-    {{ 'cv/style/left.css'|css }}
-    {{ 'cv/style/right.css'|css }}
+    {{ "cv/style/cv.css"|css }}
+    {{ "cv/style/left.css"|css }}
+    {{ "cv/style/right.css"|css }}
 </style>
 
 <div class="content">
@@ -26,6 +26,15 @@
                     <div class="contact-item-value">{{ email }}</div>
                 </a>
             </div>
+            <div class="links">
+                <h2 class="title">LINKS</h2>
+                {% for link in links %}
+                    <a class="link" href="{{ link.url }}">
+                        {% svg "cv/svg/"|add:link.type|add:".svg" %}
+                        <p class="link-label">{{ link.label }}</p>
+                    </a>
+                {% endfor %}
+            </div>
         </div>
     </section>
     <section class="right">
@@ -44,7 +53,7 @@
                         <div class="employment-item-subtitle">
                             <p class="employment-item-period">{{ employment.from }} - {{ employment.until }}</p>
                             <div class="employment-item-location">
-                                {% svg 'cv/svg/location.svg' %}
+                                {% svg "cv/svg/location.svg" %}
                                 <p class="employment-item-location-value">{{ employment.location }}</p>
                             </div>
                         </div>

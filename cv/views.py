@@ -83,6 +83,21 @@ class CVPDFView(PDFView):
                 )
             }
         ]
+        links = [
+            {
+                'label': 'LinkedIn',
+                'url': (
+                    'https://www.linkedin.com/in/'
+                    'milo%C5%A1-rokni%C4%87-30853bb8/'
+                ),
+                'type': 'linkedin',
+            },
+            {
+                'label': 'GitHub',
+                'url': 'https://github.com/roknicmilos',
+                'type': 'github',
+            },
+        ]
         return {
             'avatar_url': avatar_url,
             'first_name': 'Miloš',
@@ -96,4 +111,5 @@ class CVPDFView(PDFView):
             },
             'about_me': about_me,
             'employments': employments,
+            'links': links,
         }
