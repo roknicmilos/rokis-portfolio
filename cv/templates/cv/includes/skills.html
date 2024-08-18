@@ -4,7 +4,7 @@
     {{ "cv/style/skills.css"|css }}
 </style>
 
-<div class="skills">
+<div class="left-box skills">
     <h2 class="title">SKILLS</h2>
     {% for skill in skills %}
         {% if forloop.first or forloop.counter0|divisibleby:2 %}

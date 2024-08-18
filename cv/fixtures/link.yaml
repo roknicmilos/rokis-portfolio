@@ -1,0 +1,15 @@
+- model: cv.Link
+  pk: 1
+  fields:
+    cv: 1
+    type: linkedin
+    label: LinkedIn
+    url: https://www.linkedin.com/in/milo%C5%A1-rokni%C4%87-30853bb8/
+
+- model: cv.Link
+  pk: 2
+  fields:
+    cv: 1
+    type: github
+    label: GitHub
+    url: https://github.com/roknicmilos

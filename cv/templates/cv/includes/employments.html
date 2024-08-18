@@ -1,0 +1,26 @@
+{% load svg css i18n %}
+
+<style>
+    {{ "cv/style/employments.css"|css }}
+</style>
+
+<div class="right-box employment-history">
+    <h2 class="title">{% trans 'EMPLOYMENT HISTORY' %}</h2>
+    {% for employment in cv.ordered_employments.all %}
+        <div class="employment-item">
+            <h3 class="employment-item-title">{{ employment.title }}, {{ employment.company }}</h3>
+            <div class="employment-item-subtitle">
+                <p class="employment-item-period">
+                    {{ employment.start|date:"M Y" }} - {{ employment.end|date:"M Y"|default:_('Present') }}
+                </p>
+                <div class="employment-item-location">
+                    {% svg "cv/svg/location.svg" %}
+                    <p class="employment-item-location-value">{{ employment.location }}</p>
+                </div>
+            </div>
+            <p class="employment-item-description">
+                {{ employment.description }}
+            </p>
+        </div>
+    {% endfor %}
+</div>

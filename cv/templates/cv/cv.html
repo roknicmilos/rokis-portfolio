@@ -8,64 +8,43 @@
 
 <div class="content">
     <section class="left">
-        <div class="left-content">
-            <div class="avatar">
-                <img src="{{ cv.avatar.url }}" alt="{{ cv.avatar.name }}"/>
-            </div>
-            <div class="contact">
-                <a class="contact-item" href="{{ cv.address_link.url }}">
-                    {% svg "cv/svg/location.svg" %}
-                    <div class="contact-item-value">{{ cv.address_label }}</div>
-                </a>
-                <a class="contact-item" href="tel:{{ cv.phone }}">
-                    {% svg "cv/svg/phone.svg" %}
-                    <div class="contact-item-value">{{ cv.phone }}</div>
-                </a>
-                <a class="contact-item" href="mailto:{{ cv.email }}">
-                    {% svg "cv/svg/email.svg" %}
-                    <div class="contact-item-value">{{ cv.email }}</div>
-                </a>
-            </div>
-            <div class="links">
-                <h2 class="title">{% trans 'LINKS' %}</h2>
-                {% for link in links %}
-                    <a class="link" href="{{ link.url }}">
-                        {% svg "cv/svg/"|add:link.type|add:".svg" %}
-                        <p class="link-label">{{ link.label }}</p>
-                    </a>
-                {% endfor %}
-            </div>
-            {% include 'cv/includes/skills.html' %}
+        <div class="avatar">
+            <img src="{{ avatar_url }}" alt="avatar"/>
         </div>
+        <div class="left-box contact">
+            <a class="contact-item" href="{{ cv.address_link.url }}">
+                {% svg "cv/svg/location.svg" %}
+                <div class="contact-item-value">{{ cv.address_label }}</div>
+            </a>
+            <a class="contact-item" href="tel:{{ cv.phone }}">
+                {% svg "cv/svg/phone.svg" %}
+                <div class="contact-item-value">{{ cv.phone }}</div>
+            </a>
+            <a class="contact-item" href="mailto:{{ cv.email }}">
+                {% svg "cv/svg/email.svg" %}
+                <div class="contact-item-value">{{ cv.email }}</div>
+            </a>
+        </div>
+        <div class="left-box links">
+            <h2 class="title">{% trans 'LINKS' %}</h2>
+            {% for link in cv.links.all %}
+                <a class="link" href="{{ link.url }}">
+                    {% svg "cv/svg/"|add:link.type|add:".svg" %}
+                    <p class="link-label">{{ link.label }}</p>
+                </a>
+            {% endfor %}
+        </div>
+        {% include 'cv/includes/skills.html' %}
     </section>
     <section class="right">
-        <div class="right-content">
+        <div class="right-box header">
             <h1 class="name">{{ cv.first_name|upper }} {{ cv.last_name|upper }}</h1>
             <p class="role">{{ cv.role|upper }}</p>
-            <div class="about-me">
-                <h2 class="title">{% trans 'ABOUT ME' %}</h2>
-                <p class="about-me-text">{{ cv.about_me }}</p>
-            </div>
-            <div class="employment-history">
-                <h2 class="title">{% trans 'EMPLOYMENT HISTORY' %}</h2>
-                {% for employment in cv.ordered_employments.all %}
-                    <div class="employment-item">
-                        <h3 class="employment-item-title">{{ employment.title }}, {{ employment.company }}</h3>
-                        <div class="employment-item-subtitle">
-                            <p class="employment-item-period">
-                                {{ employment.start|date:"M Y" }} - {{ employment.end|date:"M Y"|default:_('Present') }}
-                            </p>
-                            <div class="employment-item-location">
-                                {% svg "cv/svg/location.svg" %}
-                                <p class="employment-item-location-value">{{ employment.location }}</p>
-                            </div>
-                        </div>
-                        <p class="employment-item-description">
-                            {{ employment.description }}
-                        </p>
-                    </div>
-                {% endfor %}
-            </div>
         </div>
+        <div class="right-box about-me">
+            <h2 class="title">{% trans 'ABOUT ME' %}</h2>
+            <p class="about-me-text">{{ cv.about_me }}</p>
+        </div>
+        {% include 'cv/includes/employments.html' %}
     </section>
 </div>

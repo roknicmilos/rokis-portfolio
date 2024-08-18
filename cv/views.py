@@ -23,22 +23,7 @@ class CVPDFView(PDFView):
 
         return pdf
 
-    def _get_first_page_context(self):
-        links = [
-            {
-                'label': 'LinkedIn',
-                'url': (
-                    'https://www.linkedin.com/in/'
-                    'milo%C5%A1-rokni%C4%87-30853bb8/'
-                ),
-                'type': 'linkedin',
-            },
-            {
-                'label': 'GitHub',
-                'url': 'https://github.com/roknicmilos',
-                'type': 'github',
-            },
-        ]
+    def _get_first_page_context(self) -> dict:
         skills = [
             {'label': 'Python', 'level': 5},
             {'label': 'Django', 'level': 5},
@@ -55,6 +40,11 @@ class CVPDFView(PDFView):
         ]
         return {
             'cv': self.cv,
-            'links': links,
+            'avatar_url': self._get_absolut_avatar_url(),
             'skills': skills,
         }
+
+    def _get_absolut_avatar_url(self) -> str:
+        if self.cv.avatar:
+            return self.request.build_absolute_uri(self.cv.avatar.url)
+        return ''

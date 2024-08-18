@@ -1,0 +1,36 @@
+.employment-item {
+    margin: 15px 0 35px;
+}
+
+.employment-item-subtitle {
+    display: flex;
+    align-items: center;
+}
+
+.employment-item-period {
+    margin: 0;
+    width: 180px;
+}
+
+.employment-item-location {
+    display: flex;
+    align-items: center;
+    margin-left: 40px;
+}
+
+.employment-item-location svg {
+    width: 16px;
+    height: 16px;
+    border-radius: 50%;
+    background-color: #4c4c4c;
+    padding: 5px;
+}
+
+.employment-item-location-value {
+    color: #4c4c4c;
+    margin: 0 0 0 8px;
+}
+
+.employment-item-description {
+    color: #4c4c4c;
+}

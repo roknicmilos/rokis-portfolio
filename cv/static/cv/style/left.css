@@ -1,26 +1,15 @@
 .left {
     width: 35%;
-    height: fit-content;
-    padding: 60px 0 30px;
     background-color: #303030;
-    display: flex;
-    justify-content: flex-end;
+    margin: 0 auto;
 }
 
 .left .title {
     color: white;
 }
 
-.left-content {
-    width: 100%;
-    max-width: 300px;
-    padding: 0 30px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-}
-
 .avatar {
+    margin: 50px auto;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -28,7 +17,6 @@
     width: 175px;
     height: 175px;
     border-radius: 50%;
-    margin-bottom: 40px;
 }
 
 .avatar img {
@@ -36,12 +24,17 @@
     height: 100%;
 }
 
+.left-box {
+    width: 80%;
+    margin: 40px auto;
+}
+
 .contact-item,
 .link {
     display: flex;
     align-items: center;
     color: white;
-    height: 60px;
+    height: 50px;
     text-decoration: none;
 }
 
@@ -58,11 +51,6 @@
 .contact-item-value {
     font-size: 16px;
     font-weight: 400;
-}
-
-.links {
-    width: 100%;
-    margin: 40px 0;
 }
 
 .link {
