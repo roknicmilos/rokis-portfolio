@@ -1,2 +1,2 @@
 Django==5.1
-django-pdf-view==1.0.6
+django-pdf-view==1.1.0
