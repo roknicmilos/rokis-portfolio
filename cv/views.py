@@ -1,15 +1,19 @@
-from django.conf import settings
-
+from django.shortcuts import get_object_or_404
 from django_pdf_view.pdf import PDF
 from django_pdf_view.views import PDFView
 
+from cv.models import CV
+
 
 class CVPDFView(PDFView):
+    cv: CV
 
     def create_pdf(self) -> PDF:
+        self.cv = get_object_or_404(CV, slug=self.kwargs['slug'])
+
         pdf = PDF(
-            title='CV | Miloš Roknić',
-            filename='CV-Milos-Roknic-08-2024.pdf',
+            title=self.cv.title,
+            filename=self.cv.filename,
         )
 
         pdf.add_page(
@@ -20,26 +24,6 @@ class CVPDFView(PDFView):
         return pdf
 
     def _get_first_page_context(self):
-        address_url = (
-            'https://www.google.rs/maps/place/Kornelija+Stankovi%C4%87a+39,'
-            '+Novi+Sad/@45.2600114,19.8085096,15.91z/data=!4m6!3m5!1s0x475b'
-            '11b16298fc2d:0xa5444cbbc3bf8f26!8m2!3d45.2605492!4d19.8103612!'
-            '16s%2Fg%2F11fx0qw3pz?hl=hr&entry=ttu'
-        )
-        avatar_url = self.request.build_absolute_uri(
-            f'{settings.STATIC_URL}cv/img/milos-roknic.png'
-        )
-        about_me = (
-            'After completing programming courses and internships at two '
-            'companies, I secured a permanent Software Engineer role in the '
-            'second one, working primarily with PHP technologies. I later '
-            'transitioned to Python/Django and led two internal hackathon '
-            'projects in the past two years. I also gained experience with '
-            'Docker, CI tools, testing frameworks and mentored colleagues '
-            'and students in Python/Django and React. I also took on a '
-            'Development Lead role, managing six colleagues\' career '
-            'progression.'
-        )
         employments = [
             {
                 'title': 'Software Engineer & Development Lead',
@@ -113,17 +97,7 @@ class CVPDFView(PDFView):
             {'label': 'PHP', 'level': 3},
         ]
         return {
-            'avatar_url': avatar_url,
-            'first_name': 'Miloš',
-            'last_name': 'Roknić',
-            'role': 'Software Engineer',
-            'email': 'roknic.milos.994@gmail.com',
-            'phone': '+385638455742',
-            'address': {
-                'label': 'Kornelija Stankovića 39, Novi Sad, 21000, Serbia',
-                'url': address_url
-            },
-            'about_me': about_me,
+            'cv': self.cv,
             'employments': employments,
             'links': links,
             'skills': skills,

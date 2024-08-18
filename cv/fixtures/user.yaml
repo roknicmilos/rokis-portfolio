@@ -1,0 +1,9 @@
+- model: auth.User
+  pk: 1
+  fields:
+    email: admin@example.com
+    password: pbkdf2_sha256$260000$2IjFBdqCkWpi0Hs7la0UFG$UOGWoe6P41gCTfCmmbWoS/slytH+vpy3pf6wguCR/d0= # raw: pass4user
+    username: admin
+    is_staff: true
+    is_superuser: true
+    is_active: true

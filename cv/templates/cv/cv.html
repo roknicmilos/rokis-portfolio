@@ -10,20 +10,20 @@
     <section class="left">
         <div class="left-content">
             <div class="avatar">
-                <img src="{{ avatar_url }}" alt="cv person"/>
+                <img src="{{ cv.avatar.url }}" alt="{{ cv.avatar.name }}"/>
             </div>
             <div class="contact">
-                <a class="contact-item" href="{{ address.url }}">
+                <a class="contact-item" href="{{ cv.address_link.url }}">
                     {% svg "cv/svg/location.svg" %}
-                    <div class="contact-item-value">{{ address.label }}</div>
+                    <div class="contact-item-value">{{ cv.address_label }}</div>
                 </a>
-                <a class="contact-item" href="tel:{{ phone }}">
+                <a class="contact-item" href="tel:{{ cv.phone }}">
                     {% svg "cv/svg/phone.svg" %}
-                    <div class="contact-item-value">{{ phone }}</div>
+                    <div class="contact-item-value">{{ cv.phone }}</div>
                 </a>
-                <a class="contact-item" href="mailto:{{ email }}">
+                <a class="contact-item" href="mailto:{{ cv.email }}">
                     {% svg "cv/svg/email.svg" %}
-                    <div class="contact-item-value">{{ email }}</div>
+                    <div class="contact-item-value">{{ cv.email }}</div>
                 </a>
             </div>
             <div class="links">
@@ -40,11 +40,11 @@
     </section>
     <section class="right">
         <div class="right-content">
-            <h1 class="name">{{ first_name|upper }} {{ last_name|upper }}</h1>
-            <p class="role">{{ role|upper }}</p>
+            <h1 class="name">{{ cv.first_name|upper }} {{ cv.last_name|upper }}</h1>
+            <p class="role">{{ cv.role|upper }}</p>
             <div class="about-me">
                 <h2 class="title">ABOUT ME</h2>
-                <p class="about-me-text">{{ about_me }}</p>
+                <p class="about-me-text">{{ cv.about_me }}</p>
             </div>
             <div class="employment-history">
                 <h2 class="title">EMPLOYMENT HISTORY</h2>

@@ -1,0 +1,14 @@
+- model: cv.CV
+  pk: 1
+  fields:
+    slug: roknic-milos
+    title: CV | Miloš Roknić
+    filename: CV-Milos-Roknic-08-2024.pdf
+    first_name: Miloš
+    last_name: Roknić
+    role: Software Engineer & Development Lead
+    email: roknic.milos.994@gmail.com
+    phone: +385638455742
+    address_label: Kornelija Stankovića 39, Novi Sad, 21000, Serbia
+    address_link: https://www.google.rs/maps/place/Kornelija+Stankovi%C4%87a+39,+Novi+Sad/@45.2600114,19.8085096,15.91z/data=!4m6!3m5!1s0x475b11b16298fc2d:0xa5444cbbc3bf8f26!8m2!3d45.2605492!4d19.8103612!16s%2Fg%2F11fx0qw3pz?hl=hr&entry=ttu
+    about_me: After completing programming courses and internships at two companies, I secured a permanent Software Engineer role in the second one, working primarily with PHP technologies. I later transitioned to Python/Django and led two internal hackathon projects in the past two years. I also gained experience with Docker, CI tools, testing frameworks and mentored colleagues and students in Python/Django and React. I also took on a Development Lead role, managing six colleagues' career progression.
