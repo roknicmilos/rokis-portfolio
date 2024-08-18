@@ -9,11 +9,12 @@
 
 .right-box {
     width: 90%;
-    margin: 40px auto;
+    margin: 40px auto 60px;
 }
 
 .header {
     margin-top: 70px;
+    margin-bottom: 40px;
 }
 
 .name {

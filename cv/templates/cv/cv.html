@@ -44,6 +44,7 @@
             <h2 class="title">{% trans 'ABOUT ME' %}</h2>
             <p class="about-me-text">{{ cv.about_me }}</p>
         </div>
-        {% include 'cv/includes/employments.html' %}
+        {% include 'cv/includes/position.html' with title=_('EMPLOYMENT HISTORY') items=cv.ordered_employments %}
+        {% include 'cv/includes/position.html' with title=_('INTERNSHIP HISTORY') items=cv.ordered_internships %}
     </section>
 </div>

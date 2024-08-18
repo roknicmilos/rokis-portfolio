@@ -63,3 +63,7 @@ class CV(models.Model):
     @property
     def ordered_employments(self) -> models.QuerySet:
         return self.employments.order_by('-start')
+
+    @property
+    def ordered_internships(self) -> models.QuerySet:
+        return self.internships.order_by('-start')
