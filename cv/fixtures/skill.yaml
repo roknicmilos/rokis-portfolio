@@ -1,0 +1,83 @@
+- model: cv.Skill
+  pk: 1
+  fields:
+    cv: 1
+    label: Python
+    level: 5
+
+- model: cv.Skill
+  pk: 2
+  fields:
+    cv: 1
+    label: Django
+    level: 5
+
+- model: cv.Skill
+  pk: 3
+  fields:
+    cv: 1
+    label: Next.js
+    level: 5
+
+- model: cv.Skill
+  pk: 4
+  fields:
+    cv: 1
+    label: JavaScript
+    level: 5
+
+- model: cv.Skill
+  pk: 5
+  fields:
+    cv: 1
+    label: TypeScript
+    level: 5
+
+- model: cv.Skill
+  pk: 6
+  fields:
+    cv: 1
+    label: HTML
+    level: 5
+
+- model: cv.Skill
+  pk: 7
+  fields:
+    cv: 1
+    label: CSS
+    level: 5
+
+- model: cv.Skill
+  pk: 8
+  fields:
+    cv: 1
+    label: Git
+    level: 5
+
+- model: cv.Skill
+  pk: 9
+  fields:
+    cv: 1
+    label: SQL
+    level: 4
+
+- model: cv.Skill
+  pk: 10
+  fields:
+    cv: 1
+    label: Docker
+    level: 4
+
+- model: cv.Skill
+  pk: 11
+  fields:
+    cv: 1
+    label: Cypress
+    level: 4
+
+- model: cv.Skill
+  pk: 12
+  fields:
+    cv: 1
+    label: PHP
+    level: 3
