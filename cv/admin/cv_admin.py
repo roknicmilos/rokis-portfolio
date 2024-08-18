@@ -1,6 +1,11 @@
 from django.contrib import admin
 
-from cv.admin import EmploymentInline, LinkInline, SkillInline
+from cv.admin import (
+    EmploymentInline,
+    LinkInline,
+    SkillInline,
+    LanguageInline,
+)
 from cv.models import CV
 
 
@@ -9,5 +14,6 @@ class CVAdmin(admin.ModelAdmin):
     inlines = [
         LinkInline,
         SkillInline,
+        LanguageInline,
         EmploymentInline,
     ]

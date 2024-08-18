@@ -1,9 +1,5 @@
 {% load svg css i18n %}
 
-<style>
-    {{ "cv/style/employments.css"|css }}
-</style>
-
 <div class="right-box employment-history">
     <h2 class="title">{% trans 'EMPLOYMENT HISTORY' %}</h2>
     {% for employment in cv.ordered_employments.all %}

@@ -1,9 +1,7 @@
 {% load css svg static i18n %}
 
 <style>
-    {{ "cv/style/cv.css"|css }}
-    {{ "cv/style/left.css"|css }}
-    {{ "cv/style/right.css"|css }}
+    {{ "cv/style/"|css }}
 </style>
 
 <div class="content">
@@ -34,7 +32,8 @@
                 </a>
             {% endfor %}
         </div>
-        {% include 'cv/includes/skills.html' %}
+        {% include 'cv/includes/skills.html' with title=_('SKILLS') items=cv.skills.all %}
+        {% include 'cv/includes/skills.html' with title=_('LANGUAGES') items=cv.languages.all %}
     </section>
     <section class="right">
         <div class="right-box header">
