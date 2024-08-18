@@ -5,5 +5,11 @@ from cv.views import CVPDFView
 app_name = 'cv'
 
 urlpatterns = [
-    path('cv/', CVPDFView.as_view(), name='index'),
+    path('', CVPDFView.as_view(response_type='html'), name='index'),
+    path('pdf/', CVPDFView.as_view(response_type='pdf'), name='index'),
+    path(
+        'download/',
+        CVPDFView.as_view(response_type='download'),
+        name='index'
+    ),
 ]
