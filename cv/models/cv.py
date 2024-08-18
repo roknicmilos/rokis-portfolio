@@ -59,3 +59,7 @@ class CV(models.Model):
 
     def __str__(self):
         return self.title
+
+    @property
+    def ordered_employments(self) -> models.QuerySet:
+        return self.employments.order_by('-start')

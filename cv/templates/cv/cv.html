@@ -1,4 +1,4 @@
-{% load css svg static %}
+{% load css svg static i18n %}
 
 <style>
     {{ "cv/style/cv.css"|css }}
@@ -27,7 +27,7 @@
                 </a>
             </div>
             <div class="links">
-                <h2 class="title">LINKS</h2>
+                <h2 class="title">{% trans 'LINKS' %}</h2>
                 {% for link in links %}
                     <a class="link" href="{{ link.url }}">
                         {% svg "cv/svg/"|add:link.type|add:".svg" %}
@@ -43,16 +43,18 @@
             <h1 class="name">{{ cv.first_name|upper }} {{ cv.last_name|upper }}</h1>
             <p class="role">{{ cv.role|upper }}</p>
             <div class="about-me">
-                <h2 class="title">ABOUT ME</h2>
+                <h2 class="title">{% trans 'ABOUT ME' %}</h2>
                 <p class="about-me-text">{{ cv.about_me }}</p>
             </div>
             <div class="employment-history">
-                <h2 class="title">EMPLOYMENT HISTORY</h2>
-                {% for employment in employments %}
+                <h2 class="title">{% trans 'EMPLOYMENT HISTORY' %}</h2>
+                {% for employment in cv.ordered_employments.all %}
                     <div class="employment-item">
                         <h3 class="employment-item-title">{{ employment.title }}, {{ employment.company }}</h3>
                         <div class="employment-item-subtitle">
-                            <p class="employment-item-period">{{ employment.from }} - {{ employment.until }}</p>
+                            <p class="employment-item-period">
+                                {{ employment.start|date:"M Y" }} - {{ employment.end|date:"M Y"|default:_('Present') }}
+                            </p>
                             <div class="employment-item-location">
                                 {% svg "cv/svg/location.svg" %}
                                 <p class="employment-item-location-value">{{ employment.location }}</p>
