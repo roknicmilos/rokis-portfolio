@@ -98,6 +98,20 @@ class CVPDFView(PDFView):
                 'type': 'github',
             },
         ]
+        skills = [
+            {'label': 'Python', 'level': 5},
+            {'label': 'Django', 'level': 5},
+            {'label': 'Next.js', 'level': 5},
+            {'label': 'JavaScript', 'level': 5},
+            {'label': 'TypeScript', 'level': 5},
+            {'label': 'HTML', 'level': 5},
+            {'label': 'CSS', 'level': 5},
+            {'label': 'Git', 'level': 5},
+            {'label': 'SQL', 'level': 4},
+            {'label': 'Docker', 'level': 4},
+            {'label': 'Cypress', 'level': 4},
+            {'label': 'PHP', 'level': 3},
+        ]
         return {
             'avatar_url': avatar_url,
             'first_name': 'Miloš',
@@ -112,4 +126,5 @@ class CVPDFView(PDFView):
             'about_me': about_me,
             'employments': employments,
             'links': links,
+            'skills': skills,
         }

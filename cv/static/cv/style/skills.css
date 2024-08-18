@@ -1,0 +1,51 @@
+.skills {
+    width: 100%;
+}
+
+.skills-row {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    margin: 10px 0;
+}
+
+.skill {
+    width: 45%;
+    margin: 5px 20px 5px 0;
+}
+
+.skill-label {
+    color: white;
+    margin: 0 0 5px 0;
+}
+
+.skill-bar {
+    width: 100px;
+    height: 5px;
+    border-bottom: 1px solid white;
+}
+
+.skill-bar-filler {
+    background: white;
+    height: 100%;
+}
+
+.skill-bar-filler-1 {
+    width: 20px;
+}
+
+.skill-bar-filler-2 {
+    width: 40px;
+}
+
+.skill-bar-filler-3 {
+    width: 60px;
+}
+
+.skill-bar-filler-4 {
+    width: 80px;
+}
+
+.skill-bar-filler-5 {
+    width: 100px;
+}

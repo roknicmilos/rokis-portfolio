@@ -1,5 +1,6 @@
 .left {
     width: 35%;
+    height: fit-content;
     padding: 60px 0 30px;
     background-color: #303030;
     display: flex;
