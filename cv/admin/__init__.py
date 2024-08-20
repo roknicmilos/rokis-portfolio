@@ -1,3 +1,4 @@
+from .education_inline import EducationInline
 from .link_inline import LinkInline
 from .skill_inline import SkillInline
 from .language_inline import LanguageInline
