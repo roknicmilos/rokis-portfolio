@@ -19,6 +19,10 @@
     border-radius: 50%;
 }
 
+.page--html .avatar {
+    margin-right: 120px;
+}
+
 .avatar img {
     width: auto;
     height: 100%;
@@ -27,6 +31,11 @@
 .left-box {
     width: 80%;
     margin: 50px auto;
+    max-width: 300px;
+}
+
+.page--html .left-box {
+    margin: 50px 60px 60px auto;
 }
 
 .contact-item,

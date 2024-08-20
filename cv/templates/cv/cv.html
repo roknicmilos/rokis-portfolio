@@ -1,10 +1,6 @@
-{% load css svg static i18n %}
+{% load svg static i18n %}
 
-<style>
-    {{ "cv/style/"|css }}
-</style>
-
-<div class="content">
+<div class="page {% if response_type == 'html' %}page--html{% endif %}">
     <section class="left">
         <div class="avatar">
             <img src="{{ avatar_url }}" alt="avatar"/>
@@ -45,6 +41,11 @@
             <p class="about-me-text">{{ cv.about_me }}</p>
         </div>
         {% include 'cv/includes/position.html' with title=_('EMPLOYMENT HISTORY') items=cv.ordered_employments %}
+        {% if response_type == 'pdf' %}
+            <div style="height: 250px">
+                <!-- empty space to break the page in PDF document -->
+            </div>
+        {% endif %}
         {% include 'cv/includes/position.html' with title=_('INTERNSHIP HISTORY') items=cv.ordered_internships %}
     </section>
 </div>

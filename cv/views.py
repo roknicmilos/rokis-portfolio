@@ -6,28 +6,27 @@ from cv.models import CV
 
 
 class CVPDFView(PDFView):
+    template_name = 'cv/cv.html'
+    css_paths = [
+        'cv/css/'
+    ]
     cv: CV
 
     def create_pdf(self) -> PDF:
         self.cv = get_object_or_404(CV, slug=self.kwargs['slug'])
-
-        pdf = PDF(
+        return PDF(
+            template_name=self.template_name,
             title=self.cv.title,
             filename=self.cv.filename,
+            context=self.get_context(),
+            css_paths=self.css_paths.copy(),
         )
 
-        pdf.add_page(
-            template_name='cv/cv.html',
-            context=self._get_first_page_context(),
-        )
-
-        return pdf
-
-    def _get_first_page_context(self) -> dict:
-        return {
-            'cv': self.cv,
-            'avatar_url': self._get_absolut_avatar_url(),
-        }
+    def get_context(self) -> dict:
+        context = super().get_context()
+        context['cv'] = self.cv
+        context['avatar_url'] = self._get_absolut_avatar_url()
+        return context
 
     def _get_absolut_avatar_url(self) -> str:
         if self.cv.avatar:

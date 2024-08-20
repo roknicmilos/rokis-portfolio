@@ -1,11 +1,11 @@
 .page {
     font-family: Roboto, sans-serif;
+    display: flex;
+    height: unset;
 }
 
-.content {
-    width: 100%;
-    min-height: 100%;
-    display: flex;
+.page--html {
+    height: fit-content;
 }
 
 .title {
