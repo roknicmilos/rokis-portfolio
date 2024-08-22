@@ -75,3 +75,7 @@ class CV(models.Model):
     @property
     def ordered_skills(self) -> models.QuerySet:
         return self.skills.order_by('-level')
+
+    @property
+    def ordered_projects(self) -> models.QuerySet:
+        return self.projects.order_by('-start')
