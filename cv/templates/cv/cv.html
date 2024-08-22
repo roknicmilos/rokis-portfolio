@@ -28,7 +28,7 @@
                 </a>
             {% endfor %}
         </div>
-        {% include 'cv/includes/skills.html' with title=_('SKILLS') items=cv.skills.all %}
+        {% include 'cv/includes/skills.html' with title=_('SKILLS') items=cv.ordered_skills %}
         {% include 'cv/includes/skills.html' with title=_('LANGUAGES') items=cv.languages.all %}
     </section>
     <section class="right">

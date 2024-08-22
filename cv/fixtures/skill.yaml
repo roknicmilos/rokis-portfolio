@@ -16,82 +16,110 @@
   pk: 3
   fields:
     cv: 1
-    label: Next.js
+    label: JavaScript
     level: 5
 
 - model: cv.Skill
   pk: 4
   fields:
     cv: 1
-    label: JavaScript
+    label: TypeScript
     level: 5
 
 - model: cv.Skill
   pk: 5
   fields:
     cv: 1
-    label: TypeScript
+    label: Next.js
     level: 5
 
 - model: cv.Skill
   pk: 6
   fields:
     cv: 1
-    label: HTML
+    label: React
     level: 5
 
 - model: cv.Skill
   pk: 7
   fields:
     cv: 1
-    label: CSS
+    label: HTML
     level: 5
 
 - model: cv.Skill
   pk: 8
   fields:
     cv: 1
-    label: Git
+    label: SCSS
     level: 5
 
 - model: cv.Skill
   pk: 9
   fields:
     cv: 1
+    label: CSS
+    level: 5
+
+- model: cv.Skill
+  pk: 10
+  fields:
+    cv: 1
+    label: Git
+    level: 5
+
+- model: cv.Skill
+  pk: 11
+  fields:
+    cv: 1
+    label: GitHub
+    level: 5
+
+- model: cv.Skill
+  pk: 12
+  fields:
+    cv: 1
     label: SQL
     level: 4
 
 - model: cv.Skill
-  pk: 10
+  pk: 13
+  fields:
+    cv: 1
+    label: PostgreSQL
+    level: 4
+
+- model: cv.Skill
+  pk: 14
   fields:
     cv: 1
     label: Docker
     level: 4
 
 - model: cv.Skill
-  pk: 11
+  pk: 15
   fields:
     cv: 1
     label: Cypress
     level: 4
 
 - model: cv.Skill
-  pk: 12
+  pk: 16
+  fields:
+    cv: 1
+    label: Ubuntu
+    level: 4
+
+- model: cv.Skill
+  pk: 17
+  fields:
+    cv: 1
+    label: Bash
+    level: 3
+
+- model: cv.Skill
+  pk: 18
   fields:
     cv: 1
     label: PHP
     level: 3
-
-- model: cv.Skill
-  pk: 13
-  fields:
-    cv: 1
-    label: React
-    level: 5
-
-- model: cv.Skill
-  pk: 14
-  fields:
-    cv: 1
-    label: SCSS
-    level: 5
