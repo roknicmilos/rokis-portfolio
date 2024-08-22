@@ -16,6 +16,7 @@ class Command(BaseCommand):
         'employment',
         'internship',
         'education',
+        'project',
     ]
 
     def handle(self, *args, **options):

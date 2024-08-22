@@ -1,0 +1,14 @@
+- model: cv.Project
+  pk: 1
+  fields:
+    cv: 1
+    name: Parking Payment App
+    role: Software Engineer
+    start: 2024-01-01
+    description:
+      I recently architected and developed a Next.js app designed for online parking payments.
+      Leveraging the flexibility of a monorepo on GitHub, I integrated a Cypress project to
+      rigorously test the Next.js application, ensuring robust and reliable performance. This
+      web application implemented in Next.js is a short-term, ad-hoc parking solution that allows
+      unknown parkers to pay on-site for their parking transaction. The application is designed to
+      streamline the parking process, making it as simple and seamless as possible for the user.
