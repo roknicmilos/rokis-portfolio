@@ -7,6 +7,7 @@ from cv.admin import (
     LanguageInline,
     InternshipInline,
     EducationInline,
+    ProjectInline,
 )
 from cv.models import CV
 
@@ -20,4 +21,5 @@ class CVAdmin(admin.ModelAdmin):
         EmploymentInline,
         InternshipInline,
         EducationInline,
+        ProjectInline,
     ]
