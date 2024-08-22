@@ -1,21 +1,21 @@
 {% load svg i18n %}
 
 <div class="right-box">
-    <h2 class="title">{% trans title %}</h2>
-    {% for item in items %}
+    <h2 class="title">{% trans 'EMPLOYMENT HISTORY' %}</h2>
+    {% for employment in cv.ordered_employments %}
         <div class="position-item">
-            <h3 class="position-item-title">{{ item.title }}, {{ item.company }}</h3>
+            <h3 class="position-item-title">{{ employment.title }}, {{ employment.company }}</h3>
             <div class="position-item-subtitle">
                 <p class="position-item-period">
-                    {{ item.start|date:"M Y" }} - {{ item.end|date:"M Y"|default:_('Present') }}
+                    {{ employment.start|date:"M Y" }} - {{ employment.end|date:"M Y"|default:_('Present') }}
                 </p>
                 <div class="position-item-location">
                     {% svg "cv/svg/location-dark.svg" %}
-                    <p class="position-item-location-value">{{ item.location }}</p>
+                    <p class="position-item-location-value">{{ employment.location }}</p>
                 </div>
             </div>
             <p class="position-item-description">
-                {{ item.description }}
+                {{ employment.description }}
             </p>
         </div>
     {% endfor %}

@@ -78,4 +78,7 @@ class CV(models.Model):
 
     @property
     def ordered_projects(self) -> models.QuerySet:
-        return self.projects.order_by('-start')
+        return self.projects.order_by(
+            models.F('end').asc(nulls_first=True),
+            '-start'
+        )

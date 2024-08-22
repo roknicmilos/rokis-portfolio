@@ -10,11 +10,11 @@
 .right-box {
     width: 90%;
     margin: 40px auto 60px;
-    max-width: 700px;
 }
 
 .page--html .right-box {
     margin: 60px;
+    max-width: 70%;
 }
 
 .header {

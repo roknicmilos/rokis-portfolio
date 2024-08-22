@@ -7,7 +7,7 @@
     start: 2024-01-01
     technologies:
       Next.js, TypeScript, SCSS, Cypress, Jest, Docker, Docker Compose,
-      Travis CI, Python, Django, PostgreSQL, REST API
+      Travis CI, Python, Django, Pytest, PostgreSQL, REST API
     description:
       Architected and developed a Next.js app for online parking payments,
       designed to streamline the parking process for users. Leveraged a
@@ -25,8 +25,8 @@
     role: Full Stack Software Engineer
     start: 2020-06-01
     technologies:
-      Python, Django, PostgreSQL, HTML, SCSS, JavaScript, jQuery, Docker,
-      Docker Compose, Travis CI
+      Python, Django, PostgreSQL, Pytest, HTML, SCSS, JavaScript, jQuery,
+      Docker, Docker Compose, Travis CI
     description:
       "Initiated and led the development of a Parking Portals application 
       from scratch, using Python/Django for backend development and 
@@ -37,3 +37,21 @@
       platform for creating two types of websites: Employee portals and 
       Consumer portals. These portals can be managed through a back office 
       with three distinct Django Admin sites: General, Employee, and Consumer."
+
+- model: cv.Project
+  pk: 3
+  fields:
+    cv: 1
+    name: Django PDF View
+    role: Software Engineer
+    start: 2024-07-01
+    end: 2024-08-01
+    technologies:
+      Python, Django, SQLite, HTML, CSS, Pytest, PyPI, GitHub Actions
+    description:
+      Developed a Django package to streamline PDF document creation,
+      allowing for easy viewing and downloading in the browser. The package
+      includes predefined HTML and CSS layouts for efficient PDF generation,
+      with flexible content and styling options. Automated the release process
+      with a bash script, handling version updates, git tagging, GitHub release
+      creation, and publishing to PyPI.
