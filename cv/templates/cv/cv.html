@@ -30,6 +30,12 @@
         </div>
         {% include 'cv/includes/skills.html' with title=_('SKILLS') items=cv.ordered_skills %}
         {% include 'cv/includes/skills.html' with title=_('LANGUAGES') items=cv.languages.all %}
+        {% if response_type == 'pdf' %}
+            <div style="height: 87px">
+                <!-- empty space to break the page in PDF document -->
+            </div>
+        {% endif %}
+        {% include 'cv/includes/education.html' %}
     </section>
     <section class="right">
         <div class="right-box header">
@@ -47,6 +53,5 @@
             </div>
         {% endif %}
         {% include 'cv/includes/position.html' with title=_('INTERNSHIP HISTORY') items=cv.ordered_internships %}
-        {% include 'cv/includes/position.html' with title=_('EDUCATION') items=cv.ordered_educations %}
     </section>
 </div>

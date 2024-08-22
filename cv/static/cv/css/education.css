@@ -1,0 +1,38 @@
+.education-item {
+    margin: 15px 0 35px;
+    color: white;
+}
+
+.education-item-title {
+    font-size: 16px;
+    line-height: 1.5;
+}
+
+.education-item-subtitle {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    font-size: 14px;
+}
+
+.education-item-period {
+    margin: 0;
+}
+
+.education-item-location {
+    display: flex;
+    align-items: center;
+}
+
+.education-item-location svg {
+    width: 20px;
+    height: 20px;
+}
+
+.education-item-location-value {
+    margin: 0 0 0 6px;
+}
+
+.education-item-description {
+    line-height: 1.5;
+}
