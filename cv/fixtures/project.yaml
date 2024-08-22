@@ -2,13 +2,38 @@
   pk: 1
   fields:
     cv: 1
-    name: Parking Payment App
-    role: Software Engineer
+    name: Pay 2
+    role: Full Stack Software Engineer
     start: 2024-01-01
+    technologies:
+      Next.js, TypeScript, SCSS, Cypress, Jest, Docker, Docker Compose,
+      Travis CI, Python, Django, PostgreSQL, REST API
     description:
-      I recently architected and developed a Next.js app designed for online parking payments.
-      Leveraging the flexibility of a monorepo on GitHub, I integrated a Cypress project to
-      rigorously test the Next.js application, ensuring robust and reliable performance. This
-      web application implemented in Next.js is a short-term, ad-hoc parking solution that allows
-      unknown parkers to pay on-site for their parking transaction. The application is designed to
-      streamline the parking process, making it as simple and seamless as possible for the user.
+      Architected and developed a Next.js app for online parking payments,
+      designed to streamline the parking process for users. Leveraged a
+      monorepo on GitHub and integrated Cypress for rigorous testing,
+      ensuring robust performance. Developed a Django REST API to handle
+      payment transactions, communicating with a Parking GraphQL API to
+      manage payment status. Integrated multiple payment service providers
+      to offer clients flexible gateway options.
+
+- model: cv.Project
+  pk: 2
+  fields:
+    cv: 1
+    name: Parking Portals
+    role: Full Stack Software Engineer
+    start: 2020-06-01
+    technologies:
+      Python, Django, PostgreSQL, HTML, SCSS, JavaScript, jQuery, Docker,
+      Docker Compose, Travis CI
+    description:
+      "Initiated and led the development of a Parking Portals application 
+      from scratch, using Python/Django for backend development and 
+      HTML/CSS/SCSS for the frontend. Implemented Docker for containerization 
+      and deployment. The project, initially planned for a few months, was 
+      extended due to its success, generating significant revenue and 
+      exceeding client expectations. Parking Portals is a white-label 
+      platform for creating two types of websites: Employee portals and 
+      Consumer portals. These portals can be managed through a back office 
+      with three distinct Django Admin sites: General, Employee, and Consumer."

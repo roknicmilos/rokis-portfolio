@@ -34,7 +34,18 @@ class Project(models.Model):
             'don\'t know the exact end day.'
         ),
     )
+    technologies = models.CharField(
+        verbose_name=_('technologies'),
+        max_length=255,
+    )
     description = models.TextField(
         verbose_name=_('description'),
         default='',
     )
+
+    class Meta:
+        verbose_name = _('Project')
+        verbose_name_plural = _('Projects')
+
+    def __str__(self):
+        return f'{self.name} - {self.role}'
