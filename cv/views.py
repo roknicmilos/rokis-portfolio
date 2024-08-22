@@ -1,3 +1,4 @@
+from django.urls import reverse
 from django.shortcuts import get_object_or_404
 from django_pdf_view.pdf import PDF
 from django_pdf_view.views import PDFView
@@ -26,6 +27,10 @@ class CVPDFView(PDFView):
         context = super().get_context()
         context['cv'] = self.cv
         context['avatar_url'] = self._get_absolut_avatar_url()
+        context['cv_pdf_url'] = reverse(
+            viewname='cv:pdf',
+            kwargs={'slug': self.cv.slug}
+        )
         return context
 
     def _get_absolut_avatar_url(self) -> str:

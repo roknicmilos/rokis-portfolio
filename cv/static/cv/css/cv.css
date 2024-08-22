@@ -18,3 +18,23 @@
 .bold {
     font-weight: bold;
 }
+
+.cv-pdf-button {
+    position: fixed;
+    bottom: 30px;
+    right: 40px;
+    padding: 10px 40px;
+    background-color: #0b510b;
+    color: white;
+    text-decoration: none;
+    border-radius: 5px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    font-family: Roboto, sans-serif;
+    font-size: 20px;
+    transition: transform 0.3s, background-color 0.3s;
+}
+
+.cv-pdf-button:hover {
+    background-color: #0b880b;
+    transform: scale(1.2); /* Increase the size by 10% */
+}

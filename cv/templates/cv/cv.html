@@ -52,3 +52,9 @@
         {% include 'cv/includes/projects.html' %}
     </section>
 </div>
+
+{% if response_type == 'html' %}
+    <a href="{{ cv_pdf_url }}" class="cv-pdf-button" target="_blank">
+        {% trans 'GET PDF' %}
+    </a>
+{% endif %}
