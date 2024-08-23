@@ -2,7 +2,7 @@
 
 <div class="left-box links">
     <h2 class="title">{% trans 'LINKS' %}</h2>
-    {% for link in cv.links.all %}
+    {% for link in links %}
         <a class="link" href="{{ link.url }}">
             {% svg "cv/svg/"|add:link.type|add:".svg" %}
             <p class="link-label">{{ link.label }}</p>

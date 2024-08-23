@@ -6,10 +6,9 @@
             <img src="{{ avatar_url }}" alt="avatar"/>
         </div>
         {% include 'cv/includes/contact.html' %}
-        {% include 'cv/includes/links.html' %}
-        {% include 'cv/includes/skills.html' with title=_('SKILLS') items=cv.ordered_skills %}
-        {% include 'cv/includes/skills.html' with title=_('LANGUAGES') items=cv.languages.all %}
-        {% include 'cv/includes/education.html' %}
+        {% for item in left_section %}
+            {{ item }}
+        {% endfor %}
     </section>
     <section class="right">
         <div class="right-box header">

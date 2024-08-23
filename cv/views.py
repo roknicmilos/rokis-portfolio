@@ -4,6 +4,7 @@ from django_pdf_view.pdf import PDF
 from django_pdf_view.views import PDFView
 
 from cv.models import CV
+from cv.sevices import render_left_section
 
 
 class CVPDFView(PDFView):
@@ -31,6 +32,7 @@ class CVPDFView(PDFView):
             viewname='cv:pdf',
             kwargs={'slug': self.cv.slug}
         )
+        context['left_section'] = render_left_section(cv=self.cv)
         return context
 
     def _get_absolut_avatar_url(self) -> str:

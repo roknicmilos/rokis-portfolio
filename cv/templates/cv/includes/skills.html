@@ -2,7 +2,7 @@
 
 <div class="left-box skills">
     <h2 class="title">{{ title }}</h2>
-    {% for item in items %}
+    {% for skill in skills %}
         {% if forloop.first or forloop.counter0|divisibleby:2 %}
             {# Because CSS property grid is not supported when rendering PDF from HTML #}
             {# ('pdfkit' python package), we need to "manually" split the items into two #}
@@ -10,9 +10,9 @@
             <div class="skills-row">
         {% endif %}
     <div class="skill">
-        <p class="skill-label">{{ item.label }}</p>
+        <p class="skill-label">{{ skill.label }}</p>
         <div class="skill-bar">
-            <div class="skill-bar-filler skill-bar-filler-{{ item.level }}"></div>
+            <div class="skill-bar-filler skill-bar-filler-{{ skill.level }}"></div>
         </div>
     </div>
     {% if forloop.last or forloop.counter|divisibleby:2 %}
