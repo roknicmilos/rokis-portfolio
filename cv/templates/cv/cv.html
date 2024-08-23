@@ -15,13 +15,9 @@
             <h1 class="name">{{ cv.first_name|upper }} {{ cv.last_name|upper }}</h1>
             <p class="role">{{ cv.role|upper }}</p>
         </div>
-        <div class="right-box about-me">
-            <h2 class="title">{% trans 'ABOUT ME' %}</h2>
-            <p class="about-me-text">{{ cv.about_me }}</p>
-        </div>
-        {% include 'cv/includes/employments.html' %}
-        {% include 'cv/includes/internship.html' %}
-        {% include 'cv/includes/projects.html' %}
+        {% for item in right_section %}
+            {{ item }}
+        {% endfor %}
     </section>
 </div>
 

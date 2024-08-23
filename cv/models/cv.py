@@ -51,6 +51,7 @@ class CV(models.Model):
     )
     about_me = models.TextField(
         verbose_name=_('about me'),
+        blank=True,
     )
 
     class Meta:

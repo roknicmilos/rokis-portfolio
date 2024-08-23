@@ -2,7 +2,7 @@
 
 <div class="right-box">
     <h2 class="title">{% trans 'EMPLOYMENT HISTORY' %}</h2>
-    {% for employment in cv.ordered_employments %}
+    {% for employment in employments %}
         <div class="position-item">
             <h3 class="position-item-title">{{ employment.title }}, {{ employment.company }}</h3>
             <div class="position-item-subtitle">

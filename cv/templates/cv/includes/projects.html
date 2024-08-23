@@ -2,7 +2,7 @@
 
 <div class="right-box">
     <h2 class="title">{% trans 'RELEVANT PROJECTS' %}</h2>
-    {% for project in cv.ordered_projects %}
+    {% for project in projects %}
         <div class="position-item">
             <h3 class="position-item-title">{{ project.name }} | {{ project.role }}</h3>
             <p class="position-item-period">
