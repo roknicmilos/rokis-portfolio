@@ -30,12 +30,13 @@
 
 .left-box {
     width: 80%;
-    margin: 50px auto;
+    margin: 0 auto;
     max-width: 300px;
+    page-break-inside: avoid;
 }
 
 .page--html .left-box {
-    margin: 50px 60px 60px auto;
+    margin: 0 60px 0 auto;
 }
 
 .contact-item,

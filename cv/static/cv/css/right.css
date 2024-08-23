@@ -9,17 +9,18 @@
 
 .right-box {
     width: 90%;
-    margin: 40px auto 60px;
+    margin: 0 auto 10px auto;
+    page-break-inside: avoid;
 }
 
 .page--html .right-box {
-    margin: 60px;
+    margin: 10px 60px;
     max-width: 70%;
 }
 
-.header {
+.header,
+.page--html .header {
     margin-top: 70px;
-    margin-bottom: 40px;
 }
 
 .name {
@@ -34,14 +35,6 @@
     margin: 0;
 }
 
-.about-me {
-    margin-bottom: 70px;
-}
-
 .about-me-text {
     color: #4c4c4c;
-}
-
-.empty-space-250 {
-    height: 250px;
 }
