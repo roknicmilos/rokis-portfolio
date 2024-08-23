@@ -1,0 +1,16 @@
+{% load svg %}
+
+<div class="left-box contact">
+    <a class="contact-item" href="{{ cv.address_link.url }}">
+        {% svg "cv/svg/location.svg" %}
+        <div class="contact-item-value">{{ cv.address_label }}</div>
+    </a>
+    <a class="contact-item" href="tel:{{ cv.phone }}">
+        {% svg "cv/svg/phone.svg" %}
+        <div class="contact-item-value">{{ cv.phone }}</div>
+    </a>
+    <a class="contact-item" href="mailto:{{ cv.email }}">
+        {% svg "cv/svg/email.svg" %}
+        <div class="contact-item-value">{{ cv.email }}</div>
+    </a>
+</div>

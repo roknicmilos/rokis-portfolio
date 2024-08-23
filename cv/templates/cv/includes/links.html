@@ -1,0 +1,11 @@
+{% load svg i18n %}
+
+<div class="left-box links">
+    <h2 class="title">{% trans 'LINKS' %}</h2>
+    {% for link in cv.links.all %}
+        <a class="link" href="{{ link.url }}">
+            {% svg "cv/svg/"|add:link.type|add:".svg" %}
+            <p class="link-label">{{ link.label }}</p>
+        </a>
+    {% endfor %}
+</div>

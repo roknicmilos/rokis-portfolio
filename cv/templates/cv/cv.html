@@ -5,37 +5,10 @@
         <div class="avatar">
             <img src="{{ avatar_url }}" alt="avatar"/>
         </div>
-        <div class="left-box contact">
-            <a class="contact-item" href="{{ cv.address_link.url }}">
-                {% svg "cv/svg/location.svg" %}
-                <div class="contact-item-value">{{ cv.address_label }}</div>
-            </a>
-            <a class="contact-item" href="tel:{{ cv.phone }}">
-                {% svg "cv/svg/phone.svg" %}
-                <div class="contact-item-value">{{ cv.phone }}</div>
-            </a>
-            <a class="contact-item" href="mailto:{{ cv.email }}">
-                {% svg "cv/svg/email.svg" %}
-                <div class="contact-item-value">{{ cv.email }}</div>
-            </a>
-        </div>
-        <div class="left-box links">
-            <h2 class="title">{% trans 'LINKS' %}</h2>
-            {% for link in cv.links.all %}
-                <a class="link" href="{{ link.url }}">
-                    {% svg "cv/svg/"|add:link.type|add:".svg" %}
-                    <p class="link-label">{{ link.label }}</p>
-                </a>
-            {% endfor %}
-        </div>
+        {% include 'cv/includes/contact.html' %}
+        {% include 'cv/includes/links.html' %}
         {% include 'cv/includes/skills.html' with title=_('SKILLS') items=cv.ordered_skills %}
         {% include 'cv/includes/skills.html' with title=_('LANGUAGES') items=cv.languages.all %}
-        {% if response_type == 'pdf' %}
-            <div style="height: 87px">
-                {# TODO: check if this can be replace with a page break!!! #}
-                <!-- empty space to break the page in PDF document -->
-            </div>
-        {% endif %}
         {% include 'cv/includes/education.html' %}
     </section>
     <section class="right">
