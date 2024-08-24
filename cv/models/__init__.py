@@ -1,4 +1,6 @@
+from .base_model import BaseModel
 from .left_cv_column_mixin import LeftCVColumnMixin
+from .right_cv_column_mixin import RightCVColumnMixin
 from .cv import CV
 from .position import Position
 from .employment import Employment

@@ -2,10 +2,10 @@ from django.db import models
 from django.core.validators import MinValueValidator, MaxValueValidator
 from django.utils.translation import gettext_lazy as _
 
-from cv.models import LeftCVColumnMixin
+from cv.models import LeftCVColumnMixin, RightCVColumnMixin, BaseModel
 
 
-class CV(LeftCVColumnMixin, models.Model):
+class CV(LeftCVColumnMixin, RightCVColumnMixin, BaseModel):
     class RightSegment(models.TextChoices):
         ABOUT_ME = 'about_me', _('About Me')
         EMPLOYMENT = 'employment', _('Employment')

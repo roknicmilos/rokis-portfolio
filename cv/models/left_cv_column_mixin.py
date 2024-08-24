@@ -1,9 +1,10 @@
 from django.db import models
-from django.core.exceptions import ValidationError
 from django.utils.translation import gettext_lazy as _
 
+from cv.models import BaseModel
 
-class LeftCVColumnMixin(models.Model):
+
+class LeftCVColumnMixin(BaseModel):
     class LeftSegment(models.TextChoices):
         CONTACT = 'contact', _('Contact')
         LINKS = 'links', _('Links')
@@ -53,8 +54,6 @@ class LeftCVColumnMixin(models.Model):
         abstract = True
 
     def clean(self):
-        super().clean()
-
         left_column_segments = {
             'first_left_segment': self.first_left_segment,
             'second_left_segment': self.second_left_segment,
@@ -69,8 +68,10 @@ class LeftCVColumnMixin(models.Model):
             in left_column_segments.items()
             if list(left_column_segments.values()).count(value) > 1 and value
         }
+        for field_name, value in duplicates.items():
+            self.add_validation_error(
+                message=_('The segment value must be unique.'),
+                field_name=field_name
+            )
 
-        raise ValidationError({
-            field_name: _('The segment value must be unique.') for
-            field_name, value in duplicates.items()
-        })
+        super().clean()
