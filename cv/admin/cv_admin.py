@@ -34,6 +34,7 @@ class CVAdmin(admin.ModelAdmin):
                 'fifth_left_segment',
                 'sixth_left_segment',
             ),
+            'classes': ('collapse',),
         }),
         (_('RIGHT COLUMN | SEGMENT ORDER'), {
             'fields': (
@@ -41,6 +42,7 @@ class CVAdmin(admin.ModelAdmin):
                 'second_right_segment',
                 'third_right_segment',
             ),
+            'classes': ('collapse',),
         }),
         (_('CONTACT (L)'), {
             'fields': (

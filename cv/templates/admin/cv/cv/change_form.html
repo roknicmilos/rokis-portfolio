@@ -19,6 +19,14 @@
         <ul>
             <li>{% trans 'CV is divided into left and right column.' %}</li>
             <li>{% trans 'Each column has its own segments.' %}</li>
+            <li>{% trans 'Required segments are marked with wildcard symbol.' %}</li>
+            <li>{% trans 'Optional segments will not be displayed if you leave them empty.' %}</li>
+            <li>
+                {% blocktrans %}
+                    You can change the order of the segments under the "LEFT COLUMN
+                    | SEGMENT ORDER" and "RIGHT COLUMN | SEGMENT ORDER" sections.
+                {% endblocktrans %}
+            </li>
             <li>
                 {% blocktrans %}
                     Below, you can see the name of each segment and to which
