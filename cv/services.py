@@ -78,27 +78,33 @@ def get_left_column_segments(cv: CV) -> list[str]:
 
 
 def render_right_column_segments(cv: CV) -> list[str]:
-    segments = []
+    segments: list[dict] = []
     if cv.about_me:
-        segments.append(
-            render_to_string(
+        segments.append({
+            'order': cv.get_right_segment_order(CV.RightSegment.ABOUT_ME),
+            'content': render_to_string(
                 template_name='cv/includes/about_me.html',
                 context={'about_me': cv.about_me},
             )
-        )
+        })
     if cv.employments.exists():
-        segments.append(
-            render_to_string(
+        segments.append({
+            'order': cv.get_right_segment_order(CV.RightSegment.EMPLOYMENT),
+            'content': render_to_string(
                 template_name='cv/includes/employment.html',
                 context={'employments': cv.ordered_employments},
             )
-        )
+        })
     if cv.projects.exists():
-        segments.append(
-            render_to_string(
+        segments.append({
+            'order': cv.get_right_segment_order(CV.RightSegment.PROJECTS),
+            'content': render_to_string(
                 template_name='cv/includes/projects.html',
                 context={'projects': cv.ordered_projects},
             )
-        )
+        })
 
-    return segments
+    return [
+        segment['content'] for segment
+        in sorted(segments, key=lambda x: x['order'])
+    ]

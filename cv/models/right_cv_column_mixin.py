@@ -51,3 +51,11 @@ class RightCVColumnMixin(BaseModel):
                 field_name=field_name
             )
         super().clean()
+
+    def get_right_segment_order(self, segment: RightSegment) -> int:
+        segments = [
+            self.first_right_segment,
+            self.second_right_segment,
+            self.third_right_segment,
+        ]
+        return segments.index(segment)
