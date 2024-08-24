@@ -2,16 +2,10 @@ from django.db import models
 from django.core.validators import MinValueValidator, MaxValueValidator
 from django.utils.translation import gettext_lazy as _
 
+from cv.models import LeftCVColumnMixin
 
-class CV(models.Model):
-    class LeftSegment(models.TextChoices):
-        CONTACT = 'contact', _('Contact')
-        LINKS = 'links', _('Links')
-        SKILLS = 'skills', _('Skills')
-        LANGUAGES = 'languages', _('Languages')
-        INTERNSHIP = 'internship', _('Internship')
-        EDUCATION = 'education', _('Education')
 
+class CV(LeftCVColumnMixin, models.Model):
     class RightSegment(models.TextChoices):
         ABOUT_ME = 'about_me', _('About Me')
         EMPLOYMENT = 'employment', _('Employment')
@@ -80,42 +74,6 @@ class CV(models.Model):
     about_me = models.TextField(
         verbose_name=_('about me'),
         blank=True,
-    )
-    first_left_segment = models.CharField(
-        verbose_name=_('first segment in left column'),
-        max_length=20,
-        choices=LeftSegment.choices,
-        default=LeftSegment.CONTACT,
-    )
-    second_left_segment = models.CharField(
-        verbose_name=_('second segment in left column'),
-        max_length=20,
-        choices=LeftSegment.choices,
-        default=LeftSegment.LINKS,
-    )
-    third_left_segment = models.CharField(
-        verbose_name=_('third segment in left column'),
-        max_length=20,
-        choices=LeftSegment.choices,
-        default=LeftSegment.SKILLS,
-    )
-    fourth_left_segment = models.CharField(
-        verbose_name=_('fourth segment in left column'),
-        max_length=20,
-        choices=LeftSegment.choices,
-        default=LeftSegment.LANGUAGES,
-    )
-    fifth_left_segment = models.CharField(
-        verbose_name=_('fifth segment in left column'),
-        max_length=20,
-        choices=LeftSegment.choices,
-        default=LeftSegment.INTERNSHIP,
-    )
-    sixth_left_segment = models.CharField(
-        verbose_name=_('sixth segment in left column'),
-        max_length=20,
-        choices=LeftSegment.choices,
-        default=LeftSegment.EDUCATION,
     )
     first_right_segment = models.CharField(
         verbose_name=_('first segment in right column'),

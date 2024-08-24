@@ -1,3 +1,4 @@
+from .left_cv_column_mixin import LeftCVColumnMixin
 from .cv import CV
 from .position import Position
 from .employment import Employment
