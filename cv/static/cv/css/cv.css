@@ -4,6 +4,7 @@
 }
 
 .page--html {
+    min-height: 100%;
     height: unset;
 }
 

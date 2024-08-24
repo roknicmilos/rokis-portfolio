@@ -10,22 +10,24 @@
 
 .avatar {
     margin: 50px auto;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    overflow: hidden;
     width: 175px;
     height: 175px;
     border-radius: 50%;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.avatar img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
 }
 
 .page--html .avatar {
     margin-right: 120px;
-}
-
-.avatar img {
-    width: auto;
-    height: 100%;
 }
 
 .left-segment {
