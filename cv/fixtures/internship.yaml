@@ -18,4 +18,6 @@
     location: Novi Sad, Serbia
     start: 2018-07-01
     end: 2019-08-15
-    description: Worked on a pet project where I was implementing a REST API in PHP/Laravel and web app in JavaScript/React.
+    description:
+      Worked on a pet project where I was implementing a REST API 
+      in PHP/Laravel and web app in JavaScript/React.

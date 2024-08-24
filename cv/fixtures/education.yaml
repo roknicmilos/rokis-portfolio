@@ -7,7 +7,9 @@
     start: 2018-01-01
     end: 2018-05-01
     location: Novi Sad, Serbia
-    description: Java, Relational Databases, Web Development, Spring Framework, Hibernate, JPA, RESTful Web Services, AngularJS, JavaScript, HTML, CSS
+    description:
+      Java, Relational Databases, Web Development, Spring Framework,
+      Hibernate, JPA, RESTful Web Services, AngularJS, JavaScript, HTML, CSS
 
 - model: cv.Education
   pk: 2
@@ -18,7 +20,7 @@
     start: 2017-12-01
     end: 2018-01-01
     location: Novi Sad, Serbia
-    description: Java, Console Applications
+    description: OOP, Java, Console Applications
 
 - model: cv.Education
   pk: 3
