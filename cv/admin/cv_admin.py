@@ -25,6 +25,23 @@ class CVAdmin(admin.ModelAdmin):
                 'page_count',
             ),
         }),
+        (_('LEFT COLUMN | SEGMENT ORDER'), {
+            'fields': (
+                'first_left_segment',
+                'second_left_segment',
+                'third_left_segment',
+                'fourth_left_segment',
+                'fifth_left_segment',
+                'sixth_left_segment',
+            ),
+        }),
+        (_('RIGHT COLUMN | SEGMENT ORDER'), {
+            'fields': (
+                'first_right_segment',
+                'second_right_segment',
+                'third_right_segment',
+            ),
+        }),
         (_('CONTACT (L)'), {
             'fields': (
                 'email',

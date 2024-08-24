@@ -4,6 +4,19 @@ from django.utils.translation import gettext_lazy as _
 
 
 class CV(models.Model):
+    class LeftSegment(models.TextChoices):
+        CONTACT = 'contact', _('Contact')
+        LINKS = 'links', _('Links')
+        SKILLS = 'skills', _('Skills')
+        LANGUAGES = 'languages', _('Languages')
+        INTERNSHIP = 'internship', _('Internship')
+        EDUCATION = 'education', _('Education')
+
+    class RightSegment(models.TextChoices):
+        ABOUT_ME = 'about_me', _('About Me')
+        EMPLOYMENT = 'employment', _('Employment')
+        PROJECTS = 'projects', _('Projects')
+
     slug = models.SlugField(
         verbose_name=_('slug'),
         max_length=100,
@@ -68,8 +81,60 @@ class CV(models.Model):
         verbose_name=_('about me'),
         blank=True,
     )
-
-    # TODO: add item ordering per section
+    first_left_segment = models.CharField(
+        verbose_name=_('first segment in left column'),
+        max_length=20,
+        choices=LeftSegment.choices,
+        default=LeftSegment.CONTACT,
+    )
+    second_left_segment = models.CharField(
+        verbose_name=_('second segment in left column'),
+        max_length=20,
+        choices=LeftSegment.choices,
+        default=LeftSegment.LINKS,
+    )
+    third_left_segment = models.CharField(
+        verbose_name=_('third segment in left column'),
+        max_length=20,
+        choices=LeftSegment.choices,
+        default=LeftSegment.SKILLS,
+    )
+    fourth_left_segment = models.CharField(
+        verbose_name=_('fourth segment in left column'),
+        max_length=20,
+        choices=LeftSegment.choices,
+        default=LeftSegment.LANGUAGES,
+    )
+    fifth_left_segment = models.CharField(
+        verbose_name=_('fifth segment in left column'),
+        max_length=20,
+        choices=LeftSegment.choices,
+        default=LeftSegment.INTERNSHIP,
+    )
+    sixth_left_segment = models.CharField(
+        verbose_name=_('sixth segment in left column'),
+        max_length=20,
+        choices=LeftSegment.choices,
+        default=LeftSegment.EDUCATION,
+    )
+    first_right_segment = models.CharField(
+        verbose_name=_('first segment in right column'),
+        max_length=20,
+        choices=RightSegment.choices,
+        default=RightSegment.ABOUT_ME,
+    )
+    second_right_segment = models.CharField(
+        verbose_name=_('second segment in right column'),
+        max_length=20,
+        choices=RightSegment.choices,
+        default=RightSegment.EMPLOYMENT,
+    )
+    third_right_segment = models.CharField(
+        verbose_name=_('third segment in right column'),
+        max_length=20,
+        choices=RightSegment.choices,
+        default=RightSegment.PROJECTS,
+    )
 
     class Meta:
         verbose_name = _('CV')
