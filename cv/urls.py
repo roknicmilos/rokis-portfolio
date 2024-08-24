@@ -10,6 +10,6 @@ urlpatterns = [
     path(
         'download/',
         CVPDFView.as_view(response_type='download'),
-        name='index'
+        name='download'
     ),
 ]

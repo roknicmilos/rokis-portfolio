@@ -1,4 +1,6 @@
 from django.contrib import admin
+from django.utils.safestring import mark_safe
+from django.urls import reverse
 from django.utils.translation import gettext_lazy as _
 
 from cv.admin import (
@@ -15,9 +17,14 @@ from cv.models import CV
 
 @admin.register(CV)
 class CVAdmin(admin.ModelAdmin):
+    list_display = (
+        'title',
+        'cv_link',
+    )
     fieldsets = (
         (None, {
             'fields': (
+                'cv_link',
                 'slug',
                 'title',
                 'filename',
@@ -68,6 +75,9 @@ class CVAdmin(admin.ModelAdmin):
             'classes': ('collapse',),
         }),
     )
+    readonly_fields = (
+        'cv_link',
+    )
     inlines = [
         LinkInline,
         SkillInline,
@@ -77,3 +87,12 @@ class CVAdmin(admin.ModelAdmin):
         EducationInline,
         ProjectInline,
     ]
+
+    @admin.display(description=_('CV Link'))
+    def cv_link(self, obj: CV = None) -> str:
+        if not obj.pk:
+            return _('Save the CV first to generate the link.')
+
+        href = reverse(viewname='cv:index', kwargs={'slug': obj.slug})
+        label = _('Display {cv}').format(cv=str(obj))
+        return mark_safe(f'<a href="{href}">{label}</a>')
