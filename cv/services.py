@@ -3,51 +3,78 @@ from django.template.loader import render_to_string
 from django.utils.translation import gettext_lazy as _
 
 
-def render_left_column_segments(cv: CV) -> list[str]:
-    segments = []
+def get_left_column_segments(cv: CV) -> list[str]:
+    """
+    Returns a list of rendered HTML segments for the
+    left column of the CV in the order they should be
+    displayed which is configured in the CV model.
+    """
+
+    segments: list[dict] = [
+        {
+            'order': cv.get_left_segment_order(CV.LeftSegment.CONTACT),
+            'content': render_to_string(
+                template_name='cv/includes/contact.html',
+                context={
+                    'address_link': cv.address_link,
+                    'address_label': cv.address_label,
+                    'phone': cv.phone,
+                    'email': cv.email,
+                }
+            ),
+        },
+    ]
     if cv.links.exists():
-        segments.append(
-            render_to_string(
+        segments.append({
+            'order': cv.get_left_segment_order(CV.LeftSegment.LINKS),
+            'content': render_to_string(
                 template_name='cv/includes/links.html',
                 context={'links': cv.links.all()},
             )
-        )
+        })
     if cv.skills.exists():
-        segments.append(
-            render_to_string(
+        segments.append({
+            'order': cv.get_left_segment_order(CV.LeftSegment.SKILLS),
+            'content': render_to_string(
                 template_name='cv/includes/skills.html',
                 context={
                     'skills': cv.ordered_skills,
                     'title': _('SKILLS'),
                 },
             )
-        )
+        })
     if cv.languages.exists():
-        segments.append(
-            render_to_string(
+        segments.append({
+            'order': cv.get_left_segment_order(CV.LeftSegment.LANGUAGES),
+            'content': render_to_string(
                 template_name='cv/includes/skills.html',
                 context={
                     'skills': cv.languages.all(),
                     'title': _('LANGUAGES'),
                 },
             )
-        )
+        })
     if cv.internships.exists():
-        segments.append(
-            render_to_string(
-                template_name='cv/includes/internships.html',
+        segments.append({
+            'order': cv.get_left_segment_order(CV.LeftSegment.INTERNSHIP),
+            'content': render_to_string(
+                template_name='cv/includes/internship.html',
                 context={'internships': cv.ordered_internships},
             )
-        )
+        })
     if cv.educations.exists():
-        segments.append(
-            render_to_string(
-                template_name='cv/includes/educations.html',
+        segments.append({
+            'order': cv.get_left_segment_order(CV.LeftSegment.EDUCATION),
+            'content': render_to_string(
+                template_name='cv/includes/education.html',
                 context={'educations': cv.ordered_educations},
             )
-        )
+        })
 
-    return segments
+    return [
+        segment['content'] for segment
+        in sorted(segments, key=lambda x: x['order'])
+    ]
 
 
 def render_right_column_segments(cv: CV) -> list[str]:
@@ -62,7 +89,7 @@ def render_right_column_segments(cv: CV) -> list[str]:
     if cv.employments.exists():
         segments.append(
             render_to_string(
-                template_name='cv/includes/employments.html',
+                template_name='cv/includes/employment.html',
                 context={'employments': cv.ordered_employments},
             )
         )

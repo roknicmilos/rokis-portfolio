@@ -22,6 +22,7 @@ class BaseModel(models.Model):
         else:
             self.validation_errors[field_name] = message
 
+    @property
     def has_validation_errors(self) -> bool:
         return bool(
             self.validation_errors['__all__']
@@ -30,5 +31,5 @@ class BaseModel(models.Model):
 
     def clean(self):
         super().clean()
-        if self.validation_errors:
+        if self.has_validation_errors:
             raise ValidationError(self.validation_errors)

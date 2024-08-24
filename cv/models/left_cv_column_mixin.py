@@ -75,3 +75,14 @@ class LeftCVColumnMixin(BaseModel):
             )
 
         super().clean()
+
+    def get_left_segment_order(self, segment: LeftSegment) -> int:
+        segments = [
+            self.first_left_segment,
+            self.second_left_segment,
+            self.third_left_segment,
+            self.fourth_left_segment,
+            self.fifth_left_segment,
+            self.sixth_left_segment,
+        ]
+        return segments.index(segment)

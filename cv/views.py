@@ -5,7 +5,7 @@ from django_pdf_view.views import PDFView
 
 from cv.models import CV
 from cv.services import (
-    render_left_column_segments,
+    get_left_column_segments,
     render_right_column_segments,
 )
 
@@ -31,7 +31,7 @@ class CVPDFView(PDFView):
         context = super().get_context()
         context['cv'] = self.cv
         context['avatar_url'] = self._get_absolut_avatar_url()
-        context['left_column'] = render_left_column_segments(cv=self.cv)
+        context['left_column'] = get_left_column_segments(cv=self.cv)
         context['right_column'] = render_right_column_segments(cv=self.cv)
         context['cv_pdf_url'] = reverse(
             viewname='cv:pdf',
