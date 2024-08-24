@@ -1,6 +1,6 @@
 {% load svg static %}
 
-<div class="left-box skills">
+<div class="left-segment skills">
     <h2 class="title">{{ title }}</h2>
     {% for skill in skills %}
         {% if forloop.first or forloop.counter0|divisibleby:2 %}

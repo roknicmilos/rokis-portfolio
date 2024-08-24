@@ -1,22 +1,22 @@
 {% load svg static i18n %}
 
 <div class="page {% if response_type == 'html' %}page--html{% endif %}">
-    <section class="left">
+    <section class="left-column">
         <div class="avatar">
             <img src="{{ avatar_url }}" alt="avatar"/>
         </div>
         {% include 'cv/includes/contact.html' %}
-        {% for item in left_section %}
-            {{ item }}
+        {% for segment in left_column %}
+            {{ segment }}
         {% endfor %}
     </section>
-    <section class="right">
-        <div class="right-box header">
+    <section class="right-column">
+        <div class="right-segment header">
             <h1 class="name">{{ cv.first_name|upper }} {{ cv.last_name|upper }}</h1>
             <p class="role">{{ cv.role|upper }}</p>
         </div>
-        {% for item in right_section %}
-            {{ item }}
+        {% for segment in right_column %}
+            {{ segment }}
         {% endfor %}
     </section>
 </div>

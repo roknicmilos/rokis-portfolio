@@ -1,10 +1,10 @@
-.left {
+.left-column {
     width: 35%;
     background-color: #303030;
     margin: 0 auto;
 }
 
-.left .title {
+.left-column .title {
     color: white;
 }
 
@@ -28,14 +28,14 @@
     height: 100%;
 }
 
-.left-box {
+.left-segment {
     width: 80%;
     margin: 0 auto;
     max-width: 300px;
     page-break-inside: avoid;
 }
 
-.page--html .left-box {
+.page--html .left-segment {
     margin: 0 60px 0 auto;
 }
 

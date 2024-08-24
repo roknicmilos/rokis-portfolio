@@ -1,19 +1,19 @@
-.right {
+.right-column {
     width: 65%;
     margin: 0 auto;
 }
 
-.right p {
+.right-column p {
     line-height: 1.5;
 }
 
-.right-box {
+.right-segment {
     width: 90%;
     margin: 0 auto 10px auto;
     page-break-inside: avoid;
 }
 
-.page--html .right-box {
+.page--html .right-segment {
     margin: 10px 60px;
     max-width: 70%;
 }
