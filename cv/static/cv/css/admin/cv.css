@@ -1,0 +1,30 @@
+.extra-info {
+    padding: 20px 30px;
+    margin: 20px 0;
+    border-radius: 10px;
+    width: fit-content;
+}
+
+[data-theme="dark"] .extra-info {
+    background-color: #494848;
+    color: white;
+}
+
+[data-theme="light"] .extra-info {
+    background-color: #aee0f6;
+    color: black;
+}
+
+@media (prefers-color-scheme: dark) {
+    [data-theme="auto"] .extra-info {
+        background-color: #494848;
+        color: white;
+    }
+}
+
+@media (prefers-color-scheme: light) {
+    [data-theme="auto"] .extra-info {
+        background-color: #aee0f6;
+        color: black;
+    }
+}
