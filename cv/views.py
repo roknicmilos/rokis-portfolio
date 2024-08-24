@@ -4,7 +4,10 @@ from django_pdf_view.pdf import PDF
 from django_pdf_view.views import PDFView
 
 from cv.models import CV
-from cv.sevices import render_left_column_segments, render_right_column_segments
+from cv.services import (
+    render_left_column_segments,
+    render_right_column_segments,
+)
 
 
 class CVPDFView(PDFView):

@@ -22,6 +22,7 @@ class CVAdmin(admin.ModelAdmin):
                 'title',
                 'filename',
                 'avatar',
+                'page_count',
             ),
         }),
         (_('CONTACT (L)'), {

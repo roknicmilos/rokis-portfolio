@@ -1,4 +1,5 @@
 from django.db import models
+from django.core.validators import MinValueValidator, MaxValueValidator
 from django.utils.translation import gettext_lazy as _
 
 
@@ -15,6 +16,20 @@ class CV(models.Model):
     filename = models.CharField(
         verbose_name=_('filename'),
         max_length=100,
+    )
+    page_count = models.PositiveSmallIntegerField(
+        verbose_name=_('page count'),
+        default=1,
+        help_text=_(
+            'If the content of your CV does not fit on one page, '
+            'the content will be automatically split into multiple '
+            'pages. Set the expected number of pages here to apply '
+            'the first page styling across all pages.'
+        ),
+        validators=[
+            MinValueValidator(1),
+            MaxValueValidator(3),
+        ]
     )
     avatar = models.ImageField(
         verbose_name=_('avatar'),
@@ -53,6 +68,8 @@ class CV(models.Model):
         verbose_name=_('about me'),
         blank=True,
     )
+
+    # TODO: add item ordering per section
 
     class Meta:
         verbose_name = _('CV')

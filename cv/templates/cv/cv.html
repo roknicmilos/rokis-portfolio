@@ -1,6 +1,7 @@
 {% load svg static i18n %}
 
-<div class="page {% if response_type == 'html' %}page--html{% endif %}">
+<div class="page {% if response_type == 'html' %}page--html{% endif %}"
+     {% if response_type == 'pdf' %}style="height: calc(100% * {{ cv.page_count }})"{% endif %}>
     <section class="left-column">
         <div class="avatar">
             <img src="{{ avatar_url }}" alt="avatar"/>
