@@ -32,18 +32,18 @@ def render_left_column_segments(cv: CV) -> list[str]:
                 },
             )
         )
-    if cv.educations.exists():
-        segments.append(
-            render_to_string(
-                template_name='cv/includes/educations.html',
-                context={'educations': cv.ordered_educations},
-            )
-        )
     if cv.internships.exists():
         segments.append(
             render_to_string(
                 template_name='cv/includes/internships.html',
                 context={'internships': cv.ordered_internships},
+            )
+        )
+    if cv.educations.exists():
+        segments.append(
+            render_to_string(
+                template_name='cv/includes/educations.html',
+                context={'educations': cv.ordered_educations},
             )
         )
 
