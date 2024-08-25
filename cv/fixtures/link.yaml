@@ -21,3 +21,11 @@
     type: linkedin
     label: LinkedIn
     url: https://www.linkedin.com/in/eric-cartman-2bb165273/
+
+- model: cv.Link
+  pk: 4
+  fields:
+    cv: 1
+    type: website
+    label: Website
+    url: https://roknicmilos.com/

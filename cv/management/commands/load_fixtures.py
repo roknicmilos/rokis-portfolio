@@ -8,7 +8,6 @@ from django.core.management import call_command
 class Command(BaseCommand):
     help = 'Load all fixtures'
     fixture_labels = [
-        'user',
         'cv',
         'link',
         'skill',

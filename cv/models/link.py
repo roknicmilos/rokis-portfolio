@@ -6,6 +6,7 @@ class Link(models.Model):
     class Type(models.TextChoices):
         LINKEDIN = 'linkedin', _('LinkedIn')
         GITHUB = 'github', _('GitHub')
+        WEBSITE = 'website', _('Website')
 
     cv = models.ForeignKey(
         'CV',
