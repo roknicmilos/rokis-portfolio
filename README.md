@@ -24,20 +24,27 @@ Corner provides a comprehensive view of my expertise.
     pip install -r requirements.txt
     ```
 
-4. Create a `.env` file in the root directory based on the `example.env` file
+4. Install wkhtmltopdf (required
+   by [django-pdf-view](https://pypi.org/project/django-pdf-view/) for
+   generating PDFs):
+    ```bash
+    sudo apt install wkhtmltopdf
+    ```
+
+5. Create a `.env` file in the root directory based on the `example.env` file
    <br/><br/>
 
-5. Run migrations:
+6. Run migrations:
     ```bash
     python manage.py migrate
     ```
 
-6. (Optional) Load (all) fixtures using custom management command:
+7. (Optional) Load (all) fixtures using custom management command:
     ```bash
     python manage.py load_fixtures
     ```
 
-7. Start the development server:
+8. Start the development server:
     ```bash
     python manage.py runserver
     ```
