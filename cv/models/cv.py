@@ -1,3 +1,4 @@
+from common.validators import MaxFileSizeValidator
 from django.db import models
 from django.core.validators import MinValueValidator, MaxValueValidator
 from django.utils.translation import gettext_lazy as _
@@ -42,6 +43,9 @@ class CV(LeftCVColumnMixin, RightCVColumnMixin, BaseModel):
         verbose_name=_('avatar'),
         upload_to='cv/img/',
         null=True,
+        validators=[
+            MaxFileSizeValidator(100),
+        ]
     )
     first_name = models.CharField(
         verbose_name=_('first name'),
