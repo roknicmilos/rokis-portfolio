@@ -13,3 +13,11 @@
     type: github
     label: GitHub
     url: https://github.com/roknicmilos
+
+- model: cv.Link
+  pk: 3
+  fields:
+    cv: 2
+    type: linkedin
+    label: LinkedIn
+    url: https://www.linkedin.com/in/eric-cartman-2bb165273/

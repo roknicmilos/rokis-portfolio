@@ -32,3 +32,14 @@
     end: 2017-12-01
     location: Novi Sad, Serbia
     description: Business Psychology major
+
+- model: cv.Education
+  pk: 3
+  fields:
+    cv: 2
+    school: School of Life and Mischief, South Park Elementary, CO
+    degree: Honorary Degree in Chaos Engineering
+    start: 1997-01-01
+    end: 2000-01-01
+    location: South Park, CO
+    description: Never again!

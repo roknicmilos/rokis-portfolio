@@ -123,3 +123,45 @@
     cv: 1
     label: PHP
     level: 3
+
+- model: cv.Skill
+  pk: 19
+  fields:
+    cv: 2
+    label: Advanced Manipulation Techniques
+    level: 5
+
+- model: cv.Skill
+  pk: 20
+  fields:
+    cv: 2
+    label: Prank Planning and Execution
+    level: 5
+
+- model: cv.Skill
+  pk: 21
+  fields:
+    cv: 2
+    label: Strategic Persuasion
+    level: 5
+
+- model: cv.Skill
+  pk: 22
+  fields:
+    cv: 2
+    label: Chaos Theory Application
+    level: 5
+
+- model: cv.Skill
+  pk: 23
+  fields:
+    cv: 2
+    label: Ethical Ambiguity
+    level: 4
+
+- model: cv.Skill
+  pk: 24
+  fields:
+    cv: 2
+    label: Good Friend
+    level: 1

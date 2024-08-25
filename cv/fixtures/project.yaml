@@ -55,3 +55,27 @@
       with flexible content and styling options. Automated the release process
       with a bash script, handling version updates, git tagging, GitHub release
       creation, and publishing to PyPI.
+
+
+- model: cv.Project
+  pk: 4
+  fields:
+    cv: 2
+    name: Chaos Engineering
+    role: Chief Mischief Officer
+    start: 1997-01-01
+    end: 2000-01-01
+    technologies:
+      Psychological Manipulation, Sabotage, Bribery, Disinformation
+    description:
+      Spearheaded the infamous "Chili Con Carnival" operation, a highly complex
+      and meticulously planned scheme aimed at executing the ultimate act of revenge
+      against perceived enemies. Led a multi-phase initiative that included
+      psychological manipulation of key targets, leveraging deep-seated fears and
+      insecurities to ensure compliance. Orchestrated a covert operation to sabotage
+      rival culinary events by introducing "special ingredients" into the chili,
+      achieving maximum shock value. Managed strategic bribery and disinformation
+      campaigns to divert attention and blame, ensuring the operation's success
+      while maintaining plausible deniability. This project has been hailed as a
+      landmark in mischief execution, earning Cartman the unofficial title of
+      "Master of Malevolence."

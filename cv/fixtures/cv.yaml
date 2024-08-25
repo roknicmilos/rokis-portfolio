@@ -25,15 +25,20 @@
 - model: cv.CV
   pk: 2
   fields:
-    slug: konobar
-    title: CV | Konobar
-    filename: CV-Konobar-08-2024.pdf
+    slug: eric-cartman
+    title: CV | Eric Cartman
+    filename: CV-Eric-Cartman-08-2024.pdf
     page_count: 1
     avatar: cv/img/cartman.jpg
-    first_name: Žika
-    last_name: Petrović
-    role: Konobar
-    email: zika.petrovic@example.com
-    phone: 999999999999
-    address_label: Dva Jelena, Skadarlija, Beograd, 11000, Srbija
-    address_link: https://www.google.rs/maps/place/Dva+jelena/@44.8175907,20.462982,18z/data=!3m1!4b1!4m6!3m5!1s0x475a65a2f5c2410f:0x593b17952a814579!8m2!3d44.8175888!4d20.4642695!16s%2Fg%2F11b5wqgn7r?hl=hr&entry=ttu&g_ep=EgoyMDI0MDgyMS4wIKXMDSoASAFQAw%3D%3D
+    first_name: Eric
+    last_name: Cartman
+    role: Chief Mischief Officer
+    email: eric.cartman@southpark.com
+    phone: 666666666
+    address_label: 28201 E Street, South Park, CO 80440
+    address_link: https://www.google.rs/maps/place/South+Park/@39.2245089,-106.0037528,14z/data=!4m10!1m2!2m1!1ssouth+park!3m6!1s0x876ae92fe25d669d:0xef48b8d4914aa47b!8m2!3d39.224671!4d-106.004149!15sCgpzb3V0aCBwYXJrkgESdG91cmlzdF9hdHRyYWN0aW9u4AEA!16s%2Fg%2F11qr464ff_?hl=hr&entry=ttu&g_ep=EgoyMDI0MDgyMS4wIKXMDSoASAFQAw%3D%3D
+    about_me:
+      Highly motivated and strategically devious individual with extensive
+      experience in manipulation, chaos generation, and leading various schemes.
+      Known for a unique ability to rally others (usually for personal gain)
+      and for unparalleled expertise in causing trouble.

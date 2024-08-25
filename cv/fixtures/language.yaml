@@ -11,3 +11,10 @@
     cv: 1
     label: English
     level: 4
+
+- model: cv.Language
+  pk: 3
+  fields:
+    cv: 2
+    label: English
+    level: 5
