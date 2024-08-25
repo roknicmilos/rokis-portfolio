@@ -11,6 +11,9 @@
         {% endfor %}
     </section>
     <section class="right-column">
+        <div class="avatar-mobile">
+            <img src="{{ avatar_url }}" alt="avatar"/>
+        </div>
         <div class="right-segment header">
             <h1 class="name">{{ cv.first_name|upper }} {{ cv.last_name|upper }}</h1>
             <p class="role">{{ cv.role|upper }}</p>

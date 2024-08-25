@@ -1,6 +1,6 @@
 Django==5.1
 PyYAML==6.0.2 # *.yaml fixtures
-django-pdf-view==2.0.3
+django-pdf-view==2.0.4
 gunicorn==23.0.0 # HTTP server (production ready)
 pillow==10.4.0 # image upload (Django Admin)
 python-decouple==3.8 # reading environment variables

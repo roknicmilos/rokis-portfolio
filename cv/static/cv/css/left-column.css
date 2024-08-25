@@ -2,12 +2,18 @@
     width: 35%;
     background-color: #303030;
     margin: 0 auto;
+
+    @media only screen and (max-width: 768px) {
+        width: 100%;
+        padding: 50px 0 100px;
+    }
 }
 
 .left-column .title {
     color: white;
 }
 
+.avatar-mobile,
 .avatar {
     margin: 50px auto;
     width: 175px;
@@ -17,8 +23,22 @@
     display: flex;
     align-items: center;
     justify-content: center;
+
+    @media only screen and (max-width: 768px) {
+        display: none;
+    }
 }
 
+.avatar-mobile {
+    display: none;
+
+    @media only screen and (max-width: 768px) {
+        display: flex;
+        margin: 50px;
+    }
+}
+
+.avatar-mobile img,
 .avatar img {
     width: 100%;
     height: 100%;
@@ -39,6 +59,10 @@
 
 .page--html .left-segment {
     margin: 0 60px 0 auto;
+
+    @media only screen and (max-width: 768px) {
+        margin: 0 auto;
+    }
 }
 
 .contact-item,

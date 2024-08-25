@@ -1,6 +1,10 @@
 .right-column {
     width: 65%;
     margin: 0 auto;
+
+    @media only screen and (max-width: 768px) {
+        width: 100%;
+    }
 }
 
 .right-column p {
@@ -16,6 +20,12 @@
 .page--html .right-segment {
     margin: 0 60px;
     max-width: 70%;
+
+    @media only screen and (max-width: 768px) {
+        width: 90%;
+        max-width: unset;
+        margin: 0 auto;
+    }
 }
 
 .header,

@@ -1,6 +1,10 @@
 .page {
     font-family: Roboto, sans-serif;
     display: flex;
+
+    @media only screen and (max-width: 768px) {
+        flex-direction: column-reverse;
+    }
 }
 
 .page--html {
@@ -31,10 +35,24 @@
     color: white;
     text-decoration: none;
     border-radius: 5px;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    box-shadow: rgba(0, 0, 0, 0.35) 0 5px 15px;
     font-family: Roboto, sans-serif;
     font-size: 20px;
     transition: transform 0.3s, background-color 0.3s;
+
+    @media only screen and (max-width: 768px) {
+        top: 20px;
+        right: 20px;
+        bottom: unset;
+        width: 60px;
+        height: 60px;
+        padding: 20px;
+        border-radius: 50%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+    }
 }
 
 .cv-pdf-button:hover {
