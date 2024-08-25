@@ -1,0 +1,31 @@
+{% load svg static i18n %}
+
+<div class="page {% if response_type == 'html' %}page--html{% endif %}"
+     {% if response_type == 'pdf' %}style="height: calc(100% * {{ cv.page_count }})"{% endif %}>
+    <section class="left-column">
+        <div class="avatar">
+            <img src="{{ avatar_url }}" alt="avatar"/>
+        </div>
+        {% for segment in left_column %}
+            {{ segment }}
+        {% endfor %}
+    </section>
+    <section class="right-column">
+        <div class="avatar-mobile">
+            <img src="{{ avatar_url }}" alt="avatar"/>
+        </div>
+        <div class="right-segment header">
+            <h1 class="name">{{ cv.first_name|upper }} {{ cv.last_name|upper }}</h1>
+            <p class="role">{{ cv.role|upper }}</p>
+        </div>
+        {% for segment in right_column %}
+            {{ segment }}
+        {% endfor %}
+    </section>
+</div>
+
+{% if response_type == 'html' %}
+    <a href="{{ cv_pdf_url }}" class="cv-pdf-button" target="_blank">
+        {% trans 'GET PDF' %}
+    </a>
+{% endif %}

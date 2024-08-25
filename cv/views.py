@@ -12,7 +12,7 @@ from cv.services import (
 
 class CVPDFView(PDFView):
     cv: CV
-    template_name = 'cv/cv.html'
+    template_name = 'cv/cv_content.html'
     css_paths = [
         'cv/css/'
     ]
@@ -21,6 +21,7 @@ class CVPDFView(PDFView):
         self.cv = get_object_or_404(CV, slug=self.kwargs['slug'])
         return PDF(
             template_name=self.template_name,
+            base_template_name='cv/cv.html',
             title=self.cv.title,
             filename=self.cv.filename,
             context=self.get_context(),

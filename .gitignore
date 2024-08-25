@@ -5,8 +5,7 @@
 __pycache__
 db.sqlite3
 media
-# Only root static directory (achieved with forward slash):
-/static
+staticfiles
 
 # Backup files #
 *.bak
