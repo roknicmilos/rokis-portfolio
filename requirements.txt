@@ -1,4 +1,4 @@
 Django==5.1
 PyYAML==6.0.2 # *.yaml fixtures
-django-pdf-view==2.0.2
+django-pdf-view==2.0.3
 pillow==10.4.0 # image upload (Django Admin)
