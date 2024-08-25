@@ -44,9 +44,13 @@ Corner provides a comprehensive view of my expertise.
     python manage.py load_fixtures
     ```
 
-8. Start the development server:
+8. Start the **development** server:
     ```bash
     python manage.py runserver
+    ```
+   or the **production** server:
+    ```bash
+    gunicorn rokis_corner.wsgi
     ```
 
 - If you loaded the fixtures, you can access some CVs on the following URLs:
