@@ -1,9 +1,0 @@
-- model: auth.User
-  pk: 1
-  fields:
-    email: admin@example.com
-    password: pbkdf2_sha256$870000$rK517wnbwCrxa20AnESThT$SarlG8xGS9n0O50cOLE3eIDTd9TsxJzI2JJTGNV8mpI= # raw: admin
-    username: admin
-    is_staff: true
-    is_superuser: true
-    is_active: true
