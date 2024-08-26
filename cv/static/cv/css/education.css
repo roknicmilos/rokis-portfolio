@@ -13,10 +13,14 @@
     align-items: center;
     justify-content: space-between;
     font-size: 14px;
+
+    @media only screen and (max-width: 1200px) {
+        width: fit-content;
+    }
 }
 
 .education-item-period {
-    margin: 0;
+    margin: 0 20px 0 0;
 }
 
 .education-item-location {

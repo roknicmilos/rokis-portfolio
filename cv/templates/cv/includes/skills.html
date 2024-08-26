@@ -2,21 +2,14 @@
 
 <div class="left-segment skills">
     <h2 class="title">{{ title }}</h2>
-    {% for skill in skills %}
-        {% if forloop.first or forloop.counter0|divisibleby:2 %}
-            {# Because CSS property grid is not supported when rendering PDF from HTML #}
-            {# ('pdfkit' python package), we need to "manually" split the items into two #}
-            {# columns (divs) when rendering the HTML template. #}
-            <div class="skills-row">
-        {% endif %}
-    <div class="skill">
-        <p class="skill-label">{{ skill.label }}</p>
-        <div class="skill-bar">
-            <div class="skill-bar-filler skill-bar-filler-{{ skill.level }}"></div>
-        </div>
+    <div class="skill-items">
+        {% for skill in skills %}
+            <div class="skill">
+                <p class="skill-label">{{ skill.label }}</p>
+                <div class="skill-bar">
+                    <div class="skill-bar-filler skill-bar-filler-{{ skill.level }}"></div>
+                </div>
+            </div>
+        {% endfor %}
     </div>
-    {% if forloop.last or forloop.counter|divisibleby:2 %}
-        </div>
-    {% endif %}
-    {% endfor %}
 </div>

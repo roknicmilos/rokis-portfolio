@@ -3,7 +3,7 @@
     background-color: #303030;
     margin: 0 auto;
 
-    @media only screen and (max-width: 768px) {
+    @media only screen and (max-width: 1200px) {
         width: 100%;
         padding: 50px 0 100px;
     }
@@ -24,7 +24,7 @@
     align-items: center;
     justify-content: center;
 
-    @media only screen and (max-width: 768px) {
+    @media only screen and (max-width: 1200px) {
         display: none;
     }
 }
@@ -32,7 +32,7 @@
 .avatar-mobile {
     display: none;
 
-    @media only screen and (max-width: 768px) {
+    @media only screen and (max-width: 1200px) {
         display: flex;
         margin: 50px;
     }
@@ -60,8 +60,20 @@
 .page--html .left-segment {
     margin: 0 60px 0 auto;
 
-    @media only screen and (max-width: 768px) {
+    @media only screen and (max-width: 1200px) {
+        width: 90%;
+        max-width: unset;
         margin: 0 auto;
+    }
+}
+
+.link-items {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+
+    @media only screen and (max-width: 1200px) {
+        justify-content: flex-start;
     }
 }
 
@@ -92,4 +104,10 @@
 .link {
     color: white;
     text-decoration: none;
+    width: 100%;
+
+    @media only screen and (max-width: 1200px) {
+        width: fit-content;
+        margin-right: 60px;
+    }
 }

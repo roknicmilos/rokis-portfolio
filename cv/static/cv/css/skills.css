@@ -1,20 +1,32 @@
-.skills:last-of-type {
-    margin-bottom: 70px;
-}
-
-.skills-row {
+.skill-items {
     display: flex;
     justify-content: space-between;
-    width: 100%;
-    margin: 10px 0;
+    flex-wrap: wrap;
+
+    @media only screen and (max-width: 1200px) {
+        justify-content: flex-start;
+    }
 }
 
 .skill {
     width: 45%;
-    margin: 5px 20px 5px 0;
+    max-width: 150px;
+    margin: 10px 0;
     display: flex;
     flex-direction: column;
     justify-content: flex-end;
+
+    @media only screen and (max-width: 1200px) {
+        margin-right: 40px;
+    }
+}
+
+.skill:nth-child(odd) {
+    margin-right: 20px;
+
+    @media only screen and (max-width: 1200px) {
+        margin-right: 40px;
+    }
 }
 
 .skill-label {
@@ -23,7 +35,6 @@
 }
 
 .skill-bar {
-    width: 100px;
     height: 5px;
     border-bottom: 1px solid white;
 }
@@ -34,21 +45,21 @@
 }
 
 .skill-bar-filler-1 {
-    width: 20px;
+    width: 20%;
 }
 
 .skill-bar-filler-2 {
-    width: 40px;
+    width: 40%;
 }
 
 .skill-bar-filler-3 {
-    width: 60px;
+    width: 60%;
 }
 
 .skill-bar-filler-4 {
-    width: 80px;
+    width: 80%;
 }
 
 .skill-bar-filler-5 {
-    width: 100px;
+    width: 100%;
 }
