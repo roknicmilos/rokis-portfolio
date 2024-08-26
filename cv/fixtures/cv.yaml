@@ -25,6 +25,7 @@
 - model: cv.CV
   pk: 2
   fields:
+    is_published: true
     slug: eric-cartman
     title: CV | Eric Cartman
     filename: CV-Eric-Cartman-08-2024.pdf
