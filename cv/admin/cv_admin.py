@@ -20,11 +20,13 @@ class CVAdmin(admin.ModelAdmin):
     list_display = (
         'title',
         'cv_link',
+        'is_published',
     )
     fieldsets = (
         (None, {
             'fields': (
                 'cv_link',
+                'is_published',
                 'slug',
                 'title',
                 'filename',

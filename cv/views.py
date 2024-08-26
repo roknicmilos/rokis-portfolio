@@ -18,7 +18,11 @@ class CVPDFView(PDFView):
     ]
 
     def create_pdf(self) -> PDF:
-        self.cv = get_object_or_404(CV, slug=self.kwargs['slug'])
+        self.cv = get_object_or_404(
+            klass=CV,
+            slug=self.kwargs['slug'],
+            is_published=True
+        )
         return PDF(
             template_name=self.template_name,
             base_template_name='cv/cv.html',

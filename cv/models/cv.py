@@ -12,6 +12,10 @@ class CV(LeftCVColumnMixin, RightCVColumnMixin, BaseModel):
         EMPLOYMENT = 'employment', _('Employment')
         PROJECTS = 'projects', _('Projects')
 
+    is_published = models.BooleanField(
+        verbose_name=_('is published'),
+        default=False,
+    )
     slug = models.SlugField(
         verbose_name=_('slug'),
         max_length=100,
