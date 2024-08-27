@@ -1,21 +1,27 @@
 #!/bin/bash
 
+echo "Starting the SSH agent and adding GitHub SSH private key to the agent..."
+# NOTE: The next command is a custom command configured in the
+# ~/.bashrc file on the server:
+ssh-start || exit
+
 echo "Pulling changes from GitHub..."
-cd /var/www/rokis-corner
-git pull origin main
+cd /var/www/rokis-corner || exit
+git pull origin main || exit
 
 echo "Installing/updating dependencies..."
-source venv/bin/activate
-pip install -r requirements.txt
+source venv/bin/activate || exit
+pip install -r requirements.txt || exit
 
 echo "Applying migrations..."
-python manage.py migrate
+python manage.py migrate || exit
 
 echo "Collecting static files..."
-python manage.py collectstatic --noinput
+python manage.py collectstatic --noinput || exit
 
 echo "Restarting gunicorn..."
 # NOTE: Running the next command with 'sudo' requires this
-# command to be added to the sudoers file allowing the user
-# to run the command without a password:
-sudo systemctl restart rokis-corner.gunicorn
+# command to be added to the sudoers file for the user
+# executing the script, allowing that user to run the command
+# without a password:
+sudo systemctl restart rokis-corner.gunicorn || exit
