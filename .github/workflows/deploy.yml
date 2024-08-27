@@ -18,5 +18,9 @@ jobs:
         with:
           ssh-private-key: ${{ secrets.DROPLET_SSH_KEY }}
 
+      - name: Add Host to Known Hosts
+        run: |
+          ssh-keyscan -H ${{ secrets.DROPLET_IP }} >> ~/.ssh/known_hosts
+
       - name: Deploy to DigitalOcean Droplet
         run: ssh ${{ secrets.DROPLET_USER }}@${{ secrets.DROPLET_IP }} 'bash /var/www/rokis-corner/scripts/deploy'
