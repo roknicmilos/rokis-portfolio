@@ -19,4 +19,4 @@ jobs:
           ssh-private-key: ${{ secrets.DROPLET_SSH_KEY }}
 
       - name: Deploy to DigitalOcean Droplet
-        run: ssh ${{ secrets.DROPLET_USER }}@${{ secrets.DROPLET_IP }} 'bash /var/www/rokis-corner/deploy'
+        run: ssh ${{ secrets.DROPLET_USER }}@${{ secrets.DROPLET_IP }} 'bash /var/www/rokis-corner/scripts/deploy'
