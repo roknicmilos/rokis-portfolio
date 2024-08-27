@@ -1,9 +1,21 @@
 #!/bin/bash
 
+echo "Pulling changes from GitHub..."
 cd /var/www/rokis-corner
 git pull origin main
+
+echo "Installing/updating dependencies..."
 source venv/bin/activate
 pip install -r requirements.txt
+
+echo "Applying migrations..."
 python manage.py migrate
+
+echo "Collecting static files..."
 python manage.py collectstatic --noinput
+
+echo "Restarting gunicorn..."
+# NOTE: Running the next command with 'sudo' requires this
+# command to be added to the sudoers file allowing the user
+# to run the command without a password:
 sudo systemctl restart rokis-corner.gunicorn
