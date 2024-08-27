@@ -24,7 +24,4 @@ jobs:
 
       - name: Deploy to DigitalOcean Droplet
         run: |
-          SSH_CMD="ssh ${{ secrets.DROPLET_USER }}@${{ secrets.DROPLET_IP }}"
-          $SSH_CMD 'cd /var/www/rokis-corner'
-          $SSH_CMD 'git pull origin main'
-          $SSH_CMD 'bash /var/www/rokis-corner/scripts/deploy'
+          ssh ${{ secrets.DROPLET_USER }}@${{ secrets.DROPLET_IP }} 'cd /var/www/rokis-corner && git pull && bash /var/www/rokis-corner/scripts/deploy'
