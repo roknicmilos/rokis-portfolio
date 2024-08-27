@@ -23,4 +23,8 @@ jobs:
           ssh-keyscan -H ${{ secrets.DROPLET_IP }} >> ~/.ssh/known_hosts
 
       - name: Deploy to DigitalOcean Droplet
-        run: ssh ${{ secrets.DROPLET_USER }}@${{ secrets.DROPLET_IP }} 'bash /var/www/rokis-corner/scripts/deploy'
+        run: |
+          SSH_CMD="ssh ${{ secrets.DROPLET_USER }}@${{ secrets.DROPLET_IP }}"
+          $SSH_CMD 'cd /var/www/rokis-corner'
+          $SSH_CMD 'git pull origin main'
+          $SSH_CMD 'bash /var/www/rokis-corner/scripts/deploy'
