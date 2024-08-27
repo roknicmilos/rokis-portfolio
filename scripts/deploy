@@ -1,18 +1,5 @@
 #!/bin/bash
 
-#echo "Starting the SSH agent and adding GitHub SSH private key to the agent..."
-#echo "Starting the SSH Agent..."
-#eval "$(ssh-agent -s)"
-#
-#echo "Adding GitHub SSH private Key to the Agent..."
-#ssh-add ~/.ssh/github_ed25519
-#
-#echo "Changing to the project directory..."
-#cd /var/www/rokis-corner || exit
-#
-#echo "Pulling changes from GitHub..."
-#git pull origin main || exit
-
 echo "Installing/updating dependencies..."
 source venv/bin/activate
 pip install -r requirements.txt
