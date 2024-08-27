@@ -2,7 +2,7 @@
     width: 65%;
     margin: 0 auto;
 
-    @media only screen and (max-width: 768px) {
+    @media only screen and (max-width: 1200px) {
         width: 100%;
     }
 }
@@ -21,7 +21,7 @@
     margin: 0 60px;
     max-width: 70%;
 
-    @media only screen and (max-width: 768px) {
+    @media only screen and (max-width: 1200px) {
         width: 90%;
         max-width: unset;
         margin: 0 auto;
