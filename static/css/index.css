@@ -8,7 +8,13 @@ body {
 
 h1 {
     text-align: center;
-    margin: 150px 0 50px 0;
+    margin: 120px auto 60px auto;
+    width: 80%;
+
+    @media only screen and (max-width: 768px) {
+        margin-top: 70px;
+        width: 280px;
+    }
 }
 
 main {
@@ -17,11 +23,15 @@ main {
 }
 
 .introduction {
-    width: 80%;
-    margin: 50px auto;
-    text-align: center;
+    width: 70%;
+    margin: 30px auto;
+    text-align: justify;
     font-size: 20px;
-    line-height: 1.5;
+    line-height: 1.8;
+
+    @media only screen and (max-width: 768px) {
+        width: 85%;
+    }
 }
 
 .introduction a {
@@ -33,7 +43,7 @@ main {
 
 .create-portfolio-button {
     position: relative;
-    margin: 50px auto;
+    margin: 60px auto;
     padding: 25px 35px;
     background-color: grey;
     border-radius: 5px;
@@ -41,14 +51,18 @@ main {
     max-width: 200px;
     line-height: 1.6;
     color: white;
-    text-decoration: none;
     text-align: center;
     cursor: pointer;
+    box-shadow: rgba(240, 46, 46, 0.4) 5px 5px,
+    rgba(240, 46, 46, 0.3) 10px 10px,
+    rgba(240, 46, 46, 0.2) 15px 15px,
+    rgba(240, 46, 46, 0.1) 20px 20px,
+    rgba(240, 46, 170, 0.05) 25px 25px;
 }
 
 .create-portfolio-button__tooltip-text {
     visibility: hidden;
-    width: 150px; /* Adjust the width as needed */
+    width: 180px; /* Adjust the width as needed */
     height: 50px;
     display: flex;
     justify-content: center;
@@ -60,9 +74,9 @@ main {
     padding: 5px;
     position: absolute;
     z-index: 1;
-    bottom: 105%; /* Position the tooltip above the text */
+    bottom: 110%; /* Position the tooltip above the text */
     left: 50%;
-    margin-left: -80px; /* Center the tooltip */
+    margin-left: -95px; /* Center the tooltip */
     opacity: 0;
     transition: opacity 0.3s;
 }
