@@ -1,0 +1,33 @@
+{% load i18n static %}
+
+{% get_current_language as CURRENT_LANGUAGE_CODE %}
+
+<!DOCTYPE html>
+<html lang="{{ CURRENT_LANGUAGE_CODE }}">
+<head>
+    <title>{% trans "Roki's Corner" %}</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    {% include 'includes/icons.html' %}
+    <link rel="stylesheet" href="{% static 'css/index.css' %}">
+</head>
+<body>
+<main>
+    <h1>{% trans "Welcome to Roki's Corner" %} 👋🏼</h1>
+    <p class="introduction">
+        My name is Miloš Roknić and I created this website to show
+        you that I can create a website. 😎
+        <br/>
+        It's created with Django, and it uses a
+        <a href="https://pypi.org/project/django-pdf-view/">Django PDF View</a>,
+        a library that I created to generate PDF files from HTML templates.
+    </p>
+    <a class="create-portfolio-button" href="#">
+        {% trans "Create your own portfolio page"|upper %}
+        <span class="create-portfolio-button__tooltip-text">
+            {% trans "Coming soon" %}
+        </span>
+    </a>
+</main>
+</body>
+</html>
