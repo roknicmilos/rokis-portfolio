@@ -41,8 +41,12 @@ downloaded as CVs in PDF format.
     ```bash
     python manage.py load_fixtures
     ```
+8. (Optional) Create a superuser with credentials defined in the `.env` file:
+    ```bash
+    python manage.py create_superuser
+    ```
 
-8. Start the **development** server:
+9. Start the **development** server:
     ```bash
     python manage.py runserver
     ```
@@ -51,17 +55,10 @@ downloaded as CVs in PDF format.
     gunicorn rokis_corner.wsgi
     ```
 
-- If you loaded the fixtures, you can access:
-    - Admin panel with superuser credentials (set in `.env`
-      file): http://localhost:8000/admin/
-    - Eric Cartman portfolio page: http://localhost:8000/cv/eric-cartman/
-- If you didn't load the fixtures, you can create a superuser and add CVs
-  manually:
-    ```bash
-    python manage.py createsuperuser
-    ```
-    - Access the admin panel at http://localhost:8000/admin/ and add CVs
-      manually
+- If you created superuser, you can access Django Admin
+  at http://localhost:8000/admin/
+- If you loaded fixtures, you can check Eric's Cartman portfolio page
+  at http://localhost:8000/eric-cartman/
 
 ## Use `systemd` to Manage Gunicorn
 
