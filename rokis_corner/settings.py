@@ -42,6 +42,7 @@ INSTALLED_APPS = [
 
     # First party apps:
     'apps.common',
+    'apps.user',
     'apps.portfolio',
 ]
 
@@ -131,3 +132,5 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 MEDIA_URL = '/media/'
 
 MEDIA_ROOT = BASE_DIR / 'media/'
+
+AUTH_USER_MODEL = 'user.User'

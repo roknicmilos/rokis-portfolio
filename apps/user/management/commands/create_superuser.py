@@ -1,6 +1,7 @@
 from decouple import config
-from django.contrib.auth.models import User
 from django.core.management.base import BaseCommand
+
+from apps.user.models import User
 
 
 class Command(BaseCommand):
