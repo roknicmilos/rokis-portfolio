@@ -1,0 +1,22 @@
+{% load svg i18n %}
+
+<div class="right-segment">
+    <h2 class="title">{% trans 'EMPLOYMENT HISTORY' %}</h2>
+    {% for employment in employments %}
+        <div class="position-item">
+            <h3 class="position-item-title">{{ employment.title }}, {{ employment.company }}</h3>
+            <div class="position-item-subtitle">
+                <p class="position-item-period">
+                    {{ employment.start|date:"M Y" }} - {{ employment.end|date:"M Y"|default:_('Present') }}
+                </p>
+                <div class="position-item-location">
+                    {% svg "portfolio/svg/location-dark.svg" %}
+                    <p class="position-item-location-value">{{ employment.location }}</p>
+                </div>
+            </div>
+            <p class="position-item-description">
+                {{ employment.description }}
+            </p>
+        </div>
+    {% endfor %}
+</div>

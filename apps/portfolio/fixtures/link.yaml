@@ -1,0 +1,31 @@
+- model: portfolio.Link
+  pk: 1
+  fields:
+    portfolio: 1
+    type: linkedin
+    label: LinkedIn
+    url: https://www.linkedin.com/in/milo%C5%A1-rokni%C4%87-30853bb8/
+
+- model: portfolio.Link
+  pk: 2
+  fields:
+    portfolio: 1
+    type: github
+    label: GitHub
+    url: https://github.com/roknicmilos
+
+- model: portfolio.Link
+  pk: 3
+  fields:
+    portfolio: 2
+    type: linkedin
+    label: LinkedIn
+    url: https://www.linkedin.com/in/eric-cartman-2bb165273/
+
+- model: portfolio.Link
+  pk: 4
+  fields:
+    portfolio: 1
+    type: website
+    label: Website
+    url: https://roknicmilos.com/

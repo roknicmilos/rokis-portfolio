@@ -41,8 +41,8 @@ INSTALLED_APPS = [
     'django_pdf_view',
 
     # First party apps:
-    'common',
-    'cv',
+    'apps.common',
+    'apps.portfolio',
 ]
 
 MIDDLEWARE = [

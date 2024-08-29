@@ -1,0 +1,23 @@
+- model: portfolio.Internship
+  pk: 1
+  fields:
+    portfolio: 1
+    title: Software Engineer
+    company: Vega IT
+    location: Novi Sad, Serbia
+    start: 2018-12-01
+    end: 2019-01-01
+    description: Worked on a PHP/Drupal pet project.
+
+- model: portfolio.Internship
+  pk: 2
+  fields:
+    portfolio: 1
+    title: Software Engineer
+    company: Vivify
+    location: Novi Sad, Serbia
+    start: 2018-07-01
+    end: 2019-08-15
+    description:
+      Worked on a pet project where I was implementing a REST API 
+      in PHP/Laravel and web app in JavaScript/React.
