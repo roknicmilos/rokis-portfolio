@@ -34,7 +34,7 @@ class CVAdmin(admin.ModelAdmin):
                 'page_count',
             ),
         }),
-        (_('LEFT COLUMN | SEGMENT ORDER'), {
+        (_('Left Column | Segment Order'), {
             'fields': (
                 'first_left_segment',
                 'second_left_segment',
@@ -45,7 +45,7 @@ class CVAdmin(admin.ModelAdmin):
             ),
             'classes': ('collapse',),
         }),
-        (_('RIGHT COLUMN | SEGMENT ORDER'), {
+        (_('Right Column | Segment Order'), {
             'fields': (
                 'first_right_segment',
                 'second_right_segment',
@@ -53,7 +53,7 @@ class CVAdmin(admin.ModelAdmin):
             ),
             'classes': ('collapse',),
         }),
-        (_('CONTACT (L)'), {
+        (_('*CONTACT (L)'), {
             'fields': (
                 'email',
                 'phone',
@@ -62,7 +62,7 @@ class CVAdmin(admin.ModelAdmin):
             ),
             'classes': ('collapse',),
         }),
-        (_('HEADER (R)'), {
+        (_('*HEADER (R)'), {
             'fields': (
                 'first_name',
                 'last_name',

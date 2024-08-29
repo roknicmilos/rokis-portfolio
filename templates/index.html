@@ -1,0 +1,70 @@
+{% load i18n static %}
+
+{% get_current_language as CURRENT_LANGUAGE_CODE %}
+
+<!DOCTYPE html>
+<html lang="{{ CURRENT_LANGUAGE_CODE }}">
+<head>
+    <title>{% trans "Roki's Corner" %}</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    {% include 'includes/icons.html' %}
+    <link rel="stylesheet" href="{% static 'css/index.css' %}">
+</head>
+<body>
+<main>
+    <h1>{% trans "Welcome to Roki's Corner" %} 👋🏼</h1>
+    <p class="introduction">
+        {% blocktrans %}
+            My name is Miloš Roknić, but you can call me Roki.
+            Welcome to my corner of the internet.
+        {% endblocktrans %}
+        {% blocktrans %}
+            It is powered by <a href="https://www.djangoproject.com/">Django</a>
+            and <a href="https://pypi.org/project/django-pdf-view/">Django PDF View</a>.
+        {% endblocktrans %}
+        {% blocktrans %}
+            I created Django PDF View, a Django package that lets you generate
+            a PDF from a web page with just one click.
+        {% endblocktrans %}
+        {% blocktrans %}
+            I know what you think, "Why the hell would I need that?".
+        {% endblocktrans %}
+        {% blocktrans %}
+            Well, imagine you want to create a portfolio page where you can show
+            your work experience, skills, projects, etc.
+        {% endblocktrans %}
+        {% blocktrans %}
+            Now imagine being able to create a PDF from that page with just one
+            click. Cool, right? Right? Come on, say "right"!
+        {% endblocktrans %}
+        {% url 'cv:index' 'roknic-milos' as my_portfolio_url %}
+        {% blocktrans with profile_url=my_portfolio_url %}
+            Anyway... If you want to see how it works, you can visit
+            <a href="{{ profile_url }}">my portfolio page</a>. Don’t forget to
+            hit the "GET PDF" button.
+        {% endblocktrans %}
+    </p>
+    <p class="introduction">
+        {% blocktrans with cartman_portfolio_url=cartman_portfolio_url %}
+            At this moment, only I hold the power to create portfolio pages,
+            and I can do it for anyone.
+        {% endblocktrans %}
+        {% url 'cv:index' 'eric-cartman' as cartman_portfolio_url %}
+        {% blocktrans with cartman_portfolio_url=cartman_portfolio_url %}
+            I created one for
+            <a href="{{ cartman_portfolio_url }}">Eric Cartman</a>.
+            Honestly, I have no idea how he talked me into it. That kid's got
+            some serious persuasion skills.
+        {% endblocktrans %}
+    </p>
+
+    <div class="create-portfolio-button">
+        {% trans "Create your own portfolio page"|upper %}
+        <span class="create-portfolio-button__tooltip-text">
+            {% trans "Coming soon"|upper %}
+        </span>
+    </div>
+</main>
+</body>
+</html>

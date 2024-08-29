@@ -1,0 +1,100 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #0d1117;
+    color: white;
+}
+
+h1 {
+    text-align: center;
+    margin: 120px auto 60px auto;
+    width: 80%;
+
+    @media only screen and (max-width: 768px) {
+        margin-top: 70px;
+        width: 280px;
+    }
+}
+
+main {
+    display: flex;
+    flex-direction: column;
+}
+
+.introduction {
+    width: 70%;
+    margin: 30px auto;
+    text-align: justify;
+    font-size: 20px;
+    line-height: 1.8;
+
+    @media only screen and (max-width: 768px) {
+        width: 85%;
+    }
+}
+
+.introduction a {
+    color: white;
+    font-weight: 900;
+    text-decoration: none;
+    border-bottom: 1px solid white;
+}
+
+.create-portfolio-button {
+    position: relative;
+    margin: 60px auto;
+    padding: 25px 35px;
+    background-color: grey;
+    border-radius: 5px;
+    font-size: 20px;
+    max-width: 200px;
+    line-height: 1.6;
+    color: white;
+    text-align: center;
+    cursor: pointer;
+    box-shadow: rgba(240, 46, 46, 0.4) 5px 5px,
+    rgba(240, 46, 46, 0.3) 10px 10px,
+    rgba(240, 46, 46, 0.2) 15px 15px,
+    rgba(240, 46, 46, 0.1) 20px 20px,
+    rgba(240, 46, 170, 0.05) 25px 25px;
+}
+
+.create-portfolio-button__tooltip-text {
+    visibility: hidden;
+    width: 180px; /* Adjust the width as needed */
+    height: 50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: white;
+    color: black;
+    text-align: center;
+    border-radius: 5px;
+    padding: 5px;
+    position: absolute;
+    z-index: 1;
+    bottom: 110%; /* Position the tooltip above the text */
+    left: 50%;
+    margin-left: -95px; /* Center the tooltip */
+    opacity: 0;
+    transition: opacity 0.3s;
+}
+
+/* Tooltip arrow */
+.create-portfolio-button__tooltip-text::after {
+    content: "";
+    position: absolute;
+    top: 100%; /* At the bottom of the tooltip */
+    left: 50%;
+    margin-left: -5px;
+    border-width: 5px;
+    border-style: solid;
+    border-color: white transparent transparent transparent;
+}
+
+/* Show the tooltip text when hovering */
+.create-portfolio-button:hover .create-portfolio-button__tooltip-text {
+    visibility: visible;
+    opacity: 1;
+}
