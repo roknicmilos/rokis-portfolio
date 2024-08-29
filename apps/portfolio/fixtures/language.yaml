@@ -1,0 +1,20 @@
+- model: portfolio.Language
+  pk: 1
+  fields:
+    portfolio: 1
+    label: Serbian
+    level: 5
+
+- model: portfolio.Language
+  pk: 2
+  fields:
+    portfolio: 1
+    label: English
+    level: 4
+
+- model: portfolio.Language
+  pk: 3
+  fields:
+    portfolio: 2
+    label: English
+    level: 5

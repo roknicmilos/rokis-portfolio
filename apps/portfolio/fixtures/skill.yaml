@@ -1,0 +1,167 @@
+- model: portfolio.Skill
+  pk: 1
+  fields:
+    portfolio: 1
+    label: Python
+    level: 5
+
+- model: portfolio.Skill
+  pk: 2
+  fields:
+    portfolio: 1
+    label: Django
+    level: 5
+
+- model: portfolio.Skill
+  pk: 3
+  fields:
+    portfolio: 1
+    label: JavaScript
+    level: 5
+
+- model: portfolio.Skill
+  pk: 4
+  fields:
+    portfolio: 1
+    label: TypeScript
+    level: 5
+
+- model: portfolio.Skill
+  pk: 5
+  fields:
+    portfolio: 1
+    label: Next.js
+    level: 5
+
+- model: portfolio.Skill
+  pk: 6
+  fields:
+    portfolio: 1
+    label: React
+    level: 5
+
+- model: portfolio.Skill
+  pk: 7
+  fields:
+    portfolio: 1
+    label: HTML
+    level: 5
+
+- model: portfolio.Skill
+  pk: 8
+  fields:
+    portfolio: 1
+    label: SCSS
+    level: 5
+
+- model: portfolio.Skill
+  pk: 9
+  fields:
+    portfolio: 1
+    label: CSS
+    level: 5
+
+- model: portfolio.Skill
+  pk: 10
+  fields:
+    portfolio: 1
+    label: Git
+    level: 5
+
+- model: portfolio.Skill
+  pk: 11
+  fields:
+    portfolio: 1
+    label: GitHub
+    level: 5
+
+- model: portfolio.Skill
+  pk: 12
+  fields:
+    portfolio: 1
+    label: SQL
+    level: 4
+
+- model: portfolio.Skill
+  pk: 13
+  fields:
+    portfolio: 1
+    label: PostgreSQL
+    level: 4
+
+- model: portfolio.Skill
+  pk: 14
+  fields:
+    portfolio: 1
+    label: Docker
+    level: 4
+
+- model: portfolio.Skill
+  pk: 15
+  fields:
+    portfolio: 1
+    label: Cypress
+    level: 4
+
+- model: portfolio.Skill
+  pk: 16
+  fields:
+    portfolio: 1
+    label: Ubuntu
+    level: 4
+
+- model: portfolio.Skill
+  pk: 17
+  fields:
+    portfolio: 1
+    label: Bash
+    level: 3
+
+- model: portfolio.Skill
+  pk: 18
+  fields:
+    portfolio: 1
+    label: PHP
+    level: 3
+
+- model: portfolio.Skill
+  pk: 19
+  fields:
+    portfolio: 2
+    label: Advanced Manipulation Techniques
+    level: 5
+
+- model: portfolio.Skill
+  pk: 20
+  fields:
+    portfolio: 2
+    label: Prank Planning and Execution
+    level: 5
+
+- model: portfolio.Skill
+  pk: 21
+  fields:
+    portfolio: 2
+    label: Strategic Persuasion
+    level: 5
+
+- model: portfolio.Skill
+  pk: 22
+  fields:
+    portfolio: 2
+    label: Chaos Theory Application
+    level: 5
+
+- model: portfolio.Skill
+  pk: 23
+  fields:
+    portfolio: 2
+    label: Ethical Ambiguity
+    level: 4
+
+- model: portfolio.Skill
+  pk: 24
+  fields:
+    portfolio: 2
+    label: Good Friend
+    level: 1

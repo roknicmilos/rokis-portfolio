@@ -38,7 +38,7 @@
             Now imagine being able to create a PDF from that page with just one
             click. Cool, right? Right? Come on, say "right"!
         {% endblocktrans %}
-        {% url 'cv:index' 'roknic-milos' as my_portfolio_url %}
+        {% url 'portfolio:index' 'roknic-milos' as my_portfolio_url %}
         {% blocktrans with profile_url=my_portfolio_url %}
             Anyway... If you want to see how it works, you can visit
             <a href="{{ profile_url }}">my portfolio page</a>. Don’t forget to
@@ -50,7 +50,7 @@
             At this moment, only I hold the power to create portfolio pages,
             and I can do it for anyone.
         {% endblocktrans %}
-        {% url 'cv:index' 'eric-cartman' as cartman_portfolio_url %}
+        {% url 'portfolio:index' 'eric-cartman' as cartman_portfolio_url %}
         {% blocktrans with cartman_portfolio_url=cartman_portfolio_url %}
             I created one for
             <a href="{{ cartman_portfolio_url }}">Eric Cartman</a>.

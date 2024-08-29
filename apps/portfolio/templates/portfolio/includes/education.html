@@ -1,0 +1,22 @@
+{% load svg i18n %}
+
+<div class="left-segment">
+    <h2 class="title">{% trans 'EDUCATION' %}</h2>
+    {% for item in educations %}
+        <div class="education-item">
+            <h3 class="education-item-title">{{ item.title }}</h3>
+            <div class="education-item-subtitle">
+                <p class="education-item-period">
+                    {{ item.start|date:"M Y" }} - {{ item.end|date:"M Y"|default:_('Present') }}
+                </p>
+                <div class="education-item-location">
+                    {% svg "portfolio/svg/location.svg" %}
+                    <p class="education-item-location-value">{{ item.location }}</p>
+                </div>
+            </div>
+            <p class="education-item-description">
+                {{ item.description }}
+            </p>
+        </div>
+    {% endfor %}
+</div>
