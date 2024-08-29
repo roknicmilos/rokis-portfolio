@@ -1,10 +1,8 @@
 # Roki's Corner
 
-**Roki's Corner** is a personal portfolio website built with Django, dedicated
-to showcasing my work experience and projects. It's a space where I highlight my
-professional journey, the skills I've developed, and the projects I've worked
-on. Whether you're interested in my career path or the work I've done, Roki's
-Corner provides a comprehensive view of my expertise.
+**Roki's Corner** is a portfolio generation web application built with Django.
+It allows users to create and manage their portfolio pages, which can be
+downloaded as CVs in PDF format.
 
 ## Getting Started
 
@@ -53,8 +51,10 @@ Corner provides a comprehensive view of my expertise.
     gunicorn rokis_corner.wsgi
     ```
 
-- If you loaded the fixtures, you can access some CVs on the following URLs:
-    - http://localhost:8000/cv/eric-cartman/
+- If you loaded the fixtures, you can access:
+    - Admin panel with superuser credentials (set in `.env`
+      file): http://localhost:8000/admin/
+    - Eric Cartman portfolio page: http://localhost:8000/cv/eric-cartman/
 - If you didn't load the fixtures, you can create a superuser and add CVs
   manually:
     ```bash
