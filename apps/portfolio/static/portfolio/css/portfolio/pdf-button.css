@@ -1,0 +1,49 @@
+/* Expected to be <a> tag */
+.pdf-button {
+    position: fixed;
+    right: 0;
+    bottom: 40px;
+    background-color: #9c0d0d;
+    color: white;
+    font-family: Roboto, sans-serif;
+    font-size: 20px;
+    text-decoration: none;
+    padding: 10px 20px;
+    border-radius: 5px 0 0 5px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    cursor: pointer;
+    transition: width 0.3s ease-in-out;
+    width: 30px; /* Initial width with only the SVG visible */
+    height: 40px;
+
+    @media only screen and (max-width: 1200px) {
+        top: 40px;
+        bottom: unset;
+    }
+}
+
+.pdf-button svg {
+    height: 25px;
+    width: 25px;
+    min-width: 25px;
+}
+
+/*!* Text is initially hidden *!*/
+.pdf-button .text {
+    white-space: nowrap;
+    width: 0;
+    overflow: hidden;
+    transition: width 0.3s ease-in-out;
+}
+
+/*!* Expand button on hover *!*/
+.pdf-button.expanded {
+    width: 130px;
+}
+
+/*!* Show the text on hover *!*/
+.pdf-button.expanded .text {
+    width: auto;
+}

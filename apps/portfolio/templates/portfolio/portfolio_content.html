@@ -25,7 +25,8 @@
 </div>
 
 {% if response_type == 'html' %}
-    <a href="{{ portfolio_pdf_url }}" class="portfolio-pdf-button" target="_blank">
-        {% trans 'GET PDF' %}
+    <a class="pdf-button" href="{{ portfolio_pdf_url }}">
+        <span class="text">{% trans 'Download' %}</span>
+        {% svg "portfolio/svg/pdf.svg" %}
     </a>
 {% endif %}

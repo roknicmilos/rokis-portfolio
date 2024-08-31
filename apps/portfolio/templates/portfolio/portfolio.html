@@ -6,3 +6,10 @@
     {% include 'includes/icons.html' %}
     {{ block.super }}
 {% endblock style %}
+
+{% block content %}
+    {{ block.super }}
+    {% if response_type == "html" %}
+        <script src="{% static 'portfolio/js/pdf-button.js' %}"></script>
+    {% endif %}
+{% endblock content %}
