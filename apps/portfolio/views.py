@@ -14,7 +14,7 @@ class PortfolioPDFView(PDFView):
     portfolio: Portfolio
     template_name = 'portfolio/portfolio_content.html'
     css_paths = [
-        'portfolio/css/'
+        'portfolio/css/portfolio/'
     ]
 
     def create_pdf(self) -> PDF:
