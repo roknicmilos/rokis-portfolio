@@ -2,6 +2,11 @@
 
 {% load static %}
 
+{% block metatags %}
+    {{ block.super }}
+    <meta name="description" content="{{ portfolio.about_me }}">
+{% endblock metatags %}
+
 {% block style %}
     {% include 'includes/icons.html' %}
     {{ block.super }}
