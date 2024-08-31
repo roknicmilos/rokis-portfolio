@@ -28,15 +28,14 @@
       Python, Django, PostgreSQL, Pytest, HTML, SCSS, JavaScript, jQuery,
       Docker, Docker Compose, Travis CI
     description:
-      "Initiated and led the development of a Parking Portals application 
-      from scratch, using Python/Django for backend development and 
-      HTML/CSS/SCSS for the frontend. Implemented Docker for containerization 
-      and deployment. The project, initially planned for a few months, was 
-      extended due to its success, generating significant revenue and 
-      exceeding client expectations. Parking Portals is a white-label 
-      platform for creating two types of websites: Employee portals and 
-      Consumer portals. These portals can be managed through a back office 
-      with three distinct Django Admin sites: General, Employee, and Consumer."
+      I initiated and led the development of a white-label platform that 
+      allows users to create and manage their parking reservations. 
+      Originally planned for a few months, the project was extended due 
+      to its significant success, ultimately generating substantial 
+      revenue with the deployment of over 40 portals and facilitating 
+      more than 1 million reservations. I was using Python/Django on the
+      backend and HTML, CSS, SCSS, and JavaScript on the frontend. 
+      Additionally, I utilized Docker for containerization and deployment.
 
 - model: portfolio.Project
   pk: 3
@@ -52,9 +51,9 @@
       Developed a Django package to streamline PDF document creation,
       allowing for easy viewing and downloading in the browser. The package
       includes predefined HTML and CSS layouts for efficient PDF generation,
-      with flexible content and styling options. Automated the release process
-      with a bash script, handling version updates, git tagging, GitHub release
-      creation, and publishing to PyPI.
+      with flexible content and styling options. Automated the release 
+      process with a bash script, handling version updates, git tagging, 
+      GitHub release creation, and publishing to PyPI.
 
 
 - model: portfolio.Project
