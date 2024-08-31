@@ -8,6 +8,7 @@ from rokis_corner.views import get_index_page
 urlpatterns = [
     path('', get_index_page, name='index'),
     path('admin/', admin.site.urls),
+    path('users/', include('apps.user.urls', namespace='user')),
     path('<slug:slug>/', include('apps.portfolio.urls', namespace='portfolio')),
 ]
 
