@@ -1,8 +1,9 @@
 # Roki's Corner
 
-**Roki's Corner** is a portfolio generation web application built with Django.
-It allows users to create and manage their portfolio pages, which can be
-downloaded as CVs in PDF format.
+**Roki's Corner** is a web application built with Django that enables users to
+create, customize, and manage their portfolio pages. Users can easily generate
+and download their portfolios as CVs in PDF format, providing a convenient way
+to showcase their professional experience and skills.
 
 ## Getting Started
 
