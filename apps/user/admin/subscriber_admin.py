@@ -7,6 +7,7 @@ from apps.user.models import Subscriber
 class SubscriberAdmin(admin.ModelAdmin):
     list_display = (
         'email',
+        'submission_count',
         'created',
         'modified',
     )
@@ -16,6 +17,7 @@ class SubscriberAdmin(admin.ModelAdmin):
     fields = (
         'id',
         'email',
+        'submission_count',
         'created',
         'modified',
     )
@@ -23,4 +25,5 @@ class SubscriberAdmin(admin.ModelAdmin):
         'id',
         'created',
         'modified',
+        'submission_count',
     )
