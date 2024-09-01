@@ -21,6 +21,8 @@
       gained experience with Docker, CI tools, testing frameworks and mentored
       colleagues and students in Python/Django and React. I also took on a
       Development Lead role, managing six colleagues' career progression.
+    created: 2024-09-01T00:00:00Z
+    modified: 2024-09-01T00:00:00Z
 
 - model: portfolio.Portfolio
   pk: 2
@@ -43,3 +45,5 @@
       experience in manipulation, chaos generation, and leading various schemes.
       Known for a unique ability to rally others (usually for personal gain)
       and for unparalleled expertise in causing trouble.
+    created: 2024-09-01T00:00:00Z
+    modified: 2024-09-01T00:00:00Z

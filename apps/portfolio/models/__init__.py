@@ -1,4 +1,3 @@
-from .base_model import BaseModel
 from .left_portfolio_column_mixin import LeftPortfolioColumnMixin
 from .right_portfolio_column_mixin import RightPortfolioColumnMixin
 from .portfolio import Portfolio

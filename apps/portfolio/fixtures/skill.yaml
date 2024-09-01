@@ -4,6 +4,8 @@
     portfolio: 1
     label: Python
     level: 5
+    created: 2024-09-01T00:00:00Z
+    modified: 2024-09-01T00:00:00Z
 
 - model: portfolio.Skill
   pk: 2
@@ -11,6 +13,8 @@
     portfolio: 1
     label: Django
     level: 5
+    created: 2024-09-01T00:00:00Z
+    modified: 2024-09-01T00:00:00Z
 
 - model: portfolio.Skill
   pk: 3
@@ -18,6 +22,8 @@
     portfolio: 1
     label: JavaScript
     level: 5
+    created: 2024-09-01T00:00:00Z
+    modified: 2024-09-01T00:00:00Z
 
 - model: portfolio.Skill
   pk: 4
@@ -25,6 +31,8 @@
     portfolio: 1
     label: TypeScript
     level: 5
+    created: 2024-09-01T00:00:00Z
+    modified: 2024-09-01T00:00:00Z
 
 - model: portfolio.Skill
   pk: 5
@@ -32,6 +40,8 @@
     portfolio: 1
     label: Next.js
     level: 5
+    created: 2024-09-01T00:00:00Z
+    modified: 2024-09-01T00:00:00Z
 
 - model: portfolio.Skill
   pk: 6
@@ -39,6 +49,8 @@
     portfolio: 1
     label: React
     level: 5
+    created: 2024-09-01T00:00:00Z
+    modified: 2024-09-01T00:00:00Z
 
 - model: portfolio.Skill
   pk: 7
@@ -46,6 +58,8 @@
     portfolio: 1
     label: HTML
     level: 5
+    created: 2024-09-01T00:00:00Z
+    modified: 2024-09-01T00:00:00Z
 
 - model: portfolio.Skill
   pk: 8
@@ -53,6 +67,8 @@
     portfolio: 1
     label: SCSS
     level: 5
+    created: 2024-09-01T00:00:00Z
+    modified: 2024-09-01T00:00:00Z
 
 - model: portfolio.Skill
   pk: 9
@@ -60,6 +76,8 @@
     portfolio: 1
     label: CSS
     level: 5
+    created: 2024-09-01T00:00:00Z
+    modified: 2024-09-01T00:00:00Z
 
 - model: portfolio.Skill
   pk: 10
@@ -67,6 +85,8 @@
     portfolio: 1
     label: Git
     level: 5
+    created: 2024-09-01T00:00:00Z
+    modified: 2024-09-01T00:00:00Z
 
 - model: portfolio.Skill
   pk: 11
@@ -74,6 +94,8 @@
     portfolio: 1
     label: GitHub
     level: 5
+    created: 2024-09-01T00:00:00Z
+    modified: 2024-09-01T00:00:00Z
 
 - model: portfolio.Skill
   pk: 12
@@ -81,6 +103,8 @@
     portfolio: 1
     label: SQL
     level: 4
+    created: 2024-09-01T00:00:00Z
+    modified: 2024-09-01T00:00:00Z
 
 - model: portfolio.Skill
   pk: 13
@@ -88,6 +112,8 @@
     portfolio: 1
     label: PostgreSQL
     level: 4
+    created: 2024-09-01T00:00:00Z
+    modified: 2024-09-01T00:00:00Z
 
 - model: portfolio.Skill
   pk: 14
@@ -95,6 +121,8 @@
     portfolio: 1
     label: Docker
     level: 4
+    created: 2024-09-01T00:00:00Z
+    modified: 2024-09-01T00:00:00Z
 
 - model: portfolio.Skill
   pk: 15
@@ -102,6 +130,8 @@
     portfolio: 1
     label: Cypress
     level: 4
+    created: 2024-09-01T00:00:00Z
+    modified: 2024-09-01T00:00:00Z
 
 - model: portfolio.Skill
   pk: 16
@@ -109,6 +139,8 @@
     portfolio: 1
     label: Ubuntu
     level: 4
+    created: 2024-09-01T00:00:00Z
+    modified: 2024-09-01T00:00:00Z
 
 - model: portfolio.Skill
   pk: 17
@@ -116,6 +148,8 @@
     portfolio: 1
     label: Bash
     level: 3
+    created: 2024-09-01T00:00:00Z
+    modified: 2024-09-01T00:00:00Z
 
 - model: portfolio.Skill
   pk: 18
@@ -123,6 +157,8 @@
     portfolio: 1
     label: PHP
     level: 3
+    created: 2024-09-01T00:00:00Z
+    modified: 2024-09-01T00:00:00Z
 
 - model: portfolio.Skill
   pk: 19
@@ -130,6 +166,8 @@
     portfolio: 2
     label: Advanced Manipulation Techniques
     level: 5
+    created: 2024-09-01T00:00:00Z
+    modified: 2024-09-01T00:00:00Z
 
 - model: portfolio.Skill
   pk: 20
@@ -137,6 +175,8 @@
     portfolio: 2
     label: Prank Planning and Execution
     level: 5
+    created: 2024-09-01T00:00:00Z
+    modified: 2024-09-01T00:00:00Z
 
 - model: portfolio.Skill
   pk: 21
@@ -144,6 +184,8 @@
     portfolio: 2
     label: Strategic Persuasion
     level: 5
+    created: 2024-09-01T00:00:00Z
+    modified: 2024-09-01T00:00:00Z
 
 - model: portfolio.Skill
   pk: 22
@@ -151,6 +193,8 @@
     portfolio: 2
     label: Chaos Theory Application
     level: 5
+    created: 2024-09-01T00:00:00Z
+    modified: 2024-09-01T00:00:00Z
 
 - model: portfolio.Skill
   pk: 23
@@ -158,6 +202,8 @@
     portfolio: 2
     label: Ethical Ambiguity
     level: 4
+    created: 2024-09-01T00:00:00Z
+    modified: 2024-09-01T00:00:00Z
 
 - model: portfolio.Skill
   pk: 24
@@ -165,3 +211,5 @@
     portfolio: 2
     label: Good Friend
     level: 1
+    created: 2024-09-01T00:00:00Z
+    modified: 2024-09-01T00:00:00Z

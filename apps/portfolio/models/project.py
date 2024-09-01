@@ -1,8 +1,10 @@
 from django.db import models
 from django.utils.translation import gettext_lazy as _
 
+from apps.common.models import BaseModel
 
-class Project(models.Model):
+
+class Project(BaseModel):
     portfolio = models.ForeignKey(
         'Portfolio',
         verbose_name=_('Portfolio'),
