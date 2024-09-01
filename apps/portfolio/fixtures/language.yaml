@@ -4,6 +4,8 @@
     portfolio: 1
     label: Serbian
     level: 5
+    created: 2024-09-01T00:00:00Z
+    modified: 2024-09-01T00:00:00Z
 
 - model: portfolio.Language
   pk: 2
@@ -11,6 +13,8 @@
     portfolio: 1
     label: English
     level: 4
+    created: 2024-09-01T00:00:00Z
+    modified: 2024-09-01T00:00:00Z
 
 - model: portfolio.Language
   pk: 3
@@ -18,3 +22,5 @@
     portfolio: 2
     label: English
     level: 5
+    created: 2024-09-01T00:00:00Z
+    modified: 2024-09-01T00:00:00Z

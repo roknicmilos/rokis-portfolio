@@ -21,22 +21,30 @@
 <main>
     <h1>{% trans "Welcome to Roki's Corner" %} 👋🏼</h1>
     <p class="introduction-text">
-        You're probably wondering how you ended up here and what the heck is Roki's Corner.
-        Well, since you're already here, you might as well stick around and let me explain
-        how you can benefit from this corner of the internet.
+        {% blocktrans %}
+            You're probably wondering how you ended up here and what the heck is Roki's Corner.
+            Well, since you're already here, you might as well stick around and let me explain
+            how you can benefit from this corner of the internet.
+        {% endblocktrans %}
     </p>
     <p class="introduction-text">
-        I built this corner to help you create your own portfolio page where you can
-        showcase your professional experience, skills, projects, and more. You can easily
-        generate and download your portfolio as a CV in PDF format preserving the page's
-        layout and styles. Cool, right? Right? Come on, say "right"! OK, if you're not
-        convinced yet, you can check out <a href="{{ profile_url }}">my portfolio page</a>
-        to see how it works. Don’t forget to hit the PDF button once you’re there.
+        {% url 'portfolio:index' 'roknic-milos' as roki_profile_url %}
+        {% blocktrans with roki_profile_url=roki_profile_url %}
+            I built this corner to help you create your own portfolio page where you can
+            showcase your professional experience, skills, projects, and more. You can easily
+            generate and download your portfolio as a CV in PDF format preserving the page's
+            layout and styles. Cool, right? Right? Come on, say "right"! OK, if you're not
+            convinced yet, you can check out <a href="{{ roki_profile_url }}">my portfolio page</a>
+            to see how it works. Don’t forget to hit the PDF button once you’re there.
+        {% endblocktrans %}
     </p>
     <p class="introduction-text">
-        Currently, only I hold the power to create portfolio pages. I also created one for
-        <a href="{{ cartman_portfolio_url }}">Eric Cartman</a>. Honestly, I have no idea
-        how he talked me into it. That kid's got some serious persuasion skills.
+        {% url 'portfolio:index' 'eric-cartman' as cartman_portfolio_url %}
+        {% blocktrans with cartman_portfolio_url=cartman_portfolio_url %}
+            Currently, only I hold the power to create portfolio pages. I also created one for
+            <a href="{{ cartman_portfolio_url }}">Eric Cartman</a>. Honestly, I have no idea
+            how he talked me into it. That kid's got some serious persuasion skills.
+        {% endblocktrans %}
     </p>
     <div class="subscribe">
         <p class="subscribe-text">

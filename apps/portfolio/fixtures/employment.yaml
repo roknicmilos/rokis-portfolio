@@ -19,6 +19,8 @@
       experience with Docker and various CI tools. For the last three
       years of this period, I exclusively worked on Ubuntu, solidifying
       my proficiency with this operating system.
+    created: 2024-09-01T00:00:00Z
+    modified: 2024-09-01T00:00:00Z
 
 - model: portfolio.Employment
   pk: 2
@@ -37,6 +39,8 @@
       latest projects. I also continued mentoring colleagues and
       students in Python/Django and React, while my experience with
       Docker and various CI tools has further grown during this period.
+    created: 2024-09-01T00:00:00Z
+    modified: 2024-09-01T00:00:00Z
 
 - model: portfolio.Employment
   pk: 3
@@ -57,4 +61,5 @@
       success by 300%. Coordinated with a team of like-minded individuals
       (Butters, Clyde, Kenny) to execute complex plans requiring secrecy,
       persuasion, and tactical improvisation.
-      persuasion, and tactical improvisation.
+    created: 2024-09-01T00:00:00Z
+    modified: 2024-09-01T00:00:00Z

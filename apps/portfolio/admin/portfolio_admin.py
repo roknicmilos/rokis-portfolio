@@ -21,16 +21,20 @@ class PortfolioAdmin(admin.ModelAdmin):
         'title',
         'portfolio_link',
         'is_published',
+        'created',
+        'modified',
     )
     fieldsets = (
         (None, {
             'fields': (
-                'portfolio_link',
                 'is_published',
+                'portfolio_link',
+                'id',
+                'created',
+                'modified',
                 'slug',
                 'title',
                 'filename',
-                'avatar',
                 'page_count',
             ),
         }),
@@ -50,6 +54,12 @@ class PortfolioAdmin(admin.ModelAdmin):
                 'first_right_segment',
                 'second_right_segment',
                 'third_right_segment',
+            ),
+            'classes': ('collapse',),
+        }),
+        (_('*IMAGE (L)'), {
+            'fields': (
+                'avatar',
             ),
             'classes': ('collapse',),
         }),
@@ -78,6 +88,9 @@ class PortfolioAdmin(admin.ModelAdmin):
         }),
     )
     readonly_fields = (
+        'id',
+        'created',
+        'modified',
         'portfolio_link',
     )
     inlines = [

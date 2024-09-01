@@ -1,3 +1,4 @@
+from apps.common.models import BaseModel
 from apps.common.validators import MaxFileSizeValidator
 from django.db import models
 from django.core.validators import MinValueValidator, MaxValueValidator
@@ -6,7 +7,6 @@ from django.utils.translation import gettext_lazy as _
 from apps.portfolio.models import (
     LeftPortfolioColumnMixin,
     RightPortfolioColumnMixin,
-    BaseModel,
 )
 
 

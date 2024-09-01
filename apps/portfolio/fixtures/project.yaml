@@ -16,6 +16,8 @@
       payment transactions, communicating with a Parking GraphQL API to
       manage payment status. Integrated multiple payment service providers
       to offer clients flexible gateway options.
+    created: 2024-09-01T00:00:00Z
+    modified: 2024-09-01T00:00:00Z
 
 - model: portfolio.Project
   pk: 2
@@ -28,14 +30,16 @@
       Python, Django, PostgreSQL, Pytest, HTML, SCSS, JavaScript, jQuery,
       Docker, Docker Compose, Travis CI
     description:
-      I initiated and led the development of a white-label platform that 
-      allows users to create and manage their parking reservations. 
-      Originally planned for a few months, the project was extended due 
-      to its significant success, ultimately generating substantial 
-      revenue with the deployment of over 40 portals and facilitating 
+      I initiated and led the development of a white-label platform that
+      allows users to create and manage their parking reservations.
+      Originally planned for a few months, the project was extended due
+      to its significant success, ultimately generating substantial
+      revenue with the deployment of over 40 portals and facilitating
       more than 1 million reservations. I was using Python/Django on the
-      backend and HTML, CSS, SCSS, and JavaScript on the frontend. 
+      backend and HTML, CSS, SCSS, and JavaScript on the frontend.
       Additionally, I utilized Docker for containerization and deployment.
+    created: 2024-09-01T00:00:00Z
+    modified: 2024-09-01T00:00:00Z
 
 - model: portfolio.Project
   pk: 3
@@ -51,9 +55,11 @@
       Developed a Django package to streamline PDF document creation,
       allowing for easy viewing and downloading in the browser. The package
       includes predefined HTML and CSS layouts for efficient PDF generation,
-      with flexible content and styling options. Automated the release 
-      process with a bash script, handling version updates, git tagging, 
+      with flexible content and styling options. Automated the release
+      process with a bash script, handling version updates, git tagging,
       GitHub release creation, and publishing to PyPI.
+    created: 2024-09-01T00:00:00Z
+    modified: 2024-09-01T00:00:00Z
 
 
 - model: portfolio.Project
@@ -78,3 +84,5 @@
       while maintaining plausible deniability. This project has been hailed as a
       landmark in mischief execution, earning Cartman the unofficial title of
       "Master of Malevolence."
+    created: 2024-09-01T00:00:00Z
+    modified: 2024-09-01T00:00:00Z

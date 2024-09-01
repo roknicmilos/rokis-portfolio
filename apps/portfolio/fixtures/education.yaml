@@ -10,6 +10,8 @@
     description:
       Java, Relational Databases, Web Development, Spring Framework,
       Hibernate, JPA, RESTful Web Services, AngularJS, JavaScript, HTML, CSS
+    created: 2024-09-01T00:00:00Z
+    modified: 2024-09-01T00:00:00Z
 
 - model: portfolio.Education
   pk: 2
@@ -21,6 +23,8 @@
     end: 2018-01-01
     location: Novi Sad, Serbia
     description: OOP, Java, Console Applications
+    created: 2024-09-01T00:00:00Z
+    modified: 2024-09-01T00:00:00Z
 
 - model: portfolio.Education
   pk: 3
@@ -32,6 +36,8 @@
     end: 2017-12-01
     location: Novi Sad, Serbia
     description: Business Psychology major
+    created: 2024-09-01T00:00:00Z
+    modified: 2024-09-01T00:00:00Z
 
 - model: portfolio.Education
   pk: 3
@@ -43,3 +49,5 @@
     end: 2000-01-01
     location: South Park, CO
     description: Never again!
+    created: 2024-09-01T00:00:00Z
+    modified: 2024-09-01T00:00:00Z

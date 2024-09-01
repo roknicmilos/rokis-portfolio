@@ -1,8 +1,8 @@
 from django.core.exceptions import ValidationError
-from django.db import models
+from django_extensions.db.models import TimeStampedModel
 
 
-class BaseModel(models.Model):
+class BaseModel(TimeStampedModel):
     class Meta:
         abstract = True
 

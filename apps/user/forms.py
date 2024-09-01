@@ -14,5 +14,8 @@ class SubscriberForm(forms.Form):
 
     def create_subscriber(self) -> Subscriber:
         email = self.cleaned_data['email']
-        subscriber, _ = Subscriber.objects.get_or_create(email=email)
+        subscriber, is_created = Subscriber.objects.get_or_create(email=email)
+        if not is_created:
+            subscriber.update(submission_count=subscriber.submission_count + 1)
+
         return subscriber
