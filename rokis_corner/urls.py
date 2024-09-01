@@ -3,10 +3,10 @@ from django.urls import path, include
 from django.conf import settings
 from django.conf.urls.static import static
 
-from rokis_corner.views import get_index_page
+from rokis_corner.views import IndexView
 
 urlpatterns = [
-    path('', get_index_page, name='index'),
+    path('', IndexView.as_view(), name='index'),
     path('admin/', admin.site.urls),
     path('<slug:slug>/', include('apps.portfolio.urls', namespace='portfolio')),
 ]
