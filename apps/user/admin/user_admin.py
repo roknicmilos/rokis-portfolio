@@ -10,4 +10,11 @@ admin.site.unregister(Group)
 
 @admin.register(User)
 class UserAdmin(BaseUserAdmin):
-    pass
+    list_display = (
+        'email',
+        'is_active',
+        'is_staff',
+        'is_superuser',
+        'date_joined',
+        'last_login',
+    )
