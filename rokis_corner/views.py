@@ -1,5 +1,5 @@
-from django.shortcuts import render
+from apps.user.views import SubscribeFormView
 
 
-def get_index_page(request):
-    return render(request, 'index.html')
+class IndexView(SubscribeFormView):
+    template_name = 'index.html'

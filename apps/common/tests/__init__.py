@@ -1,0 +1,1 @@
+from .flash_messages_mixin import FlashMessagesMixin

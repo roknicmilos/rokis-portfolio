@@ -1,12 +1,14 @@
-from django.test import TestCase
-from django.urls import reverse_lazy
 from unittest.mock import patch
 
+from django.urls import reverse_lazy
+from django.utils.translation import gettext_lazy as _
+
+from apps.common.tests import FlashMessagesMixin
 from apps.user.models import Subscriber
 
 
-class TestSubscribeView(TestCase):
-    url_path = reverse_lazy('user:subscribe')
+class TestIndexView(FlashMessagesMixin):
+    url_path = reverse_lazy('index')
 
     def test_valid_email_creates_subscriber_and_returns_200(self):
         email = 'valid@example.com'
@@ -14,22 +16,27 @@ class TestSubscribeView(TestCase):
 
         response = self.client.post(
             path=self.url_path,
-            data={'email': email}
+            data={'email': email},
+            follow=True
         )
 
-        self.assertEqual(response.status_code, 200)
         self.assertTrue(Subscriber.objects.filter(email=email).exists())
-        self.assertJSONEqual(
-            response.content,
-            {'message': 'Successfully subscribed'}
+        self.assertSuccessFlashMessage(
+            response=response,
+            message=_('Successfully subscribed!')
         )
 
     def test_invalid_email_returns_400_and_no_subscriber_created(self):
-        response = self.client.post(self.url_path, {'email': 'invalid-email'})
+        response = self.client.post(
+            path=self.url_path,
+            data={'email': 'invalid-email'}
+        )
 
-        self.assertEqual(response.status_code, 400)
         self.assertEqual(Subscriber.objects.count(), 0)
-        self.assertIn('errors', response.json())
+        self.assertErrorFlashMessage(
+            response=response,
+            message=_('Invalid email address!')
+        )
 
     def test_existing_email_does_not_create_subscriber_and_returns_200(self):
         email = 'existing@example.com'
@@ -40,11 +47,10 @@ class TestSubscribeView(TestCase):
             data={'email': email}
         )
 
-        self.assertEqual(response.status_code, 200)
         self.assertEqual(Subscriber.objects.count(), 1)
-        self.assertJSONEqual(
-            response.content,
-            {'message': 'Successfully subscribed'}
+        self.assertSuccessFlashMessage(
+            response=response,
+            message=_('Successfully subscribed!')
         )
 
     @patch('apps.user.views.SubscriberForm.create_subscriber')
@@ -56,9 +62,8 @@ class TestSubscribeView(TestCase):
             data={'email': 'error@example.com'}
         )
 
-        self.assertEqual(response.status_code, 500)
         self.assertEqual(Subscriber.objects.count(), 0)
-        self.assertJSONEqual(
-            response.content,
-            {'message': 'Internal server error'}
+        self.assertErrorFlashMessage(
+            response=response,
+            message=_('Internal server error!')
         )

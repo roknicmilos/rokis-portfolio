@@ -1,26 +1,24 @@
-from django.http import JsonResponse
-from django.views.generic import View
+from django.views.generic import FormView
+from django.contrib import messages
 from django.utils.translation import gettext_lazy as _
 
 from apps.user.forms import SubscriberForm
 
 
-class SubscribeView(View):
+class SubscribeFormView(FormView):
+    form_class = SubscriberForm
+    success_url = '.'
 
-    def post(self, *args, **kwargs) -> JsonResponse:
-        form = SubscriberForm(self.request.POST)
-        if not form.is_valid():
-            return JsonResponse({'errors': form.errors}, status=400)
-
+    def form_valid(self, form: SubscriberForm):
         try:
             form.create_subscriber()
         except Exception:
-            return JsonResponse(
-                data={'message': _('Internal server error')},
-                status=500
-            )
+            messages.error(self.request, _('Internal server error! 🤕'))
+        else:
+            messages.success(self.request, _('Successfully subscribed! 🥳'))
 
-        return JsonResponse(
-            data={'message': _('Successfully subscribed')},
-            status=200
-        )
+        return super().form_valid(form)
+
+    def form_invalid(self, form: SubscriberForm):
+        messages.error(self.request, _('Invalid email address! 😬'))
+        return super().form_invalid(form)
