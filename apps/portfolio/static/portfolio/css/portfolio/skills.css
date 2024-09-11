@@ -21,11 +21,9 @@
     }
 }
 
-.skill:nth-child(odd) {
-    margin-right: 20px;
-
-    @media only screen and (max-width: 1200px) {
-        margin-right: 40px;
+.skill:nth-child(even) {
+    @media only screen and (max-width: 768px) {
+        margin-right: 0;
     }
 }
 
