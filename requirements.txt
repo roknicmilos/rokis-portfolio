@@ -1,4 +1,4 @@
-Django==5.1
+Django==5.1.1
 PyYAML==6.0.2 # *.yaml fixtures
 django-extensions==3.2.3
 django-pdf-view==2.1.0
