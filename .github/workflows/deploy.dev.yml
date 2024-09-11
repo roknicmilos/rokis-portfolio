@@ -1,9 +1,9 @@
-name: Deploy
+name: Deploy DEV
 
 on:
   push:
     branches:
-      - main
+      - develop
 
 jobs:
   deploy:
@@ -25,9 +25,9 @@ jobs:
       - name: Deploy to DigitalOcean Droplet
         run: |
           ssh ${{ secrets.DROPLET_USER }}@${{ secrets.DROPLET_IP }} '
-          cd /var/www/rokis-corner \
+          cd /var/www/rokis-corner-dev \
           && eval "$(ssh-agent -s)" \
           && ssh-add ~/.ssh/github_ed25519 \
           && git pull \
-          && bash /var/www/rokis-corner/scripts/deploy
+          && bash /var/www/rokis-corner-dev/scripts/deploy.dev
           '
