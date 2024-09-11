@@ -28,6 +28,7 @@ jobs:
           cd /var/www/rokis-corner-dev \
           && eval "$(ssh-agent -s)" \
           && ssh-add ~/.ssh/github_ed25519 \
+          && git checkout develop \
           && git pull \
           && bash /var/www/rokis-corner-dev/scripts/deploy.dev
           '
