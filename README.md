@@ -7,53 +7,48 @@ to showcase their professional experience and skills.
 
 ## Getting Started
 
+### Prerequisites
+
+- [Python 3.12+](https://www.python.org/)
+- [Python Poetry](https://python-poetry.org/)
+- [wkhtmltopdf](https://wkhtmltopdf.org/)
+
+### Project Setup
+
 1. Clone the repository:
     ```bash
     git clone git@github.com:roknicmilos/rokis-corner.git
     ```
 
-2. (Optional) Create and activate a virtual environment:
+2. Install the required packages:
     ```bash
-    python -m venv venv
-    source venv/bin/activate
+    poetry install
     ```
 
-3. Install the required packages:
-    ```bash
-    pip install -r requirements.txt
-    ```
-
-4. Install wkhtmltopdf (required
-   by [django-pdf-view](https://pypi.org/project/django-pdf-view/) for
-   generating PDFs):
-    ```bash
-    sudo apt install wkhtmltopdf
-    ```
-
-5. Create a `.env` file in the root directory based on the `example.env` file
+3. Create a `.env` file in the root directory based on the `example.env` file
    <br/><br/>
 
-6. Run migrations:
+4. Run migrations:
     ```bash
-    python manage.py migrate
+    poetry run python manage.py migrate
     ```
 
-7. (Optional) Load (all) fixtures using custom management command:
+5. (Optional) Load (all) fixtures using custom management command:
     ```bash
-    python manage.py load_fixtures
+    poetry run python manage.py load_fixtures
     ```
-8. (Optional) Create a superuser with credentials defined in the `.env` file:
+6. (Optional) Create a superuser with credentials defined in the `.env` file:
     ```bash
-    python manage.py create_superuser
+    poetry run python manage.py create_superuser
     ```
 
-9. Start the **development** server:
+7. Start the **development** server:
     ```bash
-    python manage.py runserver
+    poetry run python manage.py runserver
     ```
    or the **production** server:
     ```bash
-    gunicorn rokis_corner.wsgi
+    poetry run gunicorn rokis_corner.wsgi
     ```
 
 - If you created superuser, you can access Django Admin
@@ -82,7 +77,7 @@ You can name the service file whatever you want, but it should end with
     User={username}
     Group=www-data
     WorkingDirectory=/var/www/rokis-corner
-    ExecStart=/var/www/rokis-corner/venv/bin/gunicorn --workers 3 --bind 0.0.0.0:8000 rokis_corner.wsgi:application
+    ExecStart=/path/to/venv/bin/gunicorn --workers 3 --bind 0.0.0.0:8000 rokis_corner.wsgi:application
     
     [Install]
     WantedBy=multi-user.target
