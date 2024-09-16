@@ -1,0 +1,21 @@
+[tool.poetry]
+name = "rokis-corner"
+version = "1.0.1"
+description = ""
+authors = ["Miloš Roknić <roknic.milos.994@gmail.com>"]
+readme = "README.md"
+
+[tool.poetry.dependencies]
+python = "^3.12"
+django = "^5.1.1"
+pyyaml = "^6.0.2"
+django-extensions = "^3.2.3"
+django-pdf-view = "^2.1.0"
+gunicorn = "^23.0.0"
+pillow = "^10.4.0"
+python-decouple = "^3.8"
+
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
