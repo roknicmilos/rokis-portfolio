@@ -56,6 +56,16 @@ to showcase their professional experience and skills.
 - If you loaded fixtures, you can check Eric's Cartman portfolio page
   at http://localhost:8000/eric-cartman/
 
+## Run Tests
+
+Run the tests with the following command:
+
+```bash
+poetry run pytest
+```
+
+Check `tox.ini` file for more information about the test configuration.
+
 ## Use `systemd` to Manage Gunicorn
 
 Using `systemd` to manage our Gunicorn server allows us to automatically start,
