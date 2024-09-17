@@ -28,6 +28,9 @@ jobs:
         run: |
           poetry install
 
+      - name: Prepare environment variables
+        run: cp example.env .env
+
       - name: Run migrations
         run: poetry run python3 manage.py migrate
 
