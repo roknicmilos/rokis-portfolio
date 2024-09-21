@@ -27,7 +27,7 @@ class PortfolioFactory(DjangoModelFactory):
     last_name = Faker('last_name')
     role = Faker('job')
     email = Faker('email')
-    phone = Faker('phone_number')
+    phone = "+1 (555) 555-5555"
     address_label = Faker('address')
     address_link = Faker('url')
     about_me = Faker('paragraph')

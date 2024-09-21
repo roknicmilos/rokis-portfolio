@@ -55,6 +55,7 @@ class Portfolio(
         verbose_name=_('avatar'),
         upload_to='portfolio/images/',
         null=True,
+        blank=True,
         validators=[
             MaxFileSizeValidator(100),
         ]
@@ -89,6 +90,7 @@ class Portfolio(
     )
     about_me = models.TextField(
         verbose_name=_('about me'),
+        null=True,
         blank=True,
     )
     first_right_segment = models.CharField(
