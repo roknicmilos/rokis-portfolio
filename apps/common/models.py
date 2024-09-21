@@ -30,3 +30,9 @@ class BaseModel(TimeStampedModel):
         super().clean()
         if self.has_validation_errors:
             raise ValidationError(self.validation_errors)
+
+    def update(self, **kwargs):
+        for field, value in kwargs.items():
+            setattr(self, field, value)
+        self.full_clean()
+        self.save()

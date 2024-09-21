@@ -1,4 +1,5 @@
 from django.core.exceptions import ValidationError
+from django.db import models
 
 from apps.common.models import BaseModel
 from apps.common.tests import AbstractModelTestCase
@@ -9,6 +10,8 @@ class ConcreteModel(BaseModel):
         app_label = "concrete_model"
         db_table = "concrete_model"
         verbose_name = "Concrete Model"
+
+    name = models.CharField(max_length=255, default='')
 
 
 class TestBaseModel(AbstractModelTestCase):
@@ -60,3 +63,10 @@ class TestBaseModel(AbstractModelTestCase):
             'A global error occurred',
             cm.exception.message_dict['__all__']
         )
+
+    def test_update(self):
+        self.model.save()
+        self.assertEqual(self.model.name, '')
+        self.model.update(name='test')
+        self.model.refresh_from_db()
+        self.assertEqual(self.model.name, 'test')
