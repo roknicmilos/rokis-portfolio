@@ -64,6 +64,22 @@ Django = ">=4.0,<6.0"
 pdfkit = "1.0.0"
 
 [[package]]
+name = "django-smart-fixtures"
+version = "1.0.0"
+description = "Don't be stupid, and load fixtures in a smart way"
+optional = false
+python-versions = "<4.0,>=3.12"
+files = [
+    {file = "django_smart_fixtures-1.0.0-py3-none-any.whl", hash = "sha256:2448909fb667b78eed9c49ccb21727949f558f1e3a60ee2ae81b1783e6a28f7b"},
+    {file = "django_smart_fixtures-1.0.0.tar.gz", hash = "sha256:3a5fc85488cb39a7f5670a68f094a821858421569698f3bf54e28dc2d17567d5"},
+]
+
+[package.dependencies]
+Django = ">=5.1.1,<6.0.0"
+pillow = ">=10.4.0,<11.0.0"
+pyyaml = ">=6.0.2,<7.0.0"
+
+[[package]]
 name = "gunicorn"
 version = "23.0.0"
 description = "WSGI HTTP Server for UNIX"
@@ -306,4 +322,4 @@ files = [
 [metadata]
 lock-version = "2.0"
 python-versions = "^3.12"
-content-hash = "bd9ca3e49113edfca986e8bc9dd1a603e7bb9e094b2a7480d8f4a614024a7a82"
+content-hash = "4ec42efaab6e11195fc3c04d219d4e31425cf00a8c97af394aa61cfb03cdacd3"

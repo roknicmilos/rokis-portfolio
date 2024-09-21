@@ -5,7 +5,7 @@
     title: Miloš Roknić
     filename: CV-Milos-Roknic-08-2024.pdf
     page_count: 2
-    avatar: portfolio/img/roknic-milos.jpg
+    avatar: portfolio/images/roknic-milos.jpg
     first_name: Miloš
     last_name: Roknić
     role: Software Engineer & Development Lead
@@ -32,7 +32,7 @@
     title: Eric Cartman
     filename: CV-Eric-Cartman-08-2024.pdf
     page_count: 1
-    avatar: portfolio/img/cartman.jpg
+    avatar: portfolio/images/cartman.jpg
     first_name: Eric
     last_name: Cartman
     role: Chief Mischief Officer

@@ -53,7 +53,7 @@ class Portfolio(
     )
     avatar = models.ImageField(
         verbose_name=_('avatar'),
-        upload_to='portfolio/img/',
+        upload_to='portfolio/images/',
         null=True,
         validators=[
             MaxFileSizeValidator(100),

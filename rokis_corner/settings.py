@@ -39,6 +39,7 @@ INSTALLED_APPS = [
 
     # Third party apps:
     'django_pdf_view',
+    'django_smart_fixtures',
 
     # First party apps:
     'apps.common',
@@ -134,3 +135,22 @@ MEDIA_URL = '/media/'
 MEDIA_ROOT = BASE_DIR / 'media/'
 
 AUTH_USER_MODEL = 'user.User'
+
+FIXTURES = {
+    'labels': [
+        'portfolio',
+        'link',
+        'skill',
+        'language',
+        'employment',
+        'internship',
+        'education',
+        'project',
+    ],
+    'media': [
+        {
+            'src': BASE_DIR / 'apps' / 'portfolio' / 'fixtures' / 'images',
+            'dest': MEDIA_ROOT / 'portfolio' / 'images',
+        }
+    ]
+}
