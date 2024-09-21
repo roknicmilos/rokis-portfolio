@@ -36,7 +36,7 @@ class PortfolioPDFView(PDFView):
         context['left_column'] = service.get_left_column_segments(
             portfolio=self.portfolio
         )
-        context['right_column'] = service.render_right_column_segments(
+        context['right_column'] = service.get_right_column_segments(
             portfolio=self.portfolio
         )
         context['portfolio_pdf_url'] = reverse(

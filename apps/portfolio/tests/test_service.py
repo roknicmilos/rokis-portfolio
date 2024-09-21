@@ -89,12 +89,12 @@ class TestService(TestCase):
         ]
         self.assertEqual(segments, expected_segments)
 
-    def test_render_right_column_segments_with_required_data_only(self):
+    def test_get_right_column_segments_with_required_data_only(self):
         self.portfolio.update(about_me=None)
-        segments = service.render_right_column_segments(self.portfolio)
+        segments = service.get_right_column_segments(self.portfolio)
         self.assertEqual(len(segments), 0)
 
-    def test_render_right_column_segments_with_all_data(self):
+    def test_get_right_column_segments_with_all_data(self):
         """
         Assuming defaults are used, this should be the order
         of the right column segments:
@@ -106,7 +106,7 @@ class TestService(TestCase):
         EmploymentFactory(portfolio=self.portfolio)
         ProjectFactory(portfolio=self.portfolio)
 
-        segments = service.render_right_column_segments(self.portfolio)
+        segments = service.get_right_column_segments(self.portfolio)
 
         self.assertEqual(len(segments), 3)
 
