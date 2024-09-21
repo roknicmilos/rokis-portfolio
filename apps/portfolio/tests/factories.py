@@ -9,7 +9,7 @@ from apps.portfolio.models import (
     Employment,
     Internship,
     Skill,
-    Project
+    Project, Link
 )
 
 
@@ -98,3 +98,19 @@ class ProjectFactory(DjangoModelFactory):
     end = Faker('date_this_decade', before_today=True, after_today=False)
     technologies = Faker('words', nb=5, ext_word_list=None, unique=False)
     description = Faker('paragraph')
+
+
+class LinkFactory(DjangoModelFactory):
+    class Meta:
+        model = Link
+
+    portfolio = SubFactory(PortfolioFactory)
+    type = Faker(
+        provider='random_element',
+        elements=[
+            Link.Type.LINKEDIN, Link.Type.GITHUB,
+            Link.Type.WEBSITE
+        ]
+    )
+    label = Faker('sentence', nb_words=2)
+    url = Faker('url')
