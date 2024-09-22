@@ -6,3 +6,14 @@ from .employment_inline import EmploymentInline
 from .internship_inline import InternshipInline
 from .project_inline import ProjectInline
 from .portfolio_admin import PortfolioAdmin
+
+__all__ = [
+    'EducationInline',
+    'LinkInline',
+    'SkillInline',
+    'LanguageInline',
+    'EmploymentInline',
+    'InternshipInline',
+    'ProjectInline',
+    'PortfolioAdmin',
+]
