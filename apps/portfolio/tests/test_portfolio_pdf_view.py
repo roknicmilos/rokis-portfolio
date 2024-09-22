@@ -3,6 +3,10 @@ from unittest.mock import patch
 from django.test import TestCase
 from django.urls import reverse
 
+from apps.common.tests.utils import (
+    create_sample_image,
+    create_media_absolute_url,
+)
 from apps.portfolio.tests.factories import PortfolioFactory
 
 
@@ -26,15 +30,23 @@ class TestPortfolioPDFView(TestCase):
         )
         self.mock_right_segments = self.right_segments_patch.start()
 
-    def assertResponseContext(self, response) -> None:
+    def assertResponseContext(
+        self,
+        response,
+        with_avatar: bool = False
+    ) -> None:
         self.assertEqual(response.context.get('portfolio'), self.portfolio)
-        if self.portfolio.avatar:
-            self.assertEqual(
-                response.context.get('avatar_url'),
-                self.portfolio.avatar.url
+        if with_avatar:
+            expected_avatar_url = create_media_absolute_url(
+                request=response.wsgi_request,
+                file_field=self.portfolio.avatar
             )
         else:
-            self.assertEqual(response.context.get('avatar_url'), '')
+            expected_avatar_url = ''
+        self.assertEqual(
+            response.context.get('avatar_url'),
+            expected_avatar_url
+        )
 
         # Assert that the left and right column segments:
         self.mock_left_segments.assert_called_once_with(
@@ -69,6 +81,8 @@ class TestPortfolioPDFView(TestCase):
             viewname='portfolio:pdf',
             kwargs={'slug': self.portfolio.slug}
         )
+        # Test with avatar image:
+        self.portfolio.update(avatar=create_sample_image())
         response = self.client.get(url_path)
         self.assertEqual(response.status_code, 200)
         self.assertEqual(response['Content-Type'], 'application/pdf')
@@ -76,7 +90,7 @@ class TestPortfolioPDFView(TestCase):
             response['Content-Disposition'],
             f'inline; filename="{self.portfolio.filename}"'
         )
-        self.assertResponseContext(response)
+        self.assertResponseContext(response, with_avatar=True)
 
     def test_get_download_response(self):
         url_path = reverse(
