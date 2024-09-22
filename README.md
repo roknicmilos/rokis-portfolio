@@ -33,16 +33,7 @@ to showcase their professional experience and skills.
     poetry run python manage.py migrate
     ```
 
-5. (Optional) Load (all) fixtures using custom management command:
-    ```bash
-    poetry run python manage.py load_fixtures
-    ```
-6. (Optional) Create a superuser with credentials defined in the `.env` file:
-    ```bash
-    poetry run python manage.py create_superuser
-    ```
-
-7. Start the **development** server:
+5. Start the **development** server:
     ```bash
     poetry run python manage.py runserver
     ```
@@ -51,10 +42,30 @@ to showcase their professional experience and skills.
     poetry run gunicorn rokis_corner.wsgi
     ```
 
-- If you created superuser, you can access Django Admin
-  at http://localhost:8000/admin/
-- If you loaded fixtures, you can check Eric's Cartman portfolio page
-  at http://localhost:8000/eric-cartman/
+## Test Data
+
+The project includes test data in the form of Django fixtures. The fixtures are
+located in the `fixtures` directories in each Django app. You can load the
+fixtures using the following command:
+
+```bash
+poetry run python manage.py load_fixtures
+```
+
+You can now check out Eric's Cartman portfolio page at
+http://localhost:8000/eric-cartman/
+
+### Create Superuser
+
+To create a superuser with credentials defined in the `.env` file, run the
+following command:
+
+```bash
+poetry run python manage.py create_superuser
+```
+
+You can now access the Django Admin at http://localhost:8000/admin/ and log in
+with the superuser credentials defined in the `.env` file.
 
 ## Run Tests
 
@@ -65,6 +76,18 @@ poetry run pytest
 ```
 
 Check `tox.ini` file for more information about the test configuration.
+
+## Setup pre-commit hooks
+
+This project uses [pre-commit](https://pre-commit.com/) to manage and run
+pre-commit hooks. To install the pre-commit hooks, run the following command:
+
+```bash
+poetry run pre-commit install
+```
+
+Check `.pre-commit-config.yaml` file for more information about the pre-commit
+hooks configuration.
 
 ## Use `systemd` to Manage Gunicorn
 
