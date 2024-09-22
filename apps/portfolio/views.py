@@ -4,10 +4,7 @@ from django_pdf_view.pdf import PDF
 from django_pdf_view.views import PDFView
 
 from apps.portfolio.models import Portfolio
-from apps.portfolio.services import (
-    get_left_column_segments,
-    render_right_column_segments,
-)
+from apps.portfolio import service
 
 
 class PortfolioPDFView(PDFView):
@@ -36,10 +33,10 @@ class PortfolioPDFView(PDFView):
         context = super().get_context()
         context['portfolio'] = self.portfolio
         context['avatar_url'] = self._get_absolut_avatar_url()
-        context['left_column'] = get_left_column_segments(
+        context['left_column'] = service.get_left_column_segments(
             portfolio=self.portfolio
         )
-        context['right_column'] = render_right_column_segments(
+        context['right_column'] = service.get_right_column_segments(
             portfolio=self.portfolio
         )
         context['portfolio_pdf_url'] = reverse(

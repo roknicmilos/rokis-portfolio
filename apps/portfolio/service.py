@@ -89,7 +89,7 @@ def get_left_column_segments(portfolio: Portfolio) -> list[str]:
     ]
 
 
-def render_right_column_segments(portfolio: Portfolio) -> list[str]:
+def get_right_column_segments(portfolio: Portfolio) -> list[str]:
     """
     Returns a list of rendered HTML segments for the
     right column of the Portfolio in the order they should be

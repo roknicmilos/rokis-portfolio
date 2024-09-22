@@ -12,9 +12,6 @@ class MaxFileSizeValidator(BaseValidator):
         super().__init__(max_size_kb)
         self.limit_value = max_size_kb * 1024  # Convert KB to Bytes
 
-    def compare(self, a, b):
-        return a > b
-
     def __call__(self, value):
         if value.size > self.limit_value:
             params = {

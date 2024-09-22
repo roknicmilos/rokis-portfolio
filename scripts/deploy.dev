@@ -1,7 +1,7 @@
 #!/bin/bash
 
 echo "Installing dependencies..."
-poetry install
+poetry install --no-dev
 
 echo "Applying migrations..."
 poetry run python manage.py migrate
