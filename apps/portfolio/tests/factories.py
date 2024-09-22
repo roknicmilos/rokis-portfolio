@@ -1,15 +1,24 @@
 from factory import Faker, SubFactory
 from factory.django import DjangoModelFactory
 
-from apps.portfolio.models import Education, Portfolio, Language, Position, \
-    Employment, Internship, Skill, Project, Link
+from apps.portfolio.models import (
+    Education,
+    Portfolio,
+    Language,
+    Position,
+    Employment,
+    Internship,
+    Skill,
+    Project,
+    Link,
+)
 
 
 class PortfolioFactory(DjangoModelFactory):
     class Meta:
         model = Portfolio
 
-    is_published = Faker('boolean')
+    is_published = Faker("boolean")
     slug = Faker("slug")
     title = Faker("sentence", nb_words=4)
     filename = Faker("file_name", category="image")
