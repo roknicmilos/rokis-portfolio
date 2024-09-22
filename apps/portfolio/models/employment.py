@@ -5,6 +5,6 @@ from apps.portfolio.models import Position
 
 class Employment(Position):
     class Meta:
-        verbose_name = _('Employment')
-        verbose_name_plural = _('Employments')
-        default_related_name = 'employments'
+        verbose_name = _("Employment")
+        verbose_name_plural = _("Employments")
+        default_related_name = "employments"

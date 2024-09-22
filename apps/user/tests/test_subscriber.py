@@ -4,7 +4,6 @@ from apps.user.tests.factories import SubscriberFactory
 
 
 class TestSubscriber(TestCase):
-
     @classmethod
     def setUpTestData(cls):
         super().setUpTestData()
@@ -12,6 +11,5 @@ class TestSubscriber(TestCase):
 
     def test_str(self):
         self.assertEqual(
-            str(self.subscriber),
-            f'Subscriber {self.subscriber.email}'
+            str(self.subscriber), f"Subscriber {self.subscriber.email}"
         )

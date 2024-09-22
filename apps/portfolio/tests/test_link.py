@@ -4,7 +4,6 @@ from apps.portfolio.tests.factories import LinkFactory
 
 
 class TestLink(TestCase):
-
     @classmethod
     def setUpTestData(cls):
         super().setUpTestData()
@@ -13,5 +12,5 @@ class TestLink(TestCase):
     def test_str(self):
         self.assertEqual(
             str(self.link),
-            f'{self.link.label} ({self.link.get_type_display()})'
+            f"{self.link.label} ({self.link.get_type_display()})",
         )

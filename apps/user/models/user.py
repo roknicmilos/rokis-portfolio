@@ -5,9 +5,9 @@ from django.db import models
 
 class User(AbstractUser):
     email = models.EmailField(
-        verbose_name=_('email address'),
+        verbose_name=_("email address"),
         unique=True,
     )
 
-    USERNAME_FIELD = 'email'
+    USERNAME_FIELD = "email"
     REQUIRED_FIELDS = []

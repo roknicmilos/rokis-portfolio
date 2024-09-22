@@ -7,26 +7,26 @@ from apps.common.models import BaseModel
 
 class Skill(BaseModel):
     portfolio = models.ForeignKey(
-        'Portfolio',
-        verbose_name=_('Portfolio'),
+        to="Portfolio",
+        verbose_name=_("Portfolio"),
         on_delete=models.CASCADE,
-        related_name='skills',
+        related_name="skills",
     )
     label = models.CharField(
-        verbose_name=_('label'),
+        verbose_name=_("label"),
         max_length=100,
     )
     level = models.PositiveSmallIntegerField(
-        verbose_name=_('level'),
+        verbose_name=_("level"),
         validators=[
             MinValueValidator(1),
             MaxValueValidator(5),
-        ]
+        ],
     )
 
     class Meta:
-        verbose_name = _('Skill')
-        verbose_name_plural = _('Skills')
+        verbose_name = _("Skill")
+        verbose_name_plural = _("Skills")
 
     def __str__(self):
-        return f'{self.label} ({self.level}/5)'
+        return f"{self.label} ({self.level}/5)"

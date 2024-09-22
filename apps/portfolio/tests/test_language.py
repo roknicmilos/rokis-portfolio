@@ -4,7 +4,6 @@ from apps.portfolio.tests.factories import LanguageFactory
 
 
 class TestLanguage(TestCase):
-
     @classmethod
     def setUpTestData(cls):
         super().setUpTestData()
@@ -13,5 +12,5 @@ class TestLanguage(TestCase):
     def test_str(self):
         self.assertEqual(
             str(self.language),
-            f'{self.language.label} ({self.language.level}/5)'
+            f"{self.language.label} ({self.language.level}/5)",
         )

@@ -7,5 +7,5 @@ class SubscriberFactory(DjangoModelFactory):
     class Meta:
         model = Subscriber
 
-    email = Faker('email')
-    submission_count = Faker('random_int', min=1, max=3)
+    email = Faker("email")
+    submission_count = Faker("random_int", min=1, max=3)

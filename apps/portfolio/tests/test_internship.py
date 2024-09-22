@@ -4,7 +4,6 @@ from apps.portfolio.tests.factories import InternshipFactory
 
 
 class TestInternship(TestCase):
-
     @classmethod
     def setUpTestData(cls):
         super().setUpTestData()
@@ -13,5 +12,5 @@ class TestInternship(TestCase):
     def test_str(self):
         self.assertEqual(
             str(self.internship),
-            f'{self.internship.title} at {self.internship.company}'
+            f"{self.internship.title} at {self.internship.company}",
         )

@@ -9,10 +9,8 @@ from apps.portfolio.models import Project
 class ProjectInline(admin.StackedInline):
     model = Project
     extra = 0
-    classes = ['collapse']
-    verbose_name_plural = _('PROJECTS (R)')
+    classes = ["collapse"]
+    verbose_name_plural = _("PROJECTS (R)")
     formfield_overrides = {
-        models.CharField: {
-            'widget': Textarea(attrs={'rows': 5, 'cols': 74})
-        },
+        models.CharField: {"widget": Textarea(attrs={"rows": 5, "cols": 74})},
     }
