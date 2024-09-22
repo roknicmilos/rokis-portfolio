@@ -5,27 +5,20 @@ from django.db import migrations, models
 
 
 class Migration(migrations.Migration):
+
     dependencies = [
-        ("portfolio", "0002_alter_portfolio_avatar"),
+        ('portfolio', '0002_alter_portfolio_avatar'),
     ]
 
     operations = [
         migrations.AlterField(
-            model_name="portfolio",
-            name="about_me",
-            field=models.TextField(
-                blank=True, null=True, verbose_name="about me"
-            ),
+            model_name='portfolio',
+            name='about_me',
+            field=models.TextField(blank=True, null=True, verbose_name='about me'),
         ),
         migrations.AlterField(
-            model_name="portfolio",
-            name="avatar",
-            field=models.ImageField(
-                blank=True,
-                null=True,
-                upload_to="portfolio/images/",
-                validators=[apps.common.validators.MaxFileSizeValidator(100)],
-                verbose_name="avatar",
-            ),
+            model_name='portfolio',
+            name='avatar',
+            field=models.ImageField(blank=True, null=True, upload_to='portfolio/images/', validators=[apps.common.validators.MaxFileSizeValidator(100)], verbose_name='avatar'),
         ),
     ]
