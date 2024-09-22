@@ -71,9 +71,7 @@ class TestPortfolioPDFView(TestCase):
         )
         response = self.client.get(url_path)
         self.assertEqual(response.status_code, 200)
-        # TODO: 'Content-Type' is not set in third party library
-        #  (django-pdf-view). When it's fixed, uncomment the line below.
-        # self.assertEqual(response['Content-Type'], 'application/pdf')
+        self.assertEqual(response['Content-Type'], 'application/pdf')
         self.assertEqual(
             response['Content-Disposition'],
             f'inline; filename="{self.portfolio.filename}"'
@@ -87,9 +85,7 @@ class TestPortfolioPDFView(TestCase):
         )
         response = self.client.get(url_path)
         self.assertEqual(response.status_code, 200)
-        # TODO: 'Content-Type' is not set in third party library
-        #  (django-pdf-view). When it's fixed, uncomment the line below.
-        # self.assertEqual(response['Content-Type'], 'application/pdf')
+        self.assertEqual(response['Content-Type'], 'application/pdf')
         self.assertEqual(
             response['Content-Disposition'],
             f'attachment; filename="{self.portfolio.filename}"'
