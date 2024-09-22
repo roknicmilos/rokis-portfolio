@@ -22,4 +22,3 @@ class AbstractModelTestCase(TransactionTestCase):
             schema_editor.delete_model(cls.model_class)
 
         super().tearDownClass()
-

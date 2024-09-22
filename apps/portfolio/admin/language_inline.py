@@ -7,5 +7,5 @@ from apps.portfolio.models import Language
 class LanguageInline(admin.TabularInline):
     model = Language
     extra = 0
-    classes = ['collapse']
-    verbose_name_plural = _('LANGUAGES (L)')
+    classes = ["collapse"]
+    verbose_name_plural = _("LANGUAGES (L)")

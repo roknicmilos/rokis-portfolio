@@ -14,7 +14,6 @@ from apps.portfolio.tests.factories import (
 
 
 class TestPortfolio(TestCase):
-
     @classmethod
     def setUpTestData(cls):
         super().setUpTestData()
@@ -26,11 +25,11 @@ class TestPortfolio(TestCase):
     def test_ordered_employments_property(self):
         fist_employment = EmploymentFactory(
             portfolio=self.portfolio,
-            start='2019-01-01',
+            start="2019-01-01",
         )
         second_employment = EmploymentFactory(
             portfolio=self.portfolio,
-            start='2020-01-01',
+            start="2020-01-01",
         )
         employments = self.portfolio.ordered_employments
         self.assertEqual(len(employments), 2)
@@ -40,11 +39,11 @@ class TestPortfolio(TestCase):
     def test_ordered_internships_property(self):
         fist_internship = InternshipFactory(
             portfolio=self.portfolio,
-            start='2019-01-01',
+            start="2019-01-01",
         )
         second_internship = InternshipFactory(
             portfolio=self.portfolio,
-            start='2020-01-01',
+            start="2020-01-01",
         )
         internships = self.portfolio.ordered_internships
         self.assertEqual(len(internships), 2)
@@ -54,11 +53,11 @@ class TestPortfolio(TestCase):
     def test_ordered_educations_property(self):
         fist_education = EducationFactory(
             portfolio=self.portfolio,
-            start='2019-01-01',
+            start="2019-01-01",
         )
         second_education = EducationFactory(
             portfolio=self.portfolio,
-            start='2020-01-01',
+            start="2020-01-01",
         )
         educations = self.portfolio.ordered_educations
         self.assertEqual(len(educations), 2)
@@ -82,12 +81,12 @@ class TestPortfolio(TestCase):
     def test_ordered_projects_property(self):
         fist_project = ProjectFactory(
             portfolio=self.portfolio,
-            start='2019-01-01',
-            end='2020-01-01',
+            start="2019-01-01",
+            end="2020-01-01",
         )
         current_project = ProjectFactory(
             portfolio=self.portfolio,
-            start='2018-01-01',
+            start="2018-01-01",
             end=None,
         )
         projects = self.portfolio.ordered_projects
@@ -107,12 +106,11 @@ class TestPortfolio(TestCase):
         with self.assertRaises(ValidationError) as context:
             self.portfolio.clean()
         expected_validation_errors = {
-            'first_left_segment': [_('The segment value must be unique.')],
-            'second_left_segment': [_('The segment value must be unique.')],
+            "first_left_segment": [_("The segment value must be unique.")],
+            "second_left_segment": [_("The segment value must be unique.")],
         }
         self.assertEqual(
-            context.exception.message_dict,
-            expected_validation_errors
+            context.exception.message_dict, expected_validation_errors
         )
 
     def test_get_left_segment_order(self):
@@ -130,37 +128,33 @@ class TestPortfolio(TestCase):
             self.portfolio.get_left_segment_order(
                 Portfolio.LeftSegment.CONTACT
             ),
-            0
+            0,
         )
         self.assertEqual(
-            self.portfolio.get_left_segment_order(
-                Portfolio.LeftSegment.LINKS
-            ),
-            1
+            self.portfolio.get_left_segment_order(Portfolio.LeftSegment.LINKS),
+            1,
         )
         self.assertEqual(
-            self.portfolio.get_left_segment_order(
-                Portfolio.LeftSegment.SKILLS
-            ),
-            2
+            self.portfolio.get_left_segment_order(Portfolio.LeftSegment.SKILLS),
+            2,
         )
         self.assertEqual(
             self.portfolio.get_left_segment_order(
                 Portfolio.LeftSegment.LANGUAGES
             ),
-            3
+            3,
         )
         self.assertEqual(
             self.portfolio.get_left_segment_order(
                 Portfolio.LeftSegment.INTERNSHIP
             ),
-            4
+            4,
         )
         self.assertEqual(
             self.portfolio.get_left_segment_order(
                 Portfolio.LeftSegment.EDUCATION
             ),
-            5
+            5,
         )
 
     def test_right_column_segment_validation(self):
@@ -175,13 +169,11 @@ class TestPortfolio(TestCase):
         with self.assertRaises(ValidationError) as context:
             self.portfolio.clean()
         expected_validation_errors = {
-            'first_right_segment': [_('The segment value must be unique.')],
-            'second_right_segment': [
-                _('The segment value must be unique.')],
+            "first_right_segment": [_("The segment value must be unique.")],
+            "second_right_segment": [_("The segment value must be unique.")],
         }
         self.assertEqual(
-            context.exception.message_dict,
-            expected_validation_errors
+            context.exception.message_dict, expected_validation_errors
         )
 
     def test_get_right_segment_order(self):
@@ -196,17 +188,17 @@ class TestPortfolio(TestCase):
             self.portfolio.get_right_segment_order(
                 Portfolio.RightSegment.ABOUT_ME
             ),
-            0
+            0,
         )
         self.assertEqual(
             self.portfolio.get_right_segment_order(
                 Portfolio.RightSegment.EMPLOYMENT
             ),
-            1
+            1,
         )
         self.assertEqual(
             self.portfolio.get_right_segment_order(
                 Portfolio.RightSegment.PROJECTS
             ),
-            2
+            2,
         )

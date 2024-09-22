@@ -7,5 +7,5 @@ from apps.portfolio.models import Internship
 class InternshipInline(admin.StackedInline):
     model = Internship
     extra = 0
-    classes = ['collapse']
-    verbose_name_plural = _('INTERNSHIP (L)')
+    classes = ["collapse"]
+    verbose_name_plural = _("INTERNSHIP (L)")

@@ -7,5 +7,5 @@ from apps.portfolio.models import Employment
 class EmploymentInline(admin.StackedInline):
     model = Employment
     extra = 0
-    classes = ['collapse']
-    verbose_name_plural = _('EMPLOYMENT (R)')
+    classes = ["collapse"]
+    verbose_name_plural = _("EMPLOYMENT (R)")

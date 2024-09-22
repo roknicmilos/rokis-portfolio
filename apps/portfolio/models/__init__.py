@@ -11,15 +11,15 @@ from .education import Education
 from .project import Project
 
 __all__ = [
-    'LeftPortfolioColumnMixin',
-    'RightPortfolioColumnMixin',
-    'Portfolio',
-    'Position',
-    'Employment',
-    'Internship',
-    'Link',
-    'Skill',
-    'Language',
-    'Education',
-    'Project',
+    "LeftPortfolioColumnMixin",
+    "RightPortfolioColumnMixin",
+    "Portfolio",
+    "Position",
+    "Employment",
+    "Internship",
+    "Link",
+    "Skill",
+    "Language",
+    "Education",
+    "Project",
 ]

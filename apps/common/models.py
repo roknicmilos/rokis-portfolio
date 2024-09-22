@@ -11,14 +11,12 @@ class BaseModel(TimeStampedModel):
         self.validation_errors = {}
 
     def add_validation_error(
-        self,
-        message: str,
-        field_name: str = None
+        self, message: str, field_name: str = None
     ) -> None:
         if field_name is None:
-            if '__all__' not in self.validation_errors:
-                self.validation_errors['__all__'] = []
-            self.validation_errors['__all__'].append(message)
+            if "__all__" not in self.validation_errors:
+                self.validation_errors["__all__"] = []
+            self.validation_errors["__all__"].append(message)
         else:
             self.validation_errors[field_name] = message
 

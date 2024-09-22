@@ -25,13 +25,12 @@ def create_sample_image() -> SimpleUploadedFile:
     return SimpleUploadedFile(
         name="sample_image.jpg",
         content=tiny_1x1_px_jpeg_image_data,
-        content_type="image/jpg"
+        content_type="image/jpg",
     )
 
 
 def create_media_absolute_url(
-    request: WSGIRequest,
-    file_field: models.FileField
+    request: WSGIRequest, file_field: models.FileField
 ) -> str:
     file_url = urljoin(settings.MEDIA_URL, file_field.name)
     return request.build_absolute_uri(file_url)

@@ -6,9 +6,9 @@ from django.conf.urls.static import static
 from rokis_corner.views import IndexView
 
 urlpatterns = [
-    path('', IndexView.as_view(), name='index'),
-    path('admin/', admin.site.urls),
-    path('<slug:slug>/', include('apps.portfolio.urls', namespace='portfolio')),
+    path("", IndexView.as_view(), name="index"),
+    path("admin/", admin.site.urls),
+    path("<slug:slug>/", include("apps.portfolio.urls", namespace="portfolio")),
 ]
 
 urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

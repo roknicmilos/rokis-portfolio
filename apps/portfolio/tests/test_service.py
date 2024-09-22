@@ -14,19 +14,18 @@ from apps.portfolio.tests.factories import (
 
 
 class TestService(TestCase):
-
     @classmethod
     def setUpTestData(cls):
         super().setUpTestData()
         cls.portfolio = PortfolioFactory()
         cls.expected_contact_html = render_to_string(
-            template_name='portfolio/includes/contact.html',
+            template_name="portfolio/includes/contact.html",
             context={
-                'address_link': cls.portfolio.address_link,
-                'address_label': cls.portfolio.address_label,
-                'phone': cls.portfolio.phone,
-                'email': cls.portfolio.email,
-            }
+                "address_link": cls.portfolio.address_link,
+                "address_label": cls.portfolio.address_label,
+                "phone": cls.portfolio.phone,
+                "email": cls.portfolio.email,
+            },
         )
 
     def test_get_left_column_segments_with_required_data_only(self):
@@ -61,30 +60,30 @@ class TestService(TestCase):
         expected_segments = [
             self.expected_contact_html,
             render_to_string(
-                template_name='portfolio/includes/links.html',
-                context={'links': self.portfolio.links.all()},
+                template_name="portfolio/includes/links.html",
+                context={"links": self.portfolio.links.all()},
             ),
             render_to_string(
-                template_name='portfolio/includes/skills.html',
+                template_name="portfolio/includes/skills.html",
                 context={
-                    'skills': self.portfolio.ordered_skills,
-                    'title': 'SKILLS',
+                    "skills": self.portfolio.ordered_skills,
+                    "title": "SKILLS",
                 },
             ),
             render_to_string(
-                template_name='portfolio/includes/skills.html',
+                template_name="portfolio/includes/skills.html",
                 context={
-                    'skills': self.portfolio.languages.all(),
-                    'title': 'LANGUAGES',
+                    "skills": self.portfolio.languages.all(),
+                    "title": "LANGUAGES",
                 },
             ),
             render_to_string(
-                template_name='portfolio/includes/internship.html',
-                context={'internships': self.portfolio.ordered_internships},
+                template_name="portfolio/includes/internship.html",
+                context={"internships": self.portfolio.ordered_internships},
             ),
             render_to_string(
-                template_name='portfolio/includes/education.html',
-                context={'educations': self.portfolio.ordered_educations},
+                template_name="portfolio/includes/education.html",
+                context={"educations": self.portfolio.ordered_educations},
             ),
         ]
         self.assertEqual(segments, expected_segments)
@@ -102,7 +101,7 @@ class TestService(TestCase):
             2. EMPLOYMENT
             3. PROJECTS
         """
-        self.portfolio.update(about_me='About me')
+        self.portfolio.update(about_me="About me")
         EmploymentFactory(portfolio=self.portfolio)
         ProjectFactory(portfolio=self.portfolio)
 
@@ -112,16 +111,16 @@ class TestService(TestCase):
 
         expected_segments = [
             render_to_string(
-                template_name='portfolio/includes/about_me.html',
-                context={'about_me': self.portfolio.about_me},
+                template_name="portfolio/includes/about_me.html",
+                context={"about_me": self.portfolio.about_me},
             ),
             render_to_string(
-                template_name='portfolio/includes/employment.html',
-                context={'employments': self.portfolio.ordered_employments},
+                template_name="portfolio/includes/employment.html",
+                context={"employments": self.portfolio.ordered_employments},
             ),
             render_to_string(
-                template_name='portfolio/includes/projects.html',
-                context={'projects': self.portfolio.ordered_projects},
+                template_name="portfolio/includes/projects.html",
+                context={"projects": self.portfolio.ordered_projects},
             ),
         ]
         self.assertEqual(segments, expected_segments)

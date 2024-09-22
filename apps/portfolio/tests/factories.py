@@ -9,7 +9,8 @@ from apps.portfolio.models import (
     Employment,
     Internship,
     Skill,
-    Project, Link
+    Project,
+    Link,
 )
 
 
@@ -17,20 +18,20 @@ class PortfolioFactory(DjangoModelFactory):
     class Meta:
         model = Portfolio
 
-    is_published = Faker('boolean')
-    slug = Faker('slug')
-    title = Faker('sentence', nb_words=4)
-    filename = Faker('file_name', category='image')
-    page_count = Faker('random_int', min=1, max=3)
+    is_published = Faker("boolean")
+    slug = Faker("slug")
+    title = Faker("sentence", nb_words=4)
+    filename = Faker("file_name", category="image")
+    page_count = Faker("random_int", min=1, max=3)
     avatar = None
-    first_name = Faker('first_name')
-    last_name = Faker('last_name')
-    role = Faker('job')
-    email = Faker('email')
+    first_name = Faker("first_name")
+    last_name = Faker("last_name")
+    role = Faker("job")
+    email = Faker("email")
     phone = "+1 (555) 555-5555"
-    address_label = Faker('address')
-    address_link = Faker('url')
-    about_me = Faker('paragraph')
+    address_label = Faker("address")
+    address_link = Faker("url")
+    about_me = Faker("paragraph")
 
 
 class EducationFactory(DjangoModelFactory):
@@ -38,12 +39,12 @@ class EducationFactory(DjangoModelFactory):
         model = Education
 
     portfolio = SubFactory(PortfolioFactory)
-    school = Faker('company')
-    degree = Faker('job')
-    start = Faker('date_this_decade')
-    end = Faker('date_this_decade', before_today=True, after_today=False)
-    location = Faker('city')
-    description = Faker('paragraph')
+    school = Faker("company")
+    degree = Faker("job")
+    start = Faker("date_this_decade")
+    end = Faker("date_this_decade", before_today=True, after_today=False)
+    location = Faker("city")
+    description = Faker("paragraph")
 
 
 class LanguageFactory(DjangoModelFactory):
@@ -51,8 +52,8 @@ class LanguageFactory(DjangoModelFactory):
         model = Language
 
     portfolio = SubFactory(PortfolioFactory)
-    label = Faker('language_name')
-    level = Faker('random_int', min=1, max=5)
+    label = Faker("language_name")
+    level = Faker("random_int", min=1, max=5)
 
 
 class PositionFactory(DjangoModelFactory):
@@ -60,12 +61,12 @@ class PositionFactory(DjangoModelFactory):
         model = Position
 
     portfolio = SubFactory(PortfolioFactory)
-    title = Faker('job')
-    company = Faker('company')
-    start = Faker('date_this_decade')
-    end = Faker('date_this_decade', before_today=True, after_today=False)
-    location = Faker('city')
-    description = Faker('paragraph')
+    title = Faker("job")
+    company = Faker("company")
+    start = Faker("date_this_decade")
+    end = Faker("date_this_decade", before_today=True, after_today=False)
+    location = Faker("city")
+    description = Faker("paragraph")
 
 
 class EmploymentFactory(PositionFactory):
@@ -83,8 +84,8 @@ class SkillFactory(DjangoModelFactory):
         model = Skill
 
     portfolio = SubFactory(PortfolioFactory)
-    label = Faker('word')
-    level = Faker('random_int', min=1, max=5)
+    label = Faker("word")
+    level = Faker("random_int", min=1, max=5)
 
 
 class ProjectFactory(DjangoModelFactory):
@@ -92,12 +93,12 @@ class ProjectFactory(DjangoModelFactory):
         model = Project
 
     portfolio = SubFactory(PortfolioFactory)
-    name = Faker('sentence', nb_words=4)
-    role = Faker('job')
-    start = Faker('date_this_decade')
-    end = Faker('date_this_decade', before_today=True, after_today=False)
-    technologies = Faker('words', nb=5, ext_word_list=None, unique=False)
-    description = Faker('paragraph')
+    name = Faker("sentence", nb_words=4)
+    role = Faker("job")
+    start = Faker("date_this_decade")
+    end = Faker("date_this_decade", before_today=True, after_today=False)
+    technologies = Faker("words", nb=5, ext_word_list=None, unique=False)
+    description = Faker("paragraph")
 
 
 class LinkFactory(DjangoModelFactory):
@@ -106,11 +107,8 @@ class LinkFactory(DjangoModelFactory):
 
     portfolio = SubFactory(PortfolioFactory)
     type = Faker(
-        provider='random_element',
-        elements=[
-            Link.Type.LINKEDIN, Link.Type.GITHUB,
-            Link.Type.WEBSITE
-        ]
+        provider="random_element",
+        elements=[Link.Type.LINKEDIN, Link.Type.GITHUB, Link.Type.WEBSITE],
     )
-    label = Faker('sentence', nb_words=2)
-    url = Faker('url')
+    label = Faker("sentence", nb_words=2)
+    url = Faker("url")

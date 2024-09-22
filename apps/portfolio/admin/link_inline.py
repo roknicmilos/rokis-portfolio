@@ -7,5 +7,5 @@ from apps.portfolio.models import Link
 class LinkInline(admin.TabularInline):
     model = Link
     extra = 0
-    classes = ['collapse']
-    verbose_name_plural = _('LINKS (L)')
+    classes = ["collapse"]
+    verbose_name_plural = _("LINKS (L)")

@@ -11,7 +11,7 @@ class ConcreteModel(BaseModel):
         db_table = "concrete_model"
         verbose_name = "Concrete Model"
 
-    name = models.CharField(max_length=255, default='')
+    name = models.CharField(max_length=255, default="")
 
 
 class TestBaseModel(AbstractModelTestCase):
@@ -22,18 +22,16 @@ class TestBaseModel(AbstractModelTestCase):
         self.model = ConcreteModel()
 
     def test_adds_global_validation(self):
-        self.model.add_validation_error('A global error occurred')
+        self.model.add_validation_error("A global error occurred")
         self.assertIn(
-            'A global error occurred',
-            self.model.validation_errors['__all__']
+            "A global error occurred", self.model.validation_errors["__all__"]
         )
         self.assertTrue(self.model.has_validation_errors)
 
     def test_adds_field_validation_error(self):
-        self.model.add_validation_error('Field error', 'test_field')
+        self.model.add_validation_error("Field error", "test_field")
         self.assertEqual(
-            self.model.validation_errors['test_field'],
-            'Field error'
+            self.model.validation_errors["test_field"], "Field error"
         )
         self.assertTrue(self.model.has_validation_errors)
 
@@ -41,7 +39,7 @@ class TestBaseModel(AbstractModelTestCase):
         self.assertFalse(self.model.has_validation_errors)
 
     def test_has_validation_errors_true(self):
-        self.model.add_validation_error('A global error occurred')
+        self.model.add_validation_error("A global error occurred")
         self.assertTrue(self.model.has_validation_errors)
 
     def test_clean_raises_no_error(self):
@@ -56,17 +54,16 @@ class TestBaseModel(AbstractModelTestCase):
         Test that clean raises ValidationError
         when there are validation errors
         """
-        self.model.add_validation_error('A global error occurred')
+        self.model.add_validation_error("A global error occurred")
         with self.assertRaises(ValidationError) as cm:
             self.model.clean()
         self.assertIn(
-            'A global error occurred',
-            cm.exception.message_dict['__all__']
+            "A global error occurred", cm.exception.message_dict["__all__"]
         )
 
     def test_update(self):
         self.model.save()
-        self.assertEqual(self.model.name, '')
-        self.model.update(name='test')
+        self.assertEqual(self.model.name, "")
+        self.model.update(name="test")
         self.model.refresh_from_db()
-        self.assertEqual(self.model.name, 'test')
+        self.assertEqual(self.model.name, "test")

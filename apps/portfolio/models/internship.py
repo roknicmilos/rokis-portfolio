@@ -5,6 +5,6 @@ from apps.portfolio.models import Position
 
 class Internship(Position):
     class Meta:
-        verbose_name = _('Internship')
-        verbose_name_plural = _('Internships')
-        default_related_name = 'internships'
+        verbose_name = _("Internship")
+        verbose_name_plural = _("Internships")
+        default_related_name = "internships"
