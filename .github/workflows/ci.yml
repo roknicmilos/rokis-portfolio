@@ -28,6 +28,9 @@ jobs:
         run: |
           poetry install
 
+      - name: Run linter
+        run: poetry run ruff check
+
       - name: Prepare environment variables
         run: cp example.env .env
 

@@ -29,6 +29,11 @@ build-backend = "poetry.core.masonry.api"
 
 [tool.ruff]
 line-length = 80
+preview = true
+lint.select = [
+    "E501", # enforce line length
+    "Q000", # enforce double quotes
+]
 exclude = [
     "**/migrations/*",
 ]
