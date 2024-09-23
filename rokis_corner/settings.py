@@ -10,6 +10,7 @@ For the full list of settings and their values, see
 https://docs.djangoproject.com/en/5.1/ref/settings/
 """
 
+import sentry_sdk
 from pathlib import Path
 from decouple import config, Csv
 
@@ -152,3 +153,20 @@ FIXTURES = {
         }
     ],
 }
+
+SENTRY_DSN = config("SENTRY_DSN", default=None)
+SENTRY_ENV = config("SENTRY_ENV", default=None)
+if SENTRY_DSN and SENTRY_ENV:
+    SENTRY_CONFIG = {
+        "dsn": SENTRY_DSN,
+        "environment": SENTRY_ENV,
+        "debug": DEBUG,
+        "traces_sample_rate": config(
+            "SENTRY_TRACES_SAMPLE_RATE", default=1.0, cast=float
+        ),
+        "profiles_sample_rate": config(
+            "SENTRY_PROFILES_SAMPLE_RATE", default=1.0, cast=float
+        ),
+    }
+
+    sentry_sdk.init(**SENTRY_CONFIG)
