@@ -5,6 +5,9 @@ on:
     branches:
       - '**'  # Run on all branches
 
+env:
+  SECRET_KEY: dummy-secret-key
+
 jobs:
 
   test:
@@ -30,9 +33,6 @@ jobs:
 
       - name: Run linter
         run: poetry run ruff check
-
-      - name: Prepare environment variables
-        run: cp example.env .env
 
       - name: Run migrations
         run: poetry run python3 manage.py migrate
