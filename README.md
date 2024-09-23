@@ -42,6 +42,21 @@ to showcase their professional experience and skills.
     poetry run gunicorn rokis_corner.wsgi
     ```
 
+## Enable Sentry
+
+To enable Sentry error tracking, set the `SENTRY_DSN` and `SENTRY_ENV` variables
+in the `.env` file.
+
+Check
+[Client Keys (DSN)](https://rokis-corner.sentry.io/settings/projects/rokis-corner/keys/)
+in the Sentry project settings to get the DSN.
+
+Use one of the following values for the `SENTRY_ENV` variable: `local`, `dev` or
+`prod`.
+
+To check the issues for this project on Sentry, click
+[here](https://rokis-corner.sentry.io/issues/?project=4508003751821312&referrer=sidebar&statsPeriod=14d).
+
 ## Test Data
 
 The project includes test data in the form of Django fixtures. The fixtures are
