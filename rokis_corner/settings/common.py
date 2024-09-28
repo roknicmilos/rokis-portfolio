@@ -27,6 +27,10 @@ INSTALLED_APPS = [
     # Third party apps:
     "django_pdf_view",
     "django_smart_fixtures",
+    "health_check",
+    "health_check.db",
+    "health_check.cache",
+    "health_check.storage",
     # First party apps:
     "apps.common",
     "apps.user",
