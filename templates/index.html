@@ -74,5 +74,19 @@
 
 <script src="{% static 'js/flash-messages.js' %}"></script>
 
+{% if GOOGLE_ANALYTICS_TRACKING_ID %}
+    <script async src="https://www.googletagmanager.com/gtag/js?id={{ GOOGLE_ANALYTICS_TRACKING_ID }}"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+
+        function gtag() {
+            dataLayer.push(arguments);
+        }
+
+        gtag("js", new Date());
+        gtag("config", "{{ GOOGLE_ANALYTICS_TRACKING_ID }}");
+    </script>
+{% endif %}
+
 </body>
 </html>
