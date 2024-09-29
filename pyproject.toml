@@ -15,6 +15,7 @@ pillow = "^10.4.0"
 python-decouple = "^3.8"
 sentry-sdk = { extras = ["django"], version = "^2.14.0" }
 django-health-check = "^3.18.3"
+django-analytical = "^3.1.0"
 
 
 [tool.poetry.group.dev.dependencies]

@@ -31,6 +31,7 @@ INSTALLED_APPS = [
     "health_check.db",
     "health_check.cache",
     "health_check.storage",
+    "analytical",
     # First party apps:
     "apps.common",
     "apps.user",
@@ -62,6 +63,7 @@ TEMPLATES = [
                 "django.template.context_processors.request",
                 "django.contrib.auth.context_processors.auth",
                 "django.contrib.messages.context_processors.messages",
+                "apps.common.context_processors.settings_variables",
             ],
         },
     },
@@ -144,3 +146,7 @@ FIXTURES = {
         }
     ],
 }
+
+GOOGLE_ANALYTICS_TRACKING_ID = config(
+    "GOOGLE_ANALYTICS_TRACKING_ID", default=None
+)

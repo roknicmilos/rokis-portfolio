@@ -163,6 +163,17 @@ argon2 = ["argon2-cffi (>=19.1.0)"]
 bcrypt = ["bcrypt"]
 
 [[package]]
+name = "django-analytical"
+version = "3.1.0"
+description = "Analytics service integration for Django projects"
+optional = false
+python-versions = ">=3.6"
+files = [
+    {file = "django-analytical-3.1.0.tar.gz", hash = "sha256:6127c9196c8de3bcb4626f420d2ae670a7703152b1841b1b3e852b31a9a9d44b"},
+    {file = "django_analytical-3.1.0-py3-none-any.whl", hash = "sha256:43de3d8ef7734732f58eba4e5e7df0dea37512dbd89727efdfb30c27a96d4ea9"},
+]
+
+[[package]]
 name = "django-extensions"
 version = "3.2.3"
 description = "Extensions for Django"
@@ -798,4 +809,4 @@ test = ["covdefaults (>=2.3)", "coverage (>=7.2.7)", "coverage-enable-subprocess
 [metadata]
 lock-version = "2.0"
 python-versions = "^3.12"
-content-hash = "99bf3ff548dfb24567b52ca19b930448def70d15639d7bcdb5af0bb9d6f32a73"
+content-hash = "d687bd51a9657c0adc9f005ffd2834e39f837eca1129ade15830b0b20ad8544a"
