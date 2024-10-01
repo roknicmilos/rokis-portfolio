@@ -57,6 +57,17 @@ Use one of the following values for the `SENTRY_ENV` variable: `local`, `dev` or
 To check the issues for this project on Sentry, click
 [here](https://rokis-corner.sentry.io/issues/?project=4508003751821312&referrer=sidebar&statsPeriod=14d).
 
+## Enable Google Analytics
+
+To enable Google Analytics, set the `GOOGLE_ANALYTICS_TRACKING_ID` variable in
+the `.env` file.
+
+To get the tracking ID, visit:
+[Roki's Corner DEV data stream](https://analytics.google.com/analytics/web/#/a152537310p460818596/admin/streams/table/9749560985)
+or
+[Roki's Corner PROD data stream](https://analytics.google.com/analytics/web/#/a152537310p215621886/admin/streams/table/9749678510)
+at [Google Analytics](https://analytics.google.com/).
+
 ## Test Data
 
 The project includes test data in the form of Django fixtures. The fixtures are
