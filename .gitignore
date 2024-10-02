@@ -1,4 +1,4 @@
-# Django #
+# Django
 *.log
 *.pot
 *.pyc
@@ -7,7 +7,7 @@ db.sqlite3
 media
 staticfiles
 
-# Backup files #
+# Backup files
 *.bak
 
 # IDE specific files:
@@ -89,7 +89,7 @@ venv.bak/
 # mypy
 .mypy_cache/
 
-# Sublime Text #
+# Sublime Text
 *.tmlanguage.cache
 *.tmPreferences.cache
 *.stTheme.cache
@@ -106,7 +106,7 @@ Control.ca-bundle
 Control.system-ca-bundle
 GitHub.sublime-settings
 
-# Visual Studio Code #
+# Visual Studio Code
 .vscode/*
 !.vscode/settings.json
 !.vscode/tasks.json
