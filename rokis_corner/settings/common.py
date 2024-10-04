@@ -26,7 +26,7 @@ INSTALLED_APPS = [
     "django.contrib.staticfiles",
     # Third party apps:
     "django_pdf_view",
-    "django_smart_fixtures",
+    "smart_fixtures",
     "health_check",
     "health_check.db",
     "health_check.cache",
@@ -76,8 +76,12 @@ WSGI_APPLICATION = "rokis_corner.wsgi.application"
 
 DATABASES = {
     "default": {
-        "ENGINE": "django.db.backends.sqlite3",
-        "NAME": BASE_DIR / "db.sqlite3",
+        "ENGINE": "django.db.backends.postgresql",
+        "NAME": config("DB_NAME", default=None),
+        "USER": config("DB_USER", default=None),
+        "PASSWORD": config("DB_PASSWORD", default=None),
+        "HOST": config("DB_HOST", default="postgres"),
+        "PORT": config("DB_PORT", default=5432),
     }
 }
 

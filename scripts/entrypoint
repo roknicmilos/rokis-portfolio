@@ -1,0 +1,38 @@
+#!/bin/bash
+
+set -x # Enable printing of each command
+
+wait_for_postgres() {
+  # Adapted from https://docs.docker.com/compose/startup-order/
+  echo "Waiting for PostgreSQL..."
+  until PGPASSWORD=$DB_PASSWORD psql -h "$DB_HOST" -U "$DB_USER" -d "$DB_NAME" -c "\q"; do
+    echo >&2 "Postgres is unavailable - sleeping"
+    sleep 1
+  done
+}
+
+setup() {
+  wait_for_postgres
+  poetry run python manage.py migrate
+  poetry run python manage.py create_superuser
+  poetry run python manage.py collectstatic --noinput
+}
+
+run_gunicorn() {
+  poetry run gunicorn --bind 0.0.0.0:8000 --workers "$GUNICORN_WORKERS" rokis_corner.wsgi:application
+}
+
+if [ "$1" = "prod" ]; then
+  setup
+  run_gunicorn
+elif [ "$1" = "local" ]; then
+  setup
+  poetry run python manage.py loaddata --all
+  run_gunicorn
+else
+  echo "Unknown command: '$1'"
+  echo "Exiting!"
+  exit 1
+fi
+
+set +x # Disable printing of each command
