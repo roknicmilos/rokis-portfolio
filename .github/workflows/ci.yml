@@ -10,8 +10,8 @@ env:
 
 jobs:
 
-  test:
-    name: Test
+  ci:
+    name: CI
     runs-on: ubuntu-latest
 
     steps:

@@ -43,3 +43,23 @@ lint.select = [
 exclude = [
     "**/migrations/*",
 ]
+
+[tool.pytest.ini_options]
+DJANGO_SETTINGS_MODULE = "rokis_corner.settings.test"
+addopts = "--cov=."
+python_files = ["tests.py", "test_*.py"]
+
+[tool.coverage.run]
+omit = [
+    "*/migrations/*",
+    "*/tests/*",
+    "tests.py",
+    "rokis_corner/wsgi.py",
+    "rokis_corner/asgi.py",
+    "rokis_corner/urls.py",
+    "rokis_corner/settings/*",
+    "manage.py"
+]
+
+[tool.coverage.report]
+fail_under = 100
