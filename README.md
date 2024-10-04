@@ -112,10 +112,13 @@ Check `tox.ini` file for more information about the test configuration.
 ## Setup pre-commit hooks
 
 This project uses [pre-commit](https://pre-commit.com/) to manage and run
-pre-commit hooks. To install the pre-commit hooks, run the following command:
+pre-commit hooks. To install the pre-commit hooks, we will use
+[Poetry](https://python-poetry.org/). First, install Poetry and then run the
+following commands:
 
 ```bash
-docker compose run --rm web sh -c "pre-commit install"
+poetry install --only local
+poetry run pre-commit install
 ```
 
 Check `.pre-commit-config.yaml` file for more information about the pre-commit

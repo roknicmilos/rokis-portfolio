@@ -1,6 +1,7 @@
 - model: portfolio.Portfolio
   pk: 1
   fields:
+    is_published: true
     slug: roknic-milos
     title: Miloš Roknić
     filename: CV-Milos-Roknic-08-2024.pdf
