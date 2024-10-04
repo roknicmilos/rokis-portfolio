@@ -16,14 +16,16 @@ python-decouple = "^3.8"
 sentry-sdk = { extras = ["django"], version = "^2.15.0" }
 django-health-check = "^3.18.3"
 django-analytical = "^3.1.0"
-
+django-smart-fixtures = "^2.0.1"
+psycopg2 = "^2.9.9"
 
 [tool.poetry.group.dev.dependencies]
-django-smart-fixtures = "^1.0.0"
 pytest = "^8.3.3"
 pytest-django = "^4.9.0"
 pytest-cov = "^5.0.0"
 factory-boy = "^3.3.1"
+
+[tool.poetry.group.local.dependencies]
 ruff = "^0.6.9"
 pre-commit = "^3.8.0"
 
@@ -41,3 +43,23 @@ lint.select = [
 exclude = [
     "**/migrations/*",
 ]
+
+[tool.pytest.ini_options]
+DJANGO_SETTINGS_MODULE = "rokis_corner.settings.test"
+addopts = "--cov=."
+python_files = ["tests.py", "test_*.py"]
+
+[tool.coverage.run]
+omit = [
+    "*/migrations/*",
+    "*/tests/*",
+    "tests.py",
+    "rokis_corner/wsgi.py",
+    "rokis_corner/asgi.py",
+    "rokis_corner/urls.py",
+    "rokis_corner/settings/*",
+    "manage.py"
+]
+
+[tool.coverage.report]
+fail_under = 100

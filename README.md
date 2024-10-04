@@ -9,9 +9,8 @@ to showcase their professional experience and skills.
 
 ### Prerequisites
 
-- [Python 3.12+](https://www.python.org/)
-- [Python Poetry](https://python-poetry.org/)
-- [wkhtmltopdf](https://wkhtmltopdf.org/)
+- [Docker](https://docs.docker.com/get-docker/)
+- [Docker Compose](https://docs.docker.com/compose/install/)
 
 ### Project Setup
 
@@ -20,27 +19,30 @@ to showcase their professional experience and skills.
     git clone git@github.com:roknicmilos/rokis-corner.git
     ```
 
-2. Install the required packages:
+2. Create file with environment variables:
     ```bash
-    poetry install
+    cp example.env .env
     ```
-
-3. Create a `.env` file in the root directory based on the `example.env` file
+   There is no need to change anything in the `.env` file for the **development
+   environment**. However, you can change the values of the variables if you
+   want to run the project in a different environment.
    <br/><br/>
 
-4. Run migrations:
+3. Start Docker containers:
     ```bash
-    poetry run python manage.py migrate
+    docker compose up -d
+    ```
+   To start the project in the **production environment**, run the following
+   command:
+    ```bash
+    docker compose -f docker-compose.prod.yaml up -d
     ```
 
-5. Start the **development** server:
-    ```bash
-    poetry run python manage.py runserver
-    ```
-   or the **production** server:
-    ```bash
-    poetry run gunicorn rokis_corner.wsgi
-    ```
+You can now access the project at http://localhost:8000/. Django Admin is
+available at http://localhost:8000/admin/.
+
+Check the `docker-compose.yaml` and `docker-compose.prod.yaml` files for more
+information about the Docker configuration.
 
 ## Enable Sentry
 
@@ -71,11 +73,15 @@ at [Google Analytics](https://analytics.google.com/).
 ## Test Data
 
 The project includes test data in the form of Django fixtures. The fixtures are
-located in the `fixtures` directories in each Django app. You can load the
-fixtures using the following command:
+located in the `fixtures` directories in each Django app. If you started Docker
+containers with the `docker compose up -d` command, the fixtures will be loaded
+automatically.
+
+If you want to **load the fixtures manually**, you can do so with the following
+command:
 
 ```bash
-poetry run python manage.py load_fixtures
+docker compose run --rm web sh -c "python manage.py loaddata --all"
 ```
 
 You can now check out Eric's Cartman portfolio page at
@@ -87,7 +93,7 @@ To create a superuser with credentials defined in the `.env` file, run the
 following command:
 
 ```bash
-poetry run python manage.py create_superuser
+docker compose run --rm web sh -c "python manage.py create_superuser"
 ```
 
 You can now access the Django Admin at http://localhost:8000/admin/ and log in
@@ -98,7 +104,7 @@ with the superuser credentials defined in the `.env` file.
 Run the tests with the following command:
 
 ```bash
-poetry run pytest
+docker compose run --rm web sh -c "pytest"
 ```
 
 Check `tox.ini` file for more information about the test configuration.
@@ -106,7 +112,15 @@ Check `tox.ini` file for more information about the test configuration.
 ## Setup pre-commit hooks
 
 This project uses [pre-commit](https://pre-commit.com/) to manage and run
-pre-commit hooks. To install the pre-commit hooks, run the following command:
+pre-commit hooks. To install the pre-commit hooks, you should first install
+[Poetry](https://python-poetry.org/) and then run the following command to
+install the pre-commit package in the project's virtual environment:
+
+```bash
+poetry install --only local
+```
+
+Now, you can install the pre-commit hooks with the following command:
 
 ```bash
 poetry run pre-commit install
@@ -115,70 +129,30 @@ poetry run pre-commit install
 Check `.pre-commit-config.yaml` file for more information about the pre-commit
 hooks configuration.
 
-## Use `systemd` to Manage Gunicorn
+## Linting and Formatting
 
-Using `systemd` to manage our Gunicorn server allows us to automatically start,
-stop, and restart the Gunicorn process for our Django project as a service.
-You can name the service file whatever you want, but it should end with
-`.service`. We'll name our service file `rokis-corner.gunicorn.service`.
+For code linting and formatting, this project uses
+[Ruff](https://docs.astral.sh/ruff/). To install Ruff, you should first install
+[Poetry](https://python-poetry.org/) and then run the following commands to
+install Ruff in the project's virtual environment:
 
-1. Create a new service file:
-    ```bash
-    sudo nano /etc/systemd/system/rokis-corner.gunicorn.service
-    ```
-2. Add the following configuration to the service file:
-    ```ini
-    [Unit]
-    Description=gunicorn daemon
-    After=network.target
-    
-    [Service]
-    User={username}
-    Group=www-data
-    WorkingDirectory=/var/www/rokis-corner
-    ExecStart=/path/to/venv/bin/gunicorn --workers 3 --bind 0.0.0.0:8000 rokis_corner.wsgi:application
-    
-    [Install]
-    WantedBy=multi-user.target
-    ```
-    - Replace `{username}` with your username. Using `root` user is not
-      recommended.
-    - Replace `/var/www/rokis-corner` with the path to your project directory.
-    - We use 3 workers for Gunicorn as it's a recommended number for minimal
-      server resources (1 CPU core). Formula used to calculate the number of
-      workers: `2 * cpu_cores + 1`.
-    - Instead of binding Gunicorn to a TCP/IP socket (like `0.0.0.0:8000`), you
-      can bind it to a Unix socket (e.g.
-      `unix:/var/www/rokis-corner/rokis_corner.sock`). This is more secure and
-      faster than binding to a TCP/IP socket. However, you'll need to configure
-      a web server (e.g. Nginx) to communicate with Gunicorn via the Unix
-      socket.
-      <br/><br/>
+```bash
+poetry install --only local
+```
 
-3. Start the `rokis-corner.gunicorn` service:
-    ```bash
-    sudo systemctl start rokis-corner.gunicorn
-    ```
-   This will start the Gunicorn process for our Django project, and you
-   should be able to access the website at http://localhost:8000
+To run the linters, execute the following command:
 
-- Set service to start on boot:
-  ```bash
-  sudo systemctl enable rokis-corner.gunicorn
-  ```
-- Stop service:
-  ```bash
-  sudo systemctl stop rokis-corner.gunicorn
-  ```
-- Restart service:
-  ```bash
-  sudo systemctl restart rokis-corner.gunicorn
-  ```
-- Check service status:
-  ```bash
-  sudo systemctl status rokis-corner.gunicorn
-  ```
-- View logs:
-    ```bash
-    journalctl -u rokis-corner.gunicorn
-    ```
+```bash
+poetry run ruff check
+```
+
+Append the `--fix` flag to the above command to automatically fix the issues.
+
+To format the code, run the following command:
+
+```bash
+poetry run ruff format
+```
+
+Check `[tool.ruff]` section in the `pyproject.toml` file for more information
+about the Ruff configuration.

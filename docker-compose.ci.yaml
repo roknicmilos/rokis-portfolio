@@ -1,0 +1,28 @@
+# This file is used to run the application in CI mode.
+# It is not ment to be used in conjunction with another docker-compose
+# file, but rather to be used as a standalone file.
+
+services:
+
+  web:
+    build:
+      context: .
+      target: ci
+    container_name: django
+    environment:
+      - SECRET_KEY=secret-key
+      - DB_NAME=ci
+      - DB_USER=ci
+      - DB_PASSWORD=ci
+      - DB_PORT=5432
+      - DB_HOST=postgres
+    depends_on:
+      - db
+
+  db:
+    image: postgres:17
+    container_name: postgres
+    environment:
+      - POSTGRES_DB=ci
+      - POSTGRES_USER=ci
+      - POSTGRES_PASSWORD=ci

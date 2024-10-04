@@ -10,35 +10,13 @@ env:
 
 jobs:
 
-  test:
-    name: Test
+  ci:
+    name: CI
     runs-on: ubuntu-latest
 
     steps:
       - name: Checkout code
         uses: actions/checkout@v4
 
-      - name: Set up Python
-        uses: actions/setup-python@v2
-        with:
-          python-version: 3.12
-
-      - name: Install Poetry
-        run: |
-          curl -sSL https://install.python-poetry.org | python3 -
-
-      - name: Install dependencies
-        run: |
-          poetry install
-
-      - name: Run linter
-        run: poetry run ruff check
-
-      - name: Run migrations
-        run: poetry run python3 manage.py migrate
-
-      - name: Install wkhtmltopdf
-        run: sudo apt-get update && sudo apt-get install -y wkhtmltopdf
-
-      - name: Run tests
-        run: poetry run pytest
+      - name: Run checks
+        run: docker compose -f docker-compose.ci.yaml run web
