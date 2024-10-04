@@ -41,9 +41,17 @@ FROM base AS prod
 CMD ["/app/scripts/entrypoint", "prod"]
 
 
+FROM base AS ci
+
+# Install all dependencies
+RUN poetry install --no-root
+
+CMD ["/app/scripts/entrypoint", "ci"]
+
+
 FROM base AS local
 
-# Install dev dependencies
+# Install all dependencies
 RUN poetry install --no-root
 
 # Prevent "dubious ownership" Git error caused by running

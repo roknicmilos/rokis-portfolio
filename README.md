@@ -112,14 +112,47 @@ Check `tox.ini` file for more information about the test configuration.
 ## Setup pre-commit hooks
 
 This project uses [pre-commit](https://pre-commit.com/) to manage and run
-pre-commit hooks. To install the pre-commit hooks, we will use
-[Poetry](https://python-poetry.org/). First, install Poetry and then run the
-following commands:
+pre-commit hooks. To install the pre-commit hooks, you should first install
+[Poetry](https://python-poetry.org/) and then run the following command to
+install the pre-commit package in the project's virtual environment:
 
 ```bash
 poetry install --only local
+```
+
+Now, you can install the pre-commit hooks with the following command:
+
+```bash
 poetry run pre-commit install
 ```
 
 Check `.pre-commit-config.yaml` file for more information about the pre-commit
 hooks configuration.
+
+## Linting and Formatting
+
+For code linting and formatting, this project uses
+[Ruff](https://docs.astral.sh/ruff/). To install Ruff, you should first install
+[Poetry](https://python-poetry.org/) and then run the following commands to
+install Ruff in the project's virtual environment:
+
+```bash
+poetry install --only local
+```
+
+To run the linters, execute the following command:
+
+```bash
+poetry run ruff check
+```
+
+Append the `--fix` flag to the above command to automatically fix the issues.
+
+To format the code, run the following command:
+
+```bash
+poetry run ruff format
+```
+
+Check `[tool.ruff]` section in the `pyproject.toml` file for more information
+about the Ruff configuration.

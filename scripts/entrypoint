@@ -13,26 +13,32 @@ wait_for_postgres() {
 
 setup() {
   wait_for_postgres
-  poetry run python manage.py migrate
-  poetry run python manage.py create_superuser
-  poetry run python manage.py collectstatic --noinput
+  python manage.py migrate
+  python manage.py create_superuser
+  python manage.py collectstatic --noinput
 }
 
 run_gunicorn() {
-  poetry run gunicorn --bind 0.0.0.0:8000 --workers "$GUNICORN_WORKERS" rokis_corner.wsgi:application
+  gunicorn --bind 0.0.0.0:8000 --workers "$GUNICORN_WORKERS" rokis_corner.wsgi:application
 }
 
 if [ "$1" = "prod" ]; then
   setup
   run_gunicorn
+elif [ "$1" = "ci" ]; then
+  ruff check
+  wait_for_postgres
+  python manage.py migrate
+  pytest
+  exit 0 # Exit successfully
 elif [ "$1" = "local" ]; then
   setup
-  poetry run python manage.py loaddata --all
+  python manage.py loaddata --all
   run_gunicorn
 else
   echo "Unknown command: '$1'"
   echo "Exiting!"
-  exit 1
+  exit 1 # Exit with an error status
 fi
 
 set +x # Disable printing of each command
