@@ -1,7 +1,0 @@
-services:
-
-  web:
-    build:
-      target: local
-    volumes:
-      - .:/app

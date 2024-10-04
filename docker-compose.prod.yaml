@@ -1,4 +1,4 @@
-# This file is used to run the application in LOCAL/DEVELOPMENT mode.
+# This file is used to run the application in PRODUCTION mode.
 # It is not ment to be used in conjunction with another docker-compose
 # file, but rather to be used as a standalone file.
 
@@ -7,13 +7,11 @@ services:
   web:
     build:
       context: .
-      target: local
+      target: prod
     container_name: django
     ports:
       - "8000:8000"
     env_file: .env
-    volumes:
-      - .:/app
     depends_on:
       - db
     restart: unless-stopped
