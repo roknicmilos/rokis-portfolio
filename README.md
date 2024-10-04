@@ -30,13 +30,19 @@ to showcase their professional experience and skills.
 
 3. Start Docker containers:
     ```bash
-    docker-compose up -d
+    docker compose up -d
     ```
    To start the project in the **production environment**, run the following
    command:
     ```bash
-    docker-compose -f docker-compose.prod.yaml up -d
+    docker compose -f docker-compose.prod.yaml up -d
     ```
+
+You can now access the project at http://localhost:8000/. Django Admin is
+available at http://localhost:8000/admin/.
+
+Check the `docker-compose.yaml` and `docker-compose.prod.yaml` files for more
+information about the Docker configuration.
 
 ## Enable Sentry
 
@@ -67,11 +73,15 @@ at [Google Analytics](https://analytics.google.com/).
 ## Test Data
 
 The project includes test data in the form of Django fixtures. The fixtures are
-located in the `fixtures` directories in each Django app. You can load the
-fixtures using the following command:
+located in the `fixtures` directories in each Django app. If you started Docker
+containers with the `docker compose up -d` command, the fixtures will be loaded
+automatically.
+
+If you want to **load the fixtures manually**, you can do so with the following
+command:
 
 ```bash
-poetry run python manage.py load_fixtures
+docker compose run --rm web sh -c "python manage.py loaddata --all"
 ```
 
 You can now check out Eric's Cartman portfolio page at
@@ -83,7 +93,7 @@ To create a superuser with credentials defined in the `.env` file, run the
 following command:
 
 ```bash
-poetry run python manage.py create_superuser
+docker compose run --rm web sh -c "python manage.py create_superuser"
 ```
 
 You can now access the Django Admin at http://localhost:8000/admin/ and log in
@@ -94,7 +104,7 @@ with the superuser credentials defined in the `.env` file.
 Run the tests with the following command:
 
 ```bash
-poetry run pytest
+docker compose run --rm web sh -c "pytest"
 ```
 
 Check `tox.ini` file for more information about the test configuration.
@@ -105,7 +115,7 @@ This project uses [pre-commit](https://pre-commit.com/) to manage and run
 pre-commit hooks. To install the pre-commit hooks, run the following command:
 
 ```bash
-poetry run pre-commit install
+docker compose run --rm web sh -c "pre-commit install"
 ```
 
 Check `.pre-commit-config.yaml` file for more information about the pre-commit

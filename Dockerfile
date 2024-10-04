@@ -46,4 +46,8 @@ FROM base AS local
 # Install dev dependencies
 RUN poetry install --no-root
 
+# Prevent "dubious ownership" Git error caused by running
+# Git commands as root in a mounted volume
+RUN git config --global --add safe.directory /app
+
 CMD ["/app/scripts/entrypoint", "local"]
