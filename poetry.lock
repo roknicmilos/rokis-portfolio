@@ -222,13 +222,13 @@ pdfkit = ">=1.0.0,<2.0.0"
 
 [[package]]
 name = "django-smart-fixtures"
-version = "1.0.2"
+version = "2.0.1"
 description = "Don't be stupid, and load fixtures in a smart way"
 optional = false
-python-versions = "<4.0,>=3.12"
+python-versions = "<4.0,>=3.10"
 files = [
-    {file = "django_smart_fixtures-1.0.2-py3-none-any.whl", hash = "sha256:5183242e6378c96151cee441fc88aaf31646829e8a8239e919524e5ff7d8c62a"},
-    {file = "django_smart_fixtures-1.0.2.tar.gz", hash = "sha256:b906b20acccc9eddc6393e5d740c17728886a968eef50c6f63403ff850655de7"},
+    {file = "django_smart_fixtures-2.0.1-py3-none-any.whl", hash = "sha256:99eef790b8973cf3cfe1d8a0f3f52bd2294c7205e5ddd9489e8899db6dde9b87"},
+    {file = "django_smart_fixtures-2.0.1.tar.gz", hash = "sha256:4675463dd1d7bc83cf8e7935eee38b0f9dfa0a06734fada4305a4752bdd24f0a"},
 ]
 
 [package.dependencies]
@@ -809,4 +809,4 @@ test = ["covdefaults (>=2.3)", "coverage (>=7.2.7)", "coverage-enable-subprocess
 [metadata]
 lock-version = "2.0"
 python-versions = "^3.12"
-content-hash = "0899eef9fd0288a389e09e569070def0c87982a689ed463ef5b8b7dcf0154ae1"
+content-hash = "087615ee8bf37363fe38f76da85bc4e06568d24c8c294e4c605b4e8601163c25"
