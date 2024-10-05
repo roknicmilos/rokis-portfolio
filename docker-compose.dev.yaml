@@ -1,0 +1,11 @@
+# This file is used to run the application in DEVELOPMENT mode.
+# It is ment to be used in conjunction with PRODUCTION docker-compose
+# file to be as close as possible to the production environment.
+
+services:
+
+  web:
+    container_name: django-dev
+
+  db:
+    container_name: postgres-dev

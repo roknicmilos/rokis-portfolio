@@ -44,11 +44,16 @@ to showcase their professional experience and skills.
    want to run the project in a different environment.
    <br/><br/>
 
-3. Start Docker containers:
+3. To start the project in a **local environment**, run the following command:
     ```bash
     docker compose up -d
     ```
-   To start the project in the **production environment**, run the following
+   To start the project in a **dev environment**, run the following
+   command:
+    ```bash
+    docker compose -f docker-compose.dev.yaml up -d
+    ```
+   To start the project in a **production environment**, run the following
    command:
     ```bash
     docker compose -f docker-compose.prod.yaml up -d
@@ -57,8 +62,11 @@ to showcase their professional experience and skills.
 You can now access the project at http://localhost:8000/. Django Admin is
 available at http://localhost:8000/admin/.
 
-Check the `docker-compose.yaml` and `docker-compose.prod.yaml` files for more
-information about the Docker configuration.
+Check `docker-compose`files for more information about the Docker configuration:
+
+- [docker-compose.yaml](docker-compose.yaml)
+- [docker-compose.dev.yaml](docker-compose.dev.yaml)
+- [docker-compose.prod.yaml](docker-compose.prod.yaml)
 
 ## Enable Sentry
 
