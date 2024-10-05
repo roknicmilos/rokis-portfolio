@@ -10,7 +10,7 @@ services:
       target: local
     container_name: django
     ports:
-      - "8000:8000"
+      - "${DJANGO_PORT}:8000"
     env_file: .env
     volumes:
       - .:/app
