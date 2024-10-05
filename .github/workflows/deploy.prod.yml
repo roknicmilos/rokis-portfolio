@@ -1,9 +1,7 @@
-name: Deploy DEV
+name: Deploy PROD
 
 on:
-  push:
-    branches:
-      - develop
+  workflow_dispatch: # Manual trigger
 
 jobs:
   deploy:
@@ -22,13 +20,13 @@ jobs:
         run: |
           ssh-keyscan -H ${{ secrets.DROPLET_IP }} >> ~/.ssh/known_hosts
 
-      - name: Deploy 'develop' branch to Digital Ocean Droplet
+      - name: Deploy 'main' branch to Digital Ocean Droplet
         run: |
           ssh ${{ secrets.DROPLET_USER }}@${{ secrets.DROPLET_IP }} '
-          cd /var/www/rokis-corner-dev \
+          cd /var/www/rokis-corner \
           && eval "$(ssh-agent -s)" \
           && ssh-add ~/.ssh/github_ed25519 \
-          && git checkout develop \
+          && git checkout main \
           && git pull \
           && docker compose -f docker-compose.prod.yaml up -d --build
           '
