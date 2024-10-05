@@ -20,7 +20,7 @@ setup() {
 
 run_gunicorn() {
   gunicorn \
-    --bind "$GUNICORN_HOST:$GUNICORN_PORT" \
+    --bind 0.0.0.0:8000 \
     --workers "$GUNICORN_WORKERS" \
     rokis_corner.wsgi:application
 }
