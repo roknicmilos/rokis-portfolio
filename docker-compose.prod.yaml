@@ -1,6 +1,6 @@
 # This file is used to run the application in PRODUCTION mode.
-# It is not ment to be used in conjunction with another docker-compose
-# file, but rather to be used as a standalone file.
+# It is meant to be used as a standalone file or as a base file
+# for a more complex setup.
 
 services:
 
@@ -12,6 +12,8 @@ services:
     ports:
       - "${DJANGO_PORT}:8000"
     env_file: .env
+    volumes:
+      - ./media:/app/media
     depends_on:
       - db
     restart: unless-stopped
