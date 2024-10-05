@@ -5,7 +5,7 @@ set -x # Enable printing of each command
 wait_for_postgres() {
   # Adapted from https://docs.docker.com/compose/startup-order/
   echo "Waiting for PostgreSQL..."
-  until PGPASSWORD=$DB_PASSWORD psql -h postgres -U "$DB_USER" -d "$DB_NAME" -c "\q"; do
+  until PGPASSWORD=$DB_PASSWORD psql -h "$DB_HOST" -U "$DB_USER" -d "$DB_NAME" -c "\q"; do
     echo >&2 "Postgres is unavailable - sleeping"
     sleep 1
   done
