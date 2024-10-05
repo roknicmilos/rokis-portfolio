@@ -5,6 +5,22 @@ create, customize, and manage their portfolio pages. Users can easily generate
 and download their portfolios as CVs in PDF format, providing a convenient way
 to showcase their professional experience and skills.
 
+## Table of Contents
+
+- [Getting Started](#getting-started)
+    - [Prerequisites](#prerequisites)
+    - [Project Setup](#project-setup)
+- [Enable Sentry](#enable-sentry)
+- [Enable Google Analytics](#enable-google-analytics)
+- [Test Data](#test-data)
+    - [Create Superuser](#create-superuser)
+- [Run Tests](#run-tests)
+- [Setup pre-commit hooks](#setup-pre-commit-hooks)
+- [Linting and Formatting](#linting-and-formatting)
+- [Deployment](#deployment)
+    - [Development Environment](#development-environment)
+    - [Production Environment](#production-environment)
+
 ## Getting Started
 
 ### Prerequisites
@@ -156,3 +172,23 @@ poetry run ruff format
 
 Check `[tool.ruff]` section in the `pyproject.toml` file for more information
 about the Ruff configuration.
+
+## Deployment
+
+Both the development and production environments are set up on the same droplet
+(server) on [Digital Ocean](https://www.digitalocean.com/). The project is
+deployed using Docker and Docker Compose.
+
+### Development Environment
+
+Project is deployed automatically to the development environment on every push
+to the `develop` branch. Check the
+[.github/workflows/develop.dev.yml](.github/workflows/deploy.dev.yml) file for
+more information about the deployment configuration.
+
+### Production Environment
+
+Project can be deployed manually to the production environment by running the
+`Deploy PROD` workflow in the GitHub Actions tab. Check the
+[.github/workflows/deploy.prod.yml](.github/workflows/deploy.prod.yml) file for
+more information about the deployment configuration.
