@@ -14,8 +14,6 @@ services:
       - DB_NAME=ci
       - DB_USER=ci
       - DB_PASSWORD=ci
-      - DB_PORT=5432
-      - DB_HOST=postgres
     depends_on:
       - db
 
