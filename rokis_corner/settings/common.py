@@ -14,12 +14,9 @@ SECRET_KEY = config("SECRET_KEY")
 DEBUG = config("DEBUG", cast=bool, default=False)
 
 ALLOWED_HOSTS = config("ALLOWED_HOSTS", cast=Csv(), default=None)
-DJANGO_PORT = config("DJANGO_PORT", cast=int, default=None)
 HTTPS = config("HTTPS", cast=bool, default=False)
 HTTP_SCHEMA = "https" if HTTPS else "http"
-CSRF_TRUSTED_ORIGINS = [
-    f"{HTTP_SCHEMA}://{host}:{DJANGO_PORT}" for host in ALLOWED_HOSTS
-]
+CSRF_TRUSTED_ORIGINS = [f"{HTTP_SCHEMA}://{host}" for host in ALLOWED_HOSTS]
 CSRF_COOKIE_SECURE = HTTPS
 SESSION_COOKIE_SECURE = HTTPS
 
