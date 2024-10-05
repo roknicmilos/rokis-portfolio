@@ -19,7 +19,10 @@ setup() {
 }
 
 run_gunicorn() {
-  gunicorn --bind 0.0.0.0:8000 --workers "$GUNICORN_WORKERS" rokis_corner.wsgi:application
+  gunicorn \
+    --bind "$GUNICORN_HOST:$GUNICORN_PORT" \
+    --workers "$GUNICORN_WORKERS" \
+    rokis_corner.wsgi:application
 }
 
 if [ "$1" = "prod" ]; then
