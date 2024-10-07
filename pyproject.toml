@@ -27,7 +27,7 @@ factory-boy = "^3.3.1"
 
 [tool.poetry.group.local.dependencies]
 ruff = "^0.6.9"
-pre-commit = "^3.8.0"
+pre-commit = "^4.0.0"
 
 [build-system]
 requires = ["poetry-core"]
