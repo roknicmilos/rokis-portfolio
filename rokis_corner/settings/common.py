@@ -121,7 +121,7 @@ USE_TZ = True
 
 STATIC_URL = "/static/"
 
-STATIC_ROOT = BASE_DIR / "staticfiles/"
+STATIC_ROOT = BASE_DIR / "run" / "static"
 
 STATICFILES_DIRS = [
     BASE_DIR / "static",
@@ -134,7 +134,7 @@ DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
 
 MEDIA_URL = "/media/"
 
-MEDIA_ROOT = BASE_DIR / "media/"
+MEDIA_ROOT = BASE_DIR / "run" / "media"
 
 AUTH_USER_MODEL = "user.User"
 
