@@ -32,7 +32,7 @@ elif [ "$1" = "ci" ]; then
   ruff check
   wait_for_postgres
   python manage.py migrate
-  pytest
+  pytest || exit 1
 elif [ "$1" = "local" ]; then
   setup
   python manage.py loaddata --all
