@@ -1,16 +1,17 @@
-# Django #
+# Django
 *.log
 *.pot
 *.pyc
 __pycache__
 db.sqlite3
-media
-staticfiles
 
-# Backup files #
+# Directory run contains media and collected static files
+run
+
+# Backup files
 *.bak
 
-# IDE specific files:
+# IDE specific files
 .idea
 
 # File-based project format
@@ -22,7 +23,7 @@ out/
 # JIRA plugin
 atlassian-ide-plugin.xml
 
-# Python #
+# Python
 *.py[cod]
 *$py.class
 
@@ -89,7 +90,7 @@ venv.bak/
 # mypy
 .mypy_cache/
 
-# Sublime Text #
+# Sublime Text
 *.tmlanguage.cache
 *.tmPreferences.cache
 *.stTheme.cache
@@ -106,7 +107,7 @@ Control.ca-bundle
 Control.system-ca-bundle
 GitHub.sublime-settings
 
-# Visual Studio Code #
+# Visual Studio Code
 .vscode/*
 !.vscode/settings.json
 !.vscode/tasks.json
