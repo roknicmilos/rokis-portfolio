@@ -33,7 +33,6 @@ elif [ "$1" = "ci" ]; then
   wait_for_postgres
   python manage.py migrate
   pytest
-  exit 0 # Exit successfully
 elif [ "$1" = "local" ]; then
   setup
   python manage.py loaddata --all
