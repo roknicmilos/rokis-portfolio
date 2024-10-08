@@ -14,3 +14,7 @@ class SubscriberFactory(DjangoModelFactory):
 class UserFactory(DjangoModelFactory):
     class Meta:
         model = User
+
+    email = Faker("email")
+    username = Faker("user_name")
+    password = Faker("password")

@@ -148,16 +148,16 @@ class Portfolio(LeftPortfolioColumnMixin, RightPortfolioColumnMixin, BaseModel):
         )
 
     def clean(self):
-        super().clean()
         if self.user:
             self._validate_user()
+        super().clean()
 
     def _validate_user(self):
         user_error = None
         if not self.user.is_active or not self.user.is_staff:
             user_error = _("Portfolio can't be created for this user.")
         elif not self.user.is_superuser and self.user.portfolio_count > 1:
-            user_error = _("You can't create more than 1 portfolio.")
+            user_error = _("Only one Portfolio can be created for this user.")
 
         if user_error:
-            raise ValidationError({"user": user_error})
+            self.add_validation_error(field_name="user", message=user_error)

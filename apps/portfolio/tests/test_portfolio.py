@@ -11,6 +11,7 @@ from apps.portfolio.tests.factories import (
     SkillFactory,
     ProjectFactory,
 )
+from apps.user.tests.factories import UserFactory
 
 
 class TestPortfolio(TestCase):
@@ -202,3 +203,56 @@ class TestPortfolio(TestCase):
             ),
             2,
         )
+
+    def test_portfolio_user_validation(self):
+        # When the user is not set, no validation errors should be added:
+        self.portfolio.clean()
+
+        # When inactive user is set, validation error should be added:
+        user = UserFactory(is_active=False, is_staff=True)
+        self.portfolio.update(user=user)
+        with self.assertRaises(ValidationError) as context:
+            self.portfolio.clean()
+        self.assertEqual(
+            context.exception.message_dict,
+            {"user": [_("Portfolio can't be created for this user.")]},
+        )
+
+        # Clear validation errors:
+        self.portfolio.validation_errors = {}
+
+        # When non-staff user is set, validation error should be raised:
+        user.update(is_active=True, is_staff=False)
+        with self.assertRaises(ValidationError) as context:
+            self.portfolio.clean()
+        self.assertEqual(
+            context.exception.message_dict,
+            {"user": [_("Portfolio can't be created for this user.")]},
+        )
+
+        # Clear validation errors:
+        self.portfolio.validation_errors = {}
+
+        # No validation errors should be raised when active staff user has
+        # only 1 portfolio:
+        user.update(is_active=True, is_staff=True)
+        self.portfolio.clean()
+
+        # When staff user has more than 1 portfolio, validation error should
+        # be raised:
+        PortfolioFactory(user=user)
+        with self.assertRaises(ValidationError) as context:
+            self.portfolio.clean()
+        self.assertEqual(
+            context.exception.message_dict,
+            {"user": [_("Only one Portfolio can be created for this user.")]},
+        )
+
+        # Clear validation errors:
+        self.portfolio.validation_errors = {}
+
+        # When superuser has more than 1 portfolio, no validation errors
+        # should be raised:
+        user.update(is_superuser=True)
+        self.portfolio.clean()
+        self.assertEqual(self.portfolio.validation_errors, {})

@@ -2,8 +2,10 @@ from django.utils.translation import gettext_lazy as _
 from django.contrib.auth.models import AbstractUser
 from django.db import models
 
+from apps.common.models import BaseModel
 
-class User(AbstractUser):
+
+class User(AbstractUser, BaseModel):
     email = models.EmailField(
         verbose_name=_("email address"),
         unique=True,
