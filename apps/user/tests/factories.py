@@ -1,4 +1,4 @@
-from apps.user.models import Subscriber
+from apps.user.models import Subscriber, User
 from factory.django import DjangoModelFactory
 from factory import Faker
 
@@ -9,3 +9,8 @@ class SubscriberFactory(DjangoModelFactory):
 
     email = Faker("email")
     submission_count = Faker("random_int", min=1, max=3)
+
+
+class UserFactory(DjangoModelFactory):
+    class Meta:
+        model = User
