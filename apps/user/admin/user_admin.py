@@ -15,6 +15,8 @@ class UserAdmin(BaseUserAdmin):
         "is_active",
         "is_staff",
         "is_superuser",
+        "portfolio_count",
         "date_joined",
         "last_login",
     )
+    readonly_fields = ("portfolio_count",)

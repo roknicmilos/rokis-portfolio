@@ -37,7 +37,7 @@ elif [ "$1" = "ci" ]; then
 elif [ "$1" = "local" ]; then
   setup
   python manage.py loaddata --all
-  run_gunicorn
+  python manage.py runserver 0.0.0.0:8000
 else
   echo "Unknown command: '$1'"
   echo "Exiting!"

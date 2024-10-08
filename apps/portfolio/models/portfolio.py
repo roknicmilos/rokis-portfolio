@@ -16,6 +16,14 @@ class Portfolio(LeftPortfolioColumnMixin, RightPortfolioColumnMixin, BaseModel):
         EMPLOYMENT = "employment", _("Employment")
         PROJECTS = "projects", _("Projects")
 
+    user = models.ForeignKey(
+        to="user.User",
+        verbose_name=_("user"),
+        null=True,
+        blank=True,
+        on_delete=models.CASCADE,
+        related_name="portfolios",
+    )
     is_published = models.BooleanField(
         verbose_name=_("is published"),
         default=False,

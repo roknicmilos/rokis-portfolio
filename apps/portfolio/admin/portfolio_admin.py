@@ -19,11 +19,14 @@ from apps.portfolio.models import Portfolio
 class PortfolioAdmin(admin.ModelAdmin):
     list_display = (
         "title",
+        "user",
         "portfolio_link",
         "is_published",
         "created",
         "modified",
     )
+    list_filter = ("is_published",)
+    search_fields = ("title", "user__email")
     fieldsets = (
         (
             None,
