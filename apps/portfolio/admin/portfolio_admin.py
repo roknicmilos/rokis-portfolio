@@ -32,6 +32,7 @@ class PortfolioAdmin(admin.ModelAdmin):
             None,
             {
                 "fields": (
+                    "user",
                     "is_published",
                     "portfolio_link",
                     "id",
