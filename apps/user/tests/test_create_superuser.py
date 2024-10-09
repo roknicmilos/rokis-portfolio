@@ -18,7 +18,6 @@ class CreateSuperuserCommandTests(TestCase):
     @patch.dict(
         os.environ,
         {
-            "DJANGO_SUPERUSER_USERNAME": "",
             "DJANGO_SUPERUSER_EMAIL": "",
             "DJANGO_SUPERUSER_PASSWORD": "",
         },
@@ -26,42 +25,41 @@ class CreateSuperuserCommandTests(TestCase):
     def test_handle_no_environment_variables(self):
         call_command("create_superuser")
         self.mock_write.assert_called_once_with(
-            "Please provide DJANGO_SUPERUSER_USERNAME, "
-            "DJANGO_SUPERUSER_EMAIL, and DJANGO_SUPERUSER_PASSWORD."
+            "Please provide DJANGO_SUPERUSER_EMAIL "
+            "and DJANGO_SUPERUSER_PASSWORD."
         )
 
     @patch.dict(
         os.environ,
         {
-            "DJANGO_SUPERUSER_USERNAME": "testuser",
             "DJANGO_SUPERUSER_EMAIL": "testuser@example.com",
             "DJANGO_SUPERUSER_PASSWORD": "testpass123",
         },
     )
     def test_handle_superuser_already_exists(self):
         User.objects.create_superuser(
-            username="testuser",
             email="testuser@example.com",
             password="testpass123",
         )
         call_command("create_superuser")
         self.mock_write.assert_called_once_with(
-            "Superuser testuser already exists."
+            "Superuser testuser@example.com already exists."
         )
 
     @patch.dict(
         os.environ,
         {
-            "DJANGO_SUPERUSER_USERNAME": "testuser",
             "DJANGO_SUPERUSER_EMAIL": "testuser@example.com",
             "DJANGO_SUPERUSER_PASSWORD": "testpass123",
         },
     )
     def test_handle_superuser_created_successfully(self):
         call_command("create_superuser")
-        self.assertTrue(User.objects.filter(username="testuser").exists())
+        self.assertTrue(
+            User.objects.filter(email="testuser@example.com").exists()
+        )
         self.mock_write.assert_called_once_with(
-            "Superuser testuser created successfully."
+            "Superuser testuser@example.com created successfully."
         )
 
     def tearDown(self):

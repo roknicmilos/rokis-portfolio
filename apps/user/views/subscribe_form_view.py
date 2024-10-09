@@ -6,6 +6,11 @@ from apps.user.forms import SubscriberForm
 
 
 class SubscribeFormView(FormView):
+    """
+    Intended to be used as a base class for a view that
+    should define a specific template_name.
+    """
+
     form_class = SubscriberForm
     success_url = "."
 
