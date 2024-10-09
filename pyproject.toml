@@ -16,7 +16,7 @@ python-decouple = "^3.8"
 sentry-sdk = { extras = ["django"], version = "^2.16.0" }
 django-health-check = "^3.18.3"
 django-analytical = "^3.1.0"
-django-smart-fixtures = "^2.0.1"
+django-smart-fixtures = "^2.0.2"
 psycopg2 = "^2.9.9"
 
 [tool.poetry.group.dev.dependencies]
