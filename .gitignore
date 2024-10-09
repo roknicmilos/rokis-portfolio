@@ -2,17 +2,17 @@
 *.log
 *.pot
 *.pyc
-__pycache__
+__pycache__/
 db.sqlite3
 
 # Directory run contains media and collected static files
-run
+run/
 
 # Backup files
 *.bak
 
 # IDE specific files
-.idea
+.idea/
 
 # File-based project format
 *.iws

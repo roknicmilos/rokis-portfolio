@@ -181,6 +181,14 @@ poetry run ruff format
 Check `[tool.ruff]` section in the `pyproject.toml` file for more information
 about the Ruff configuration.
 
+## Database logs
+
+To check the database logs, run the following command:
+
+```bash
+docker compose run --rm db sh -c "tail -f /var/lib/postgresql/data/log/postgresql.log"
+```
+
 ## Deployment
 
 Both the development and production environments are set up on the same droplet
