@@ -150,4 +150,7 @@ def get_default_portfolio_permission() -> list[Permission]:
         Permission.objects.get(
             codename="change_portfolio", content_type=content_type
         ),
+        Permission.objects.get(
+            codename="delete_portfolio", content_type=content_type
+        ),
     ]

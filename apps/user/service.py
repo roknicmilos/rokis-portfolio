@@ -12,4 +12,7 @@ def get_default_user_permissions() -> list[Permission]:
         Permission.objects.get(
             codename="change_user", content_type=content_type
         ),
+        Permission.objects.get(
+            codename="delete_user", content_type=content_type
+        ),
     ]
