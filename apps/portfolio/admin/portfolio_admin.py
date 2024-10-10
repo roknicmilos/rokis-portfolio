@@ -180,3 +180,8 @@ class PortfolioAdmin(admin.ModelAdmin):
         if not request.user.is_superuser:
             obj.user = request.user
         super().save_model(request, obj, form, change)
+
+    def get_actions(self, request):
+        if request.user.is_superuser:
+            return super().get_actions(request)
+        return ()

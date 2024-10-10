@@ -110,3 +110,8 @@ class UserAdmin(BaseUserAdmin):
         if request.user.is_superuser:
             return self.list_filter
         return ()
+
+    def get_actions(self, request):
+        if request.user.is_superuser:
+            return super().get_actions(request)
+        return ()

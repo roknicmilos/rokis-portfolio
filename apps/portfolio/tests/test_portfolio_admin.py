@@ -190,3 +190,18 @@ class PortfolioAdminTestCase(TestCase):
         portfolio = PortfolioFactory()
         self.admin.save_model(self.request, portfolio, None, False)
         self.assertIsNone(portfolio.user)
+
+    def test_get_actions(self):
+        """
+        When the current user is not a superuser, the actions
+        should be empty.
+        """
+        # Test when the current user is not a superuser
+        self.request.user = self.staff_user
+        actual_list_filter = self.admin.get_actions(self.request)
+        self.assertEqual(actual_list_filter, ())
+
+        # Test when the current user is a superuser
+        self.request.user = self.superuser
+        actual_list_filter = self.admin.get_actions(self.request)
+        self.assertEqual(len(actual_list_filter), 1)
