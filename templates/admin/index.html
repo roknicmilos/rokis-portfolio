@@ -1,7 +1,0 @@
-{% extends "admin/index.html" %}
-
-{% block sidebar %}
-    {% if request.user.is_superuser %}
-        {{ block.super }}
-    {% endif %}
-{% endblock %}
