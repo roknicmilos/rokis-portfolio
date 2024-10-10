@@ -171,7 +171,7 @@ class PortfolioAdminTestCase(TestCase):
         actual_fieldsets = self.admin.get_fieldsets(self.request)
         self.assertEqual(actual_fieldsets, list(self.admin.fieldsets))
 
-    def save_model(self):
+    def test_save_model(self):
         """
         When the current user is not a superuser, the portfolio
         should be assigned to the current user.
