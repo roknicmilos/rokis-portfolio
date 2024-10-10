@@ -1,6 +1,6 @@
 from django import forms
 
-from apps.user.models import Subscriber
+from apps.user.models import Subscriber, User
 
 
 class SubscriberForm(forms.Form):

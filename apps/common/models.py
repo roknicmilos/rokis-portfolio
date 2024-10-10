@@ -32,5 +32,4 @@ class BaseModel(TimeStampedModel):
     def update(self, **kwargs):
         for field, value in kwargs.items():
             setattr(self, field, value)
-        self.full_clean()
         self.save()

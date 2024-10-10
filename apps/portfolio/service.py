@@ -1,3 +1,6 @@
+from django.contrib.auth.models import Permission
+from django.contrib.contenttypes.models import ContentType
+
 from apps.portfolio.models import Portfolio
 from django.template.loader import render_to_string
 from django.utils.translation import gettext_lazy as _
@@ -131,4 +134,23 @@ def get_right_column_segments(portfolio: Portfolio) -> list[str]:
     return [
         segment["content"]
         for segment in sorted(segments, key=lambda x: x["order"])
+    ]
+
+
+def get_default_portfolio_permission() -> list[Permission]:
+    content_type = ContentType.objects.get_for_model(Portfolio)
+
+    return [
+        Permission.objects.get(
+            codename="view_portfolio", content_type=content_type
+        ),
+        Permission.objects.get(
+            codename="add_portfolio", content_type=content_type
+        ),
+        Permission.objects.get(
+            codename="change_portfolio", content_type=content_type
+        ),
+        Permission.objects.get(
+            codename="delete_portfolio", content_type=content_type
+        ),
     ]

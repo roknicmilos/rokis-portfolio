@@ -1,0 +1,42 @@
+{% load i18n static svg %}
+
+{% get_current_language as CURRENT_LANGUAGE_CODE %}
+
+<!DOCTYPE html>
+<html lang="{{ CURRENT_LANGUAGE_CODE }}">
+<head>
+    {% block head %}{% endblock head %}
+</head>
+<body>
+
+{% block content %}{% endblock content %}
+
+{% for message in messages %}
+    <div class="flash-message {% if message.tags %}flash-message--{{ message.tags }}{% endif %} js-flash-message">
+        <p class="flash-message__text">
+            {{ message }}
+        </p>
+        <div class="flash-message__close-button js-flash-message-close-button">
+            {% svg 'svg/x.svg' %}
+        </div>
+    </div>
+{% endfor %}
+
+<script src="{% static 'js/flash-messages.js' %}"></script>
+
+{% if GOOGLE_ANALYTICS_TRACKING_ID %}
+    <script async src="https://www.googletagmanager.com/gtag/js?id={{ GOOGLE_ANALYTICS_TRACKING_ID }}"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+
+        function gtag() {
+            dataLayer.push(arguments);
+        }
+
+        gtag("js", new Date());
+        gtag("config", "{{ GOOGLE_ANALYTICS_TRACKING_ID }}");
+    </script>
+{% endif %}
+
+</body>
+</html>

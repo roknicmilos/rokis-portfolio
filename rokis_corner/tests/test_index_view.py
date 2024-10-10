@@ -53,7 +53,9 @@ class TestIndexView(FlashMessagesMixin):
             response=response, message=_("Successfully subscribed! 🥳")
         )
 
-    @patch("apps.user.views.SubscriberForm.create_subscriber")
+    @patch(
+        "apps.user.views.subscribe_form_view.SubscriberForm.create_subscriber"
+    )
     def test_server_error_returns_500(self, mock_save):
         mock_save.side_effect = Exception("Test server error")
 

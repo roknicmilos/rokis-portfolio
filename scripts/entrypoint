@@ -32,12 +32,11 @@ elif [ "$1" = "ci" ]; then
   ruff check
   wait_for_postgres
   python manage.py migrate
-  pytest
-  exit 0 # Exit successfully
+  pytest || exit 1
 elif [ "$1" = "local" ]; then
   setup
   python manage.py loaddata --all
-  run_gunicorn
+  python manage.py runserver 0.0.0.0:8000
 else
   echo "Unknown command: '$1'"
   echo "Exiting!"

@@ -1,3 +1,5 @@
+from django.core.exceptions import ValidationError
+
 from apps.common.models import BaseModel
 from apps.common.validators import MaxFileSizeValidator
 from django.db import models
@@ -16,6 +18,14 @@ class Portfolio(LeftPortfolioColumnMixin, RightPortfolioColumnMixin, BaseModel):
         EMPLOYMENT = "employment", _("Employment")
         PROJECTS = "projects", _("Projects")
 
+    user = models.ForeignKey(
+        to="user.User",
+        verbose_name=_("user"),
+        null=True,
+        blank=True,
+        on_delete=models.CASCADE,
+        related_name="portfolios",
+    )
     is_published = models.BooleanField(
         verbose_name=_("is published"),
         default=False,
@@ -136,3 +146,18 @@ class Portfolio(LeftPortfolioColumnMixin, RightPortfolioColumnMixin, BaseModel):
         return self.projects.order_by(
             models.F("end").asc(nulls_first=True), "-start"
         )
+
+    def clean(self):
+        if self.user:
+            self._validate_user()
+        super().clean()
+
+    def _validate_user(self):
+        user_error = None
+        if not self.user.is_active or not self.user.is_staff:
+            user_error = _("Portfolio can't be created for this user.")
+        elif not self.user.is_superuser and self.user.portfolio_count > 1:
+            user_error = _("Only one Portfolio can be created for this user.")
+
+        if user_error:
+            self.add_validation_error(field_name="user", message=user_error)

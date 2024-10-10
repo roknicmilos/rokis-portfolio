@@ -19,26 +19,31 @@ from apps.portfolio.models import Portfolio
 class PortfolioAdmin(admin.ModelAdmin):
     list_display = (
         "title",
+        "user",
         "portfolio_link",
         "is_published",
         "created",
         "modified",
     )
+    list_filter = ("is_published",)
+    search_fields = ("title", "user__email")
+    main_fields = (
+        "user",
+        "is_published",
+        "portfolio_link",
+        "id",
+        "created",
+        "modified",
+        "slug",
+        "title",
+        "filename",
+        "page_count",
+    )
     fieldsets = (
         (
             None,
             {
-                "fields": (
-                    "is_published",
-                    "portfolio_link",
-                    "id",
-                    "created",
-                    "modified",
-                    "slug",
-                    "title",
-                    "filename",
-                    "page_count",
-                ),
+                "fields": main_fields,
             },
         ),
         (
@@ -128,3 +133,55 @@ class PortfolioAdmin(admin.ModelAdmin):
         href = reverse(viewname="portfolio:index", kwargs={"slug": obj.slug})
         label = _("Display {portfolio}").format(portfolio=str(obj))
         return mark_safe(f'<a href="{href}">{label}</a>')
+
+    def get_queryset(self, request):
+        if not request.user.is_superuser:
+            return Portfolio.objects.filter(user=request.user)
+        return super().get_queryset(request)
+
+    def get_list_filter(self, request):
+        if request.user.is_superuser:
+            return super().get_list_filter(request)
+        return ()
+
+    def get_search_fields(self, request):
+        if request.user.is_superuser:
+            return super().get_search_fields(request)
+        return ()
+
+    def has_add_permission(self, request):
+        if not request.user.is_superuser:
+            return request.user.portfolio_count == 0
+        return super().has_add_permission(request)
+
+    def formfield_for_foreignkey(self, db_field, request, **kwargs):
+        if db_field.name == "user" and not request.user.is_superuser:
+            kwargs["queryset"] = db_field.related_model.objects.filter(
+                id=request.user.id
+            )
+        return super().formfield_for_foreignkey(db_field, request, **kwargs)
+
+    def get_changeform_initial_data(self, request):
+        initial = super().get_changeform_initial_data(request)
+        initial["user"] = request.user
+        return initial
+
+    def get_fieldsets(self, request, obj=None):
+        fieldsets = list(super().get_fieldsets(request, obj))
+
+        main_fields = list(self.main_fields)
+        if not request.user.is_superuser:
+            main_fields.remove("user")
+        fieldsets[0][1]["fields"] = tuple(main_fields)
+
+        return fieldsets
+
+    def save_model(self, request, obj, form, change):
+        if not request.user.is_superuser:
+            obj.user = request.user
+        super().save_model(request, obj, form, change)
+
+    def get_actions(self, request):
+        if request.user.is_superuser:
+            return super().get_actions(request)
+        return ()
