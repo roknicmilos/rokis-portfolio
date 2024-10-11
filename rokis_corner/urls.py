@@ -7,9 +7,9 @@ from rokis_corner.views import IndexView
 
 urlpatterns = [
     path("", IndexView.as_view(), name="index"),
+    path("", include("apps.user.urls", namespace="user")),
     path("admin/", admin.site.urls),
     path("health/", include("health_check.urls")),
-    path("account/", include("apps.user.urls", namespace="user")),
     path("<slug:slug>/", include("apps.portfolio.urls", namespace="portfolio")),
 ]
 
