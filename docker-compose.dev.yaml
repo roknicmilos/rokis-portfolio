@@ -12,11 +12,11 @@ services:
   db:
     container_name: portfolio-postgres-dev
     volumes:
-      - rokis_portfolio_dev_postgres_data:/var/lib/postgresql/data
+      - postgres_data:/var/lib/postgresql/data
 
 networks:
   rokis_portfolio_dev_network:
     name: rokis-portfolio-dev-network
 
 volumes:
-  rokis_portfolio_dev_postgres_data:
+  postgres_data:
