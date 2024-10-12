@@ -3,11 +3,11 @@
 {% load i18n static %}
 
 {% block head %}
-    <title>{% trans "Roki's Corner" %}</title>
+    <title>{% trans "Roki's Portfolio" %}</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description"
-          content="Roki's Corner is a web application built with Django that 
+          content="Roki's Portfolio is a web application built with Django that
           enables users to create, customize, and manage their portfolio pages. 
           Users can easily generate and download their portfolios as CVs in PDF 
           format, providing a convenient way to showcase their professional 
@@ -18,45 +18,15 @@
 
 {% block content %}
     <main>
-        <h1>{% trans "Welcome to Roki's Corner" %} 👋🏼</h1>
-        <p class="introduction-text">
-            {% blocktrans %}
-                You're probably wondering how you ended up here and what the heck Roki’s Corner is.
-                Well, since you're already here, you might as well stick around and let me explain
-                how you can benefit from this corner of the internet.
-            {% endblocktrans %}
-        </p>
-        <p class="introduction-text">
-            {% url 'portfolio:index' 'roknic-milos' as roki_profile_url %}
-            {% blocktrans with roki_profile_url=roki_profile_url %}
-                I built this corner to help you create your own portfolio page where you can
-                showcase your professional experience, skills, projects, and more. You can easily
-                generate and download your portfolio as a CV in PDF format, preserving the page's
-                layout and styles. Cool, right? Right? Come on, say "right"! OK, if you're not
-                convinced yet, you can check out <a href="{{ roki_profile_url }}">my portfolio page</a>
-                to see how it works. Don’t forget to hit the PDF button once you’re there.
-            {% endblocktrans %}
-        </p>
-        <p class="introduction-text">
-            {% url 'portfolio:index' 'eric-cartman' as cartman_portfolio_url %}
-            {% blocktrans with cartman_portfolio_url=cartman_portfolio_url %}
-                Currently, only I hold the power to create portfolio pages. I even created one for
-                <a href="{{ cartman_portfolio_url }}">Eric Cartman</a>. Honestly, I have no idea
-                how he talked me into it. That kid's got some serious persuasion skills.
-            {% endblocktrans %}
-        </p>
-        <div class="subscribe">
-            <p class="subscribe-text">
-                {% blocktrans %}
-                    If you'd like to be notified when I open the doors for you to create your own
-                    portfolio page, please enter your email below.
-                {% endblocktrans %}
-            </p>
-            <form class="subscribe-form" action="{% url 'index' %}" method="POST">
-                {% csrf_token %}
-                {{ form.email }}
-                <input type="submit" value="{% trans 'Notify me' %}">
-            </form>
-        </div>
+        <p>TODO: ABOUT</p>
+        <p>TODO: GUEST USER LINKS</p>
+        <ul>
+            <li>LOGIN</li>
+            <li>REGISTER</li>
+        </ul>
+        <p>TODO: KNOWN USER LINKS</p>
+        <ul>
+            <li>CREATE / VIEW PORTFOLIO</li>
+        </ul>
     </main>
 {% endblock content %}

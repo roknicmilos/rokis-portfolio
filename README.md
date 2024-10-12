@@ -1,6 +1,6 @@
-# Roki's Corner
+# Roki's Portfolio
 
-**Roki's Corner** is a web application built with Django that enables users to
+**Roki's Portfolio** is a web application built with Django that enables users to
 create, customize, and manage their portfolio pages. Users can easily generate
 and download their portfolios as CVs in PDF format, providing a convenient way
 to showcase their professional experience and skills.
@@ -32,7 +32,7 @@ to showcase their professional experience and skills.
 
 1. Clone the repository:
     ```bash
-    git clone git@github.com:roknicmilos/rokis-corner.git
+    git clone git@github.com:roknicmilos/rokis-portfolio.git
     ```
 
 2. Create file with environment variables:
@@ -74,14 +74,14 @@ To enable Sentry error tracking, set the `SENTRY_DSN` and `SENTRY_ENV` variables
 in the `.env` file.
 
 Check
-[Client Keys (DSN)](https://rokis-corner.sentry.io/settings/projects/rokis-corner/keys/)
+[Client Keys (DSN)](https://rokis-portfolio.sentry.io/settings/projects/rokis-portfolio/keys/)
 in the Sentry project settings to get the DSN.
 
 Use one of the following values for the `SENTRY_ENV` variable: `local`, `dev` or
 `prod`.
 
 To check the issues for this project on Sentry, click
-[here](https://rokis-corner.sentry.io/issues/?project=4508003751821312&referrer=sidebar&statsPeriod=14d).
+[here](https://rokis-portfolio.sentry.io/issues/?project=4508003751821312&referrer=sidebar&statsPeriod=14d).
 
 ## Enable Google Analytics
 
@@ -89,9 +89,9 @@ To enable Google Analytics, set the `GOOGLE_ANALYTICS_TRACKING_ID` variable in
 the `.env` file.
 
 To get the tracking ID, visit:
-[Roki's Corner DEV data stream](https://analytics.google.com/analytics/web/#/a152537310p460818596/admin/streams/table/9749560985)
+[Roki's Portfolio DEV data stream](https://analytics.google.com/analytics/web/#/a152537310p460818596/admin/streams/table/9749560985)
 or
-[Roki's Corner PROD data stream](https://analytics.google.com/analytics/web/#/a152537310p215621886/admin/streams/table/9749678510)
+[Roki's Portfolio PROD data stream](https://analytics.google.com/analytics/web/#/a152537310p215621886/admin/streams/table/9749678510)
 at [Google Analytics](https://analytics.google.com/).
 
 ## Test Data

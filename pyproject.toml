@@ -1,5 +1,5 @@
 [tool.poetry]
-name = "rokis-corner"
+name = "rokis-portfolio"
 version = "1.0.1"
 description = ""
 authors = ["Miloš Roknić <roknic.milos.994@gmail.com>"]
@@ -45,7 +45,7 @@ exclude = [
 ]
 
 [tool.pytest.ini_options]
-DJANGO_SETTINGS_MODULE = "rokis_corner.settings.test"
+DJANGO_SETTINGS_MODULE = "rokis_portfolio.settings.test"
 addopts = "--cov=."
 python_files = ["tests.py", "test_*.py"]
 
@@ -54,10 +54,10 @@ omit = [
     "*/migrations/*",
     "*/tests/*",
     "tests.py",
-    "rokis_corner/wsgi.py",
-    "rokis_corner/asgi.py",
-    "rokis_corner/urls.py",
-    "rokis_corner/settings/*",
+    "rokis_portfolio/wsgi.py",
+    "rokis_portfolio/asgi.py",
+    "rokis_portfolio/urls.py",
+    "rokis_portfolio/settings/*",
     "manage.py"
 ]
 

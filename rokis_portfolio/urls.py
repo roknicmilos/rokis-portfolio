@@ -3,8 +3,11 @@ from django.urls import path, include
 from django.conf import settings
 from django.conf.urls.static import static
 
-from rokis_corner.views import IndexView
+from rokis_portfolio.views import IndexView
 
+# TODO: separate MAIN site from portfolio site
+#   > main site as a different project (different web framework?)
+#      - for now, it can be just HTML/CSS/JS
 urlpatterns = [
     path("", IndexView.as_view(), name="index"),
     path("admin/", admin.site.urls),
