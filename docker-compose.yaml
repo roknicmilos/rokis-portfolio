@@ -27,10 +27,11 @@ services:
       - POSTGRES_PASSWORD=$DB_PASSWORD
     volumes:
       - postgres_data:/var/lib/postgresql/data
-      - ./postgresql.conf:/var/lib/postgresql/data/postgresql.conf  # Custom config at default location
+      - ./postgresql.conf:/etc/postgresql/postgresql.conf
     ports:
       - "5432:5432"
     restart: unless-stopped
+    command: postgres -c 'config_file=/etc/postgresql/postgresql.conf'
 
 volumes:
   postgres_data:

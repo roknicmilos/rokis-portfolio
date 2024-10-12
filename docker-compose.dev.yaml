@@ -5,7 +5,7 @@
 services:
 
   web:
-    container_name: django-dev
+    container_name: portfolio-django-dev
 
   db:
-    container_name: postgres-dev
+    container_name: portfolio-postgres-dev
