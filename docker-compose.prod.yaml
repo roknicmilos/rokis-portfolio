@@ -28,8 +28,12 @@ services:
       - POSTGRES_USER=$DB_USER
       - POSTGRES_PASSWORD=$DB_PASSWORD
     volumes:
-      - postgres_data:/var/lib/postgresql/data
+      - rokis_portfolio_prod_postgres_data:/var/lib/postgresql/data
     restart: unless-stopped
 
+networks:
+  rokis_portfolio_prod_network:
+    name: rokis-portfolio-prod-network
+
 volumes:
-  postgres_data:
+  rokis_portfolio_prod_postgres_data:
