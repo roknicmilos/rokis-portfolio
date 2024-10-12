@@ -2,6 +2,8 @@
 # It is meant to be used as a standalone file or as a base file
 # for a more complex setup.
 
+name: rokis-portfolio-prod
+
 services:
 
   web:
