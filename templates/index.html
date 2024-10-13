@@ -3,30 +3,48 @@
 {% load i18n static %}
 
 {% block head %}
-    <title>{% trans "Roki's Portfolio" %}</title>
+    <title>{% trans "Portfolizer" %}</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description"
-          content="Roki's Portfolio is a web application built with Django that
-          enables users to create, customize, and manage their portfolio pages. 
-          Users can easily generate and download their portfolios as CVs in PDF 
-          format, providing a convenient way to showcase their professional 
-          experience and skills.">
+          content="Portfolizer is a web application built with Django that enables users to create, customize, and
+          manage their portfolio pages. Users can easily generate and download their portfolios as CVs in PDF format,
+          providing a convenient way to showcase their professional experience and skills.">
     {% include 'includes/icons.html' %}
     <link rel="stylesheet" href="{% static 'css/index.css' %}">
 {% endblock head %}
 
 {% block content %}
     <main>
-        <p>TODO: ABOUT</p>
-        <p>TODO: GUEST USER LINKS</p>
-        <ul>
-            <li>LOGIN</li>
-            <li>REGISTER</li>
-        </ul>
-        <p>TODO: KNOWN USER LINKS</p>
-        <ul>
-            <li>CREATE / VIEW PORTFOLIO</li>
-        </ul>
+        <h1>{% trans "Portfolizer" %}</h1>
+        {% if request.user.is_anonymous %}
+            <p class="paragraph">
+                {% blocktranslate %}
+                    Oh, hi there! Looking for a way to showcase your professional experience and skills? You're in the
+                    right place! Portfolizer enables you to create, customize, and manage your portfolio page with ease.
+                    You can generate and download your portfolio as CVs in PDF format, providing a convenient way to
+                    showcase your professional experience and skills. If you're new here, you can register and create
+                    your portfolio. If you're already a member, you can log in and manage your portfolio.
+                {% endblocktranslate %}
+            </p>
+            <div class="button-row">
+                <a class="go-to-button" href="{% url 'register' %}">
+                    {% trans "Register" %}
+                </a>
+                <span class="buttons-separator">{% trans "or" %}</span>
+                <a class="go-to-button" href="{% url 'admin:login' %}">
+                    {% trans "Log in" %}
+                </a>
+            </div>
+        {% else %}
+            <p class="paragraph paragraph--centered">
+                {% blocktranslate %}
+                    Why are you still here? Go to your portfolio and start customizing it!
+                {% endblocktranslate %}
+            </p>
+            <a class="go-to-button" href="#todo">
+                {% trans "My Portfolio" %}
+            </a>
+        {% endif %}
     </main>
 {% endblock content %}

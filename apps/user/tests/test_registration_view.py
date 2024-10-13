@@ -8,7 +8,7 @@ from apps.user.tests.factories import UserFactory
 
 
 class TestRegistrationView(TestCase):
-    url_path = reverse_lazy("user:register")
+    url_path = reverse_lazy("register")
 
     def test_get_response(self):
         response = self.client.get(path=self.url_path)

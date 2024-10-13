@@ -1,5 +1,3 @@
-from django.core.exceptions import ValidationError
-
 from apps.common.models import BaseModel
 from apps.common.validators import MaxFileSizeValidator
 from django.db import models
