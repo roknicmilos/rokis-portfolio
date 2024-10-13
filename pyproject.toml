@@ -39,6 +39,7 @@ preview = true
 lint.select = [
     "E501", # enforce line length
     "Q000", # enforce double quotes
+    "F401", # enforce used imports only
 ]
 exclude = [
     "**/migrations/*",
