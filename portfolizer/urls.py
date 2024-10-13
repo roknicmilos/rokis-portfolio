@@ -3,7 +3,7 @@ from django.urls import path, include
 from django.conf import settings
 from django.conf.urls.static import static
 
-from rokis_portfolio.views import IndexView
+from portfolizer.views import IndexView
 from apps.user.views import RegistrationView
 
 urlpatterns = [

@@ -2,21 +2,21 @@
 # It is ment to be used in conjunction with PRODUCTION docker-compose
 # file to be as close as possible to the production environment.
 
-name: rokis-portfolio-dev
+name: portfolizer-dev
 
 services:
 
   web:
-    container_name: portfolio-django-dev
+    container_name: portfolizer-django-dev
 
   db:
-    container_name: portfolio-postgres-dev
+    container_name: portfolizer-postgres-dev
     volumes:
       - postgres_data:/var/lib/postgresql/data
 
 networks:
-  rokis_portfolio_dev_network:
-    name: rokis-portfolio-dev-network
+  portfolizer_dev_network:
+    name: portfolizer-dev-network
 
 volumes:
   postgres_data:

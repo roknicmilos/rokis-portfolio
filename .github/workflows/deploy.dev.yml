@@ -25,7 +25,7 @@ jobs:
       - name: Deploy 'develop' branch to Digital Ocean Droplet
         run: |
           ssh ${{ secrets.DROPLET_USER }}@${{ secrets.DROPLET_IP }} '
-          cd /var/www/rokis-portfolio/dev \
+          cd /var/www/portfolizer/dev \
           && eval "$(ssh-agent -s)" \
           && ssh-add ~/.ssh/github_ed25519 \
           && git checkout develop \

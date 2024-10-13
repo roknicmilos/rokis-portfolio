@@ -8,7 +8,7 @@ import sys
 def main():
     """Run administrative tasks."""
     os.environ.setdefault(
-        key="DJANGO_SETTINGS_MODULE", value="rokis_portfolio.settings.main"
+        key="DJANGO_SETTINGS_MODULE", value="portfolizer.settings.main"
     )
     try:
         from django.core.management import execute_from_command_line

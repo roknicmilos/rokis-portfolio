@@ -1,11 +1,11 @@
 from django.urls import reverse
+from django.views.generic import TemplateView
 
 from apps.common.utils import get_model_admin_change_list_url
 from apps.portfolio.models import Portfolio
-from apps.user.views import SubscribeFormView
 
 
-class IndexView(SubscribeFormView):
+class IndexView(TemplateView):
     template_name = "index.html"
 
     def get_context_data(self, **kwargs):

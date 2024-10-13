@@ -2,7 +2,7 @@ import os
 from unittest.mock import patch
 from django.test import TestCase
 
-from rokis_portfolio.utils import init_sentry_sdk
+from portfolizer.utils import init_sentry_sdk
 
 
 class TestInitSentrySdk(TestCase):

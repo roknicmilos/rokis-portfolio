@@ -2,7 +2,7 @@
 # It is meant to be used as a standalone file or as a base file
 # for a more complex setup.
 
-name: rokis-portfolio-prod
+name: portfolizer-prod
 
 services:
 
@@ -10,7 +10,7 @@ services:
     build:
       context: .
       target: prod
-    container_name: portfolio-django-prod
+    container_name: portfolizer-django-prod
     ports:
       - "${DJANGO_PORT}:8000"
     env_file: .env
@@ -22,7 +22,7 @@ services:
 
   db:
     image: postgres:17
-    container_name: portfolio-postgres-prod
+    container_name: portfolizer-postgres-prod
     environment:
       - POSTGRES_DB=$DB_NAME
       - POSTGRES_USER=$DB_USER
@@ -32,8 +32,8 @@ services:
     restart: unless-stopped
 
 networks:
-  rokis_portfolio_prod_network:
-    name: rokis-portfolio-prod-network
+  portfolizer_prod_network:
+    name: portfolizer-prod-network
 
 volumes:
   postgres_data:

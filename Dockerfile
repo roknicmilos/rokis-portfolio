@@ -24,7 +24,7 @@ COPY pyproject.toml poetry.lock /app/
 
 RUN poetry install --no-root --only main
 
-COPY rokis_portfolio           /app/rokis_portfolio/
+COPY portfolizer            /app/portfolizer/
 COPY apps                   /app/apps/
 COPY templates              /app/templates/
 COPY static                 /app/static/
