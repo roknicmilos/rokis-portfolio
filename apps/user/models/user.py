@@ -7,6 +7,7 @@ from django.contrib.auth.models import (
 from django.db import models
 
 from apps.common.models import BaseModel
+from apps.portfolio.models import Portfolio
 
 
 class UserManager(BaseUserManager):
@@ -56,3 +57,7 @@ class User(AbstractUser, BaseModel):
     @property
     def portfolio_count(self):
         return self.portfolios.count()
+
+    @property
+    def published_portfolio(self) -> Portfolio | None:
+        return self.portfolios.filter(is_published=True).first()
