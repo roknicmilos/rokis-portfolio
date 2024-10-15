@@ -26,6 +26,23 @@ main {
     border-bottom: 1px solid white;
 }
 
+.go-to-button {
+    cursor: pointer;
+    margin: 40px auto;
+    padding: 30px 50px;
+    background-color: #ffffff;
+    border-radius: 5px;
+    font-size: 20px;
+    color: #000000;
+    text-align: center;
+    text-decoration: none;
+    box-shadow: rgba(240, 46, 46, 0.4) 5px 5px,
+    rgba(240, 46, 46, 0.3) 10px 10px,
+    rgba(240, 46, 46, 0.2) 15px 15px,
+    rgba(240, 46, 46, 0.1) 20px 20px,
+    rgba(240, 46, 170, 0.05) 25px 25px;
+}
+
 .button-row {
     width: 70%;
     margin: 20px auto;
@@ -44,20 +61,4 @@ main {
 
 .buttons-separator {
     margin: 20px;
-}
-
-.go-to-button {
-    margin: 40px auto;
-    padding: 30px 50px;
-    background-color: #ffffff;
-    border-radius: 5px;
-    font-size: 20px;
-    color: #000000;
-    text-align: center;
-    text-decoration: none;
-    box-shadow: rgba(240, 46, 46, 0.4) 5px 5px,
-    rgba(240, 46, 46, 0.3) 10px 10px,
-    rgba(240, 46, 46, 0.2) 15px 15px,
-    rgba(240, 46, 46, 0.1) 20px 20px,
-    rgba(240, 46, 170, 0.05) 25px 25px;
 }
