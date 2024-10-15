@@ -8,7 +8,6 @@ from apps.user.views import RegistrationView
 
 urlpatterns = [
     path("", IndexView.as_view(), name="index"),
-    path("portfolio/", include("apps.portfolio.urls", namespace="portfolio")),
     path("admin/", admin.site.urls),
     path("health/", include("health_check.urls")),
     path("register/", RegistrationView.as_view(), name="register"),

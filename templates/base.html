@@ -5,7 +5,10 @@
 <!DOCTYPE html>
 <html lang="{{ CURRENT_LANGUAGE_CODE }}">
 <head>
-    {% block head %}{% endblock head %}
+    {% block head %}
+        {% include 'includes/icons.html' %}
+        <link rel="stylesheet" href="{% static 'css/base.css' %}">
+    {% endblock head %}
 </head>
 <body>
 
