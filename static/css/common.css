@@ -6,6 +6,7 @@ main {
 .paragraph {
     text-align: justify;
     width: 70%;
+    max-width: 1000px;
     margin: 20px auto;
     line-height: 1.6;
     font-size: 20px;
