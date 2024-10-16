@@ -20,6 +20,12 @@ CSRF_TRUSTED_ORIGINS = [f"{HTTP_SCHEMA}://{host}" for host in ALLOWED_HOSTS]
 CSRF_COOKIE_SECURE = HTTPS
 SESSION_COOKIE_SECURE = HTTPS
 
+if HTTPS:
+    SECURE_PROXY_SSL_HEADER = ("HTTP_X_FORWARDED_PROTO", "https")
+    SECURE_SSL_REDIRECT = True  # Redirects all non-HTTPS requests to HTTPS
+    SESSION_COOKIE_SECURE = True  # session cookie is only sent over HTTPS
+    CSRF_COOKIE_SECURE = True  # CSRF token cookie is only sent over HTTPS
+
 # Application definition
 
 INSTALLED_APPS = [
